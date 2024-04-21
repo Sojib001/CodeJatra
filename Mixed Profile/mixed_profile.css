@@ -1,0 +1,525 @@
+/* Google Font Import - poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* *********** colors ************** */
+    --body-color: #E4E9f7;
+    --sidebar-color: #FFF;
+    --primary-color: #39C5CA;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+    --bell-color: #39C5CA;
+
+    /* *********** transition ************** */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+body.dark {
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #39C5CA;
+    --primary-color-light: #3A3B3C;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+    --bell-color: #FFF;
+}
+
+/* ========== Reusable CSS ======== */
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.sidebar .image {
+    display: flex;
+    min-width: 60px;
+    align-items: center;
+}
+
+.sidebar .name {
+    font-size: 25px;
+}
+
+.sidebar .slogan {
+    font-size: 12px;
+}
+
+
+
+/* ========== sidebar ======== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 14px;
+    height: 100%;
+    width: 250px;
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+    z-index: 100;
+}
+
+.sidebar.close {
+
+    width: 88px;
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text {
+    opacity: 0;
+    transition: var(--tran-03);
+}
+
+
+.sidebar .image {
+    display: flex;
+    min-width: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    min-width: 60px;
+}
+
+
+.sidebar li .text,
+.sidebar li .icon {
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .image-text img {
+    width: 40px;
+    border-radius: 6px;
+}
+
+
+.sidebar header .image-text {
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name {
+    font-weight: 600;
+}
+
+.header-text .slogan {
+    margin-top: -2px;
+}
+
+.toggle {
+    position: absolute;
+    top: 48%;
+    right: -10px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 20px;
+    width: 20px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close .toggle {
+    transform: translateY(-50%);
+}
+
+.sidebar .menu {
+    margin-top: 35px;
+}
+
+.sidebar .search-box {
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-03);
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    background: var(--primary-color-light);
+    transition: var(--tran-03);
+    border-radius: 6px;
+    border: none;
+}
+
+
+.sidebar li a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover {
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.menu-bar .mode {
+    position: relative;
+    background: var(--primary-color-light);
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode .moon-sun {
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar .mode i {
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode i.sun {
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun {
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon {
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch {
+    display: flex;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+}
+
+.toggle-switch .switch {
+    cursor: pointer;
+    border-radius: 6px;
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before {
+    left: 20px;
+    background: var(--toggle-color);
+    transition: var(--tran-03);
+}
+
+body.dark .toggle-switch .switch {
+    background: var(--primary-color);
+    transition: var(--tran-03);
+}
+
+
+/* Top Start */
+
+
+/* ============= nav bar in body =============== */
+.nav-bar {
+    height: 70px;
+    width: 100%;
+    background: var(--primary-color);
+}
+
+
+.dp-bell {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 6px;
+    margin-right: 10px;
+    list-style: none;
+}
+
+body.dark .bell {
+    color: white;
+}
+
+.bell {
+    font-size: 35px;
+    color: var(--body-color);
+    margin-right: 25px;
+    transition: var(--tran-03);
+}
+
+.dp-bell .dp img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+/* ============= nav bar in body ends =============== */
+
+.home {
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-03);
+}
+
+.sidebar.close~.home {
+    left: 88px;
+    width: calc(100% - 88px);
+}
+
+.top {
+    background-color: #38C5CB;
+    overflow: auto;
+}
+
+#codejatra {
+    position: relative;
+    float: left;
+    font-size: 30px;
+    padding-top: 13px;
+    padding-left: 40px;
+
+}
+
+.user_profile {
+    position: relative;
+    float: right;
+    padding-top: 17px;
+    padding-right: 20px;
+    font-size: 35px;
+
+}
+
+.notification {
+    position: relative;
+    float: right;
+    padding-top: 17px;
+    padding-right: 20px;
+    font-size: 35px;
+}
+
+.mid {
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+
+#user_profile_icon {
+    
+    height: 100px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.mn {
+    padding: 10px 20px 10px 20px;
+    border-color: blue;
+}
+
+/* Top End */
+
+/*
+body {
+    background: var(--background0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}*/
+
+
+/* Bar Chart Start */
+
+.chart-label {
+    position: absolute;
+    bottom: -30px;
+    /* Adjust as needed to position the label under the chart */
+    left: 0;
+    width: 100%;
+    /* Ensure the label spans the width of the container */
+    text-align: center;
+    /* Center the text */
+    font-size: 16px;
+    /* Adjust font size as needed */
+}
+
+.container {
+    border: 2px solid #f20bb4;
+    padding: 380px 30px 20px;
+    
+    width: 500px;
+
+    left: 120px;
+    background: var(--background1);
+    position: relative;
+    display: flex;
+    width: 500px;
+    align-items: flex-end;
+    height: 520px;
+}
+
+.percent {
+    background: var(--background1);
+    position: absolute;
+    border-right: 2px solid var(--text);
+    color: var(--text);
+    width: 50px;
+    height: 390px;
+    display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.percent span {
+    font-size: 15px;
+    height: 12px;
+    line-height: 12px;
+    text-align: right;
+    padding-right: 4px;
+    font-weight: 600;
+}
+
+.options {
+    position: relative;
+    left: 50px;
+    background: var(--background1);
+    width: 350px;
+    color: var(--text);
+    border-top: 2px solid var(--text);
+    display: flex;
+    justify-content: space-between;
+}
+
+.option::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 27px;
+    margin-left: 10px;
+    background:
+        linear-gradient(#ff5b66, #ff8c38);
+    width: 40px;
+}
+
+.option:nth-child(1)::after {
+    height: calc((120px / 100) * 300);
+}
+
+.option:nth-child(2)::after {
+    height: calc((120px / 100) * 200);
+}
+
+.option:nth-child(3)::after {
+    height: calc((120px / 100) * 62);
+}
+
+.option:nth-child(4)::after {
+    height: calc((120px / 100) * 78);
+}
+
+.option:nth-child(5)::after {
+    height: calc((120px / 100) * 93);
+}
+
+.option:nth-child(6)::after {
+    height: calc((120px / 100) * 120);
+}
+
+/* bar chart end */
