@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost/table.php", true); // Point to your PHP file
+    xhr.open("GET", "http://localhost/upcoming_contest_table.php", true); // Point to your PHP file
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText);
