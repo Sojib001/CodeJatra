@@ -5,6 +5,7 @@ const searchBar = body.querySelector(".search-box")
 const modeSwitch = body.querySelector(".toggle-switch")
 const modeText = body.querySelector(".mode-text")
 
+
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
 })
