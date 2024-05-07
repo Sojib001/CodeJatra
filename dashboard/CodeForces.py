@@ -63,17 +63,22 @@ for row in rows:
     # Find all duration in the row using XPathS 
     duration_cells = row.find_elements(By.XPATH, ".//td[not(a)]")
     indx = 0
+    all_data = []
     for duration_cell in duration_cells:
         if duration_cell.text.strip():  # Check if the cell is not empty
-            indx += 1
-            if(indx == 2):
-                temp = duration_cell.text
-                if(len(temp) > 5):
-                    temp = temp[:-3]
-                duration_string = datetime.strptime(temp, "%H:%M")
-                formatted_duration = "{}h {}m".format(duration_string.hour, duration_string.minute)
-                if(formatted_duration[-2] == '0'):
-                    formatted_duration = formatted_duration[:-2]
+            all_data.append(duration_cell.text)
+    for data in all_data:
+        try:
+            duration = datetime.strptime(data, "%H:%M:%S").time()
+            formatted_duration = f"{duration.hour}d {duration.minute}h {duration.second}m"
+        except ValueError:
+            try:
+                duration = datetime.strptime(data, "%H:%M").time()
+                formatted_duration = f"{duration.hour}h {duration.minute}m"
+            except ValueError:
+                pass  # Skip data that doesn't match either format
+        
+           
     
     # Find all registration links in the row using XPathS 
     
@@ -85,6 +90,7 @@ for row in rows:
         sql = "INSERT INTO upcoming_contests (Contest_ID, Contest_Name, Site, Start, Duration, Link) VALUES (%s, %s, %s, %s, %s, %s)"
     
     # Define the data to insert
+        print(formatted_duration)
         data = (ID, contest_name_cells[0].text, 'CodeForces', date_time_object, formatted_duration, link)
     
     # Execute the query with the data
