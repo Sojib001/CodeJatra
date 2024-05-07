@@ -44,9 +44,16 @@ function populateTable(data) {
         var link = rowData["Link"];
 
         // extracting contest duration in minutes and hours
+        var days = 0
         var hours = 0
         var minutes = 0
-        if (duration.includes('m')) {
+        if (duration.includes('d')) {
+            var matches = duration.match(/(\d+)d (\d+)h (\d+)m/)
+            days = matches[1]
+            hours = matches[2]
+            minutes = matches[3]
+        }
+        else if (duration.includes('m')) {
             var matches = duration.match(/(\d+)h (\d+)m/)
             hours = matches[1]
             minutes = matches[2]
@@ -61,7 +68,7 @@ function populateTable(data) {
         var contest_start_time = new Date(start)
         var contest_end_time = new Date(start)
         var deviceDate = new Date();
-        contest_end_time.setHours(contest_start_time.getHours() + parseInt(hours))
+        contest_end_time.setHours(contest_start_time.getHours() + parseInt(hours) + parseInt(days*24))
         contest_end_time.setMinutes(contest_start_time.getMinutes() + parseInt(minutes))
 
         if (deviceDate > contest_end_time) {
