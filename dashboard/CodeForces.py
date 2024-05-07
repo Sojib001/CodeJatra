@@ -66,16 +66,17 @@ for row in rows:
     for duration_cell in duration_cells:
         if duration_cell.text.strip():  # Check if the cell is not empty
             all_data.append(duration_cell.text)
-            for data in all_data:
-                try:
-                    duration = datetime.strptime(data, "%H:%M:%S").time()
-                    formatted_duration = f"{duration.hour}d {duration.minute}h {duration.second}m"
-                except ValueError:
-                    try:
-                        duration = datetime.strptime(data, "%H:%M").time()
-                        formatted_duration = f"{duration.hour}h {duration.minute}m"
-                    except ValueError:
-                        pass  # Skip data that doesn't match either format
+            
+    for data in all_data:
+        try:
+            duration = datetime.strptime(data, "%H:%M:%S").time()
+            formatted_duration = f"{duration.hour}d {duration.minute}h {duration.second}m"
+        except ValueError:
+            try:
+                duration = datetime.strptime(data, "%H:%M").time()
+                formatted_duration = f"{duration.hour}h {duration.minute}m"
+            except ValueError:
+                pass  # Skip data that doesn't match either format        
     
     # Find all registration links in the row using XPathS 
     
