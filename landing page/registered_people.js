@@ -23,7 +23,7 @@ fetch(apiUrl)
     const dataToUpdate = {
       Email: "sajibbhattacharjee128@gmail.com",
       Name: "Sojib",
-      codeforces_handle: "doge_bonk",
+      codeforces_handle: userData.handle,
       atcoder_handle: "sojib_003",
       codeforces_current_rating: userData.rating,
       codeforces_max_rating: userData.maxRating,

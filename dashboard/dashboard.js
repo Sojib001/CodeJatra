@@ -10,7 +10,6 @@ const glow_swich = document.getElementById(title)
 glow_swich.classList.add("glow")
 
 
-
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
 })
