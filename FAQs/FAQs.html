@@ -10,7 +10,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/3.3.7/iso_bootstrap3.3.7min.css">
 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -37,25 +40,25 @@
                         <span class="image">
                             <img src="logo.png" alt="logo">
                         </span>
-        
+
                         <div class="text head-text">
                             <span class="name">CODEJATRA </span>
                             <br>
                             <span class="slogan">Track Transform Triumph </span>
                         </div>
                     </div>
-        
-                    
+
+
                 </header>
-                
+
                 <div class="menu-bar">
                     <div class="menu">
                         <i class='bx bx-chevron-right toggle'></i>
                         <li class="search-box">
-        
+
                             <i class='bx bx-search-alt-2 icon'></i>
                             <input type="text" placeholder="Search...">
-        
+
                         </li>
                         <ul class="menu-links">
                             <li class="nav-link">
@@ -96,7 +99,7 @@
                             </li>
                         </ul>
                     </div>
-        
+
                     <div class="bottom-content">
                         <li class="nav-link">
                             <a href="http://127.0.0.1:5500/landing%20page/landingpage.html">
@@ -108,10 +111,10 @@
                             <div class="moon-sun">
                                 <i class='bx bx-moon icon moon'></i>
                                 <i class='bx bx-sun icon sun'></i>
-        
+
                             </div>
                             <span class="mode-text text">Dark Mode</span>
-        
+
                             <div class="toggle-switch">
                                 <span class="switch"></span>
                             </div>
@@ -136,60 +139,115 @@
         <!-- Right partition Start -->
         <div class="container">
             <div class="right-partition">
-                <h2>FAQs</h2>
-                <div class="faq-items">
-                    <div class="faq-item">
-                        <p class="question">1. What happens if I add a Custom User?</p>
-                        <div class="answer">Adding a custom user allows you to track and manage their contest-related
-                            information just like any other user on the platform. This feature is helpful for including
-                            friends or colleagues who may not have accounts but still want to participate or be tracked
-                            in contests</div>
+
+                <!-- there Bootstrap doesn't work -->
+                <div class="bootstrap">
+                    <!-- there Bootstrap works-->
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title text-center wow zoomIn">
+                                    <h1>Frequently Asked Questions</h1>
+                                    <span></span>
+                                    <p>Our Frequently Asked Questions here.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">				
+                            <div class="col-md-12">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    What happens if I add a Custom User? 
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <p> Adding a custom user allows you to track and manage their contest-related information just like any other user on the platform. This feature is helpful for including friends or colleagues who may not have accounts but still want to participate or be tracked in contests.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    When can I update the submission?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <p>You can update submissions within the timeframe specified by the contest rules. Typically, submissions can be updated until the contest deadline or until the judges start evaluating the submissions.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    How many Custom Users can I add? 
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <p>The number of custom users you can add might be limited based on your account type or subscription plan. Typically, there might be a maximum number allowed per account, but this would depend on the specific policies of Codejatra.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    What if my friend is not on CodeJatra?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                            <div class="panel-body">
+                                                <p>If your friend is not on Codejatra, you can still add them as a custom user to track their contest-related activities. This allows you to include them in your contest management and compare their performance with other users on the platform.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFive">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    How is the CodeJatra rating determined?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                            <div class="panel-body">
+                                                <p>The CodeJatra rating is likely determined based on various factors such as the user's performance in contests, the difficulty level of contests participated in, consistency in participation, and possibly other metrics like accuracy and speed in solving problems.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--- END COL -->		
+                        </div><!--- END ROW -->			
                     </div>
-                    <div class="faq-item">
-                        <p class="question">2. When can I update the submission?</p>
-                        <div class="answer">You can update submissions within the timeframe specified by the contest
-                            rules. Typically, submissions can be updated until the contest deadline or until the judges
-                            start evaluating the submissions.</div>
-                    </div>
-                    <div class="faq-item">
-                        <p class="question">3. How many Custom Users can I add?</p>
-                        <div class="answer">The number of custom users you can add might be limited based on your
-                            account type or subscription plan. Typically, there might be a maximum number allowed per
-                            account, but this would depend on the specific policies of Codejatra.</div>
-                    </div>
-                    <div class="faq-item">
-                        <p class="question">4. What if my friend is not on CodeJatra?</p>
-                        <div class="answer">If your friend is not on Codejatra, you can still add them as a custom user
-                            to track their contest-related activities. This allows you to include them in your contest
-                            management and compare their performance with other users on the platform.</div>
-                    </div>
-                    <div class="faq-item">
-                        <p class="question">5. How is the CodeJatra rating determined?</p>
-                        <div class="answer">The CodeJatra rating is likely determined based on various factors such as
-                            the user's performance in contests, the difficulty level of contests participated in,
-                            consistency in participation, and possibly other metrics like accuracy and speed in solving
-                            problems.</div>
-                    </div>
-                    <div class="faq-item">
-                        <p class="question">6. What are per day changes?</p>
-                        <div class="answer">Per day changes could refer to updates or modifications that are allowed on
-                            a daily basis. For example, you might be able to make changes to your submissions, profile
-                            settings, or contest registrations once per day.</div>
-                    </div>
-                    <div class="faq-item">
-                        <p class="question">7. Why can I see only some view buttons in the submission table?</p>
-                        <div class="answer">The visibility of view buttons in the submission table might depend on
-                            factors such as the status of the submission (e.g., whether it's pending review, accepted,
-                            or rejected), your user permissions, or the specific features enabled by Codejatra for that
-                            particular contest or user group.</div>
-                    </div>
+
+
                 </div>
+                <!-- there Bootstrap doesn't work-->
+
+
             </div>
             <!-- Right partition End -->
+        </div>
 
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        
 
-            <script src="FAQs.js"></script>
-
+<script src="FAQs.js"></script>
 </body>
 
 </html>
