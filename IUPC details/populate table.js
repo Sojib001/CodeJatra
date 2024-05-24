@@ -23,7 +23,7 @@ function populateTable(data) {
         var rowData = data[i];
 
         // Loop through each key-value pair in the row data
-        var contest_ID = rowData["Contest_ID"];
+        var contest_ID = rowData["Contest_id"];
         var contestName = rowData["Contest_Name"];
         var site = rowData["Site"];
         var start = rowData["Start"];
@@ -59,9 +59,9 @@ function populateTable(data) {
             // Data to send in the POST request
             var data = new URLSearchParams();
             data.append('contest_id', contestID);
-
+            console.log(contestID)
             // Make a POST request to the PHP script
-            fetch('http://localhost/delete by contestID.php', {
+            fetch('http://localhost/delete by contestID_IUPC.php', {
                 method: 'POST',
                 body: data
             })
