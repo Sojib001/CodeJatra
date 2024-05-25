@@ -1,4 +1,6 @@
 // Define the handle
+localStorage.setItem("lastname", "Smith");
+
 const handle = "doge_bonk";
 
 // Construct the API URL with the handle variable
@@ -17,8 +19,6 @@ fetch(apiUrl)
   .then(data => {
     // Store the data in a variable
     const userData = data.result[0];
-    console.log(userData); // Output the fetched data
-    console.log(userData.maxRank); // Output the fetched data
     // Now you can do whatever you want with the userData
     const dataToUpdate = {
       Email: "sajibbhattacharjee128@gmail.com",
@@ -50,7 +50,6 @@ fetch(apiUrl)
           throw new Error('Network response was not ok');
         }
         // Parse JSON response
-        console.log("Data sent")
       })
 
   })
