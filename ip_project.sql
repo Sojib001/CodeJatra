@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 10:58 AM
+-- Generation Time: May 31, 2024 at 06:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -230,49 +230,21 @@ CREATE TABLE `registered_people` (
   `Email` varchar(100) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `codeforces_handle` varchar(100) NOT NULL,
-  `atcoder_handle` varchar(100) DEFAULT NULL,
   `codeforces_current_rating` int(15) DEFAULT NULL,
   `codeforces_max_rating` int(15) DEFAULT NULL,
   `codeforces_titlephoto` varchar(100) DEFAULT NULL,
   `codeforces_current_rank` varchar(50) DEFAULT NULL,
   `codeforces_max_rank` varchar(50) DEFAULT NULL,
-  `atcoder_current_rank` varchar(50) DEFAULT NULL,
-  `atcoder_max_rank` varchar(50) DEFAULT NULL,
-  `atcoder_current_rating` int(15) DEFAULT NULL,
-  `atcoder_max_rating` int(15) DEFAULT NULL,
-  `atcoder_contest_count` int(15) DEFAULT NULL
+  `Country` varchar(30) NOT NULL,
+  `Institute` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registered_people`
 --
 
-INSERT INTO `registered_people` (`Email`, `Name`, `codeforces_handle`, `atcoder_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `atcoder_current_rank`, `atcoder_max_rank`, `atcoder_current_rating`, `atcoder_max_rating`, `atcoder_contest_count`) VALUES
-('sajibbhattacharjee128@gmail.com', 'Sojib', '-is-this-dft_', 'sojib_003', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', '4 kyu', '3 kyu', 1200, 1300, 10);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `solved_count_by_tag`
---
-
-CREATE TABLE `solved_count_by_tag` (
-  `email` varchar(100) NOT NULL,
-  `Greedy` int(11) NOT NULL,
-  `Graph` int(11) NOT NULL,
-  `DP` int(11) NOT NULL,
-  `Implementation` int(11) NOT NULL,
-  `Math` int(11) NOT NULL,
-  `Others` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `solved_count_by_tag`
---
-
-INSERT INTO `solved_count_by_tag` (`email`, `Greedy`, `Graph`, `DP`, `Implementation`, `Math`, `Others`) VALUES
-('sajibbhattacharjee128@gmail.com', 10, 20, 25, 20, 30, 110),
-('sagor@gmail.com', 20, 30, 25, 30, 30, 15);
+INSERT INTO `registered_people` (`Email`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`) VALUES
+('sajibbhattacharjee128@gmail.com', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology');
 
 -- --------------------------------------------------------
 
@@ -307,11 +279,9 @@ CREATE TABLE `upcoming_contests` (
 --
 
 INSERT INTO `upcoming_contests` (`Contest_ID`, `Contest_Name`, `Site`, `Start`, `Duration`, `Link`) VALUES
-('1976', 'Educational Codeforces Round 166 (Rated for Div. 2)', 'CodeForces', '2024-05-30 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1976'),
 ('1978', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-16 15:05:00', '2h 0m', 'https://codeforces.com/contestRegistration/1978'),
 ('1979', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-06 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1979'),
 ('1980', 'Codeforces Round (Div. 3)', 'CodeForces', '2024-06-03 20:35:00', '2h 15m', 'https://codeforces.com/contestRegistration/1980'),
-('1981', 'Codeforces Round 949 (Div. 2)', 'CodeForces', '2024-05-31 16:05:00', '2h 0m', 'https://codeforces.com/contestRegistration/1981'),
 ('abc358', 'Ⓐ◉ CodeQUEEN 2024 予選 (AtCoder Beginner Contest 358)', 'AtCoder', '2024-06-15 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc358'),
 ('ahc034', 'Ⓗ◉ Toyota Programming Contest 2024#6（AtCoder Heuristic Contest 034）', 'AtCoder', '2024-06-16 12:00:00', '4h 0m', 'https://atcoder.jp/contests/ahc034'),
 ('arc179', 'Ⓐ◉ AtCoder Regular Contest 179', 'AtCoder', '2024-06-02 18:00:00', '2h 0m', 'https://atcoder.jp/contests/arc179'),

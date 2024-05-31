@@ -1,33 +1,91 @@
 const body_chart = document.querySelector("body")
+
 function drawGooglePieChart() {
 
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost/problem_solved_count_pie_chart.php', true);
+    // Define the handle
+    const given_handle = "-is-this-dft_";
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var data_from_table = JSON.parse(xhr.responseText)
-        for (var i = 0; i < data_from_table.length; i++) {
-          var item = data_from_table[i];
-          if (item['email'] == "sajibbhattacharjee128@gmail.com") {
-            var item = data_from_table[i];
-            break
+    // Construct the API URL with the handle variable
+    const apiUrl = `http://localhost/pie_chart.php?handle=${given_handle}`;
+
+    fetch(apiUrl)
+      .then(response => {
+        // Check if response is OK
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // Parse JSON response
+        return response.json();
+      })
+      .then(data => {
+        // Handle the fetched data
+        var greedy = 0;
+        var Implementation = 0;
+        var Graph = 0;
+        var DP = 0;
+        var Math = 0;
+        var constructive_algorithms = 0;
+        var bruteforce = 0;
+        var Others = 0;
+        var solved = 0;
+        var submission = 0;
+        for (var i = 0; i < data.length; i++) {
+          solved += data[i].Solved 
+          submission += data[i].Attempted
+          
+          var flg = 0;
+          if (data[i].Tags.includes("greedy")) {
+            flg = 1;
+            greedy++;
+          }
+          if (data[i].Tags.includes("implementation")) {
+            flg = 1;
+            Implementation++;
+          }
+          if (data[i].Tags.includes("graph") | data[i].Tags.includes("dfs and similar") | data[i].Tags.includes("dsu")) {
+            flg = 1;
+            Graph++;
+          }
+          if (data[i].Tags.includes("dp")) {
+            flg = 1;
+            DP++;
+          }
+          if (data[i].Tags.includes("math")) {
+            flg = 1;
+            Math++;
+          }
+          if (data[i].Tags.includes("constructive algorithms")) {
+            flg = 1;
+            constructive_algorithms++;
+          }
+          if (data[i].Tags.includes("bruteforce")) {
+            flg = 1;
+            bruteforce++;
+          }
+          if(flg == 0) {
+            Others++;
           }
         }
+        var solved_count = document.getElementById('solved');
+        var attempted = document.getElementById('attempted');
+        solved_count.innerText = solved
+        attempted.innerText = submission
+        console.log(submission)
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Greedy', parseInt(item['Greedy'])],
-          ['Implementation', parseInt(item['Implementation'])],
-          ['Graph', parseInt(item['Graph'])],
-          ['DP', parseInt(item['DP'])],
-          ['Math', parseInt(item['Math'])],
-          ['Others', parseInt(item['Others'])]
+          ['Count', 'Solve percentage'],
+          ['Greedy', greedy],
+          ['Implementation', Implementation],
+          ['Graph', Graph],
+          ['DP', DP],
+          ['Math', Math],
+          ['constructive algorithms', constructive_algorithms],
+          ['bruteforce', bruteforce],
+          ['Others', Others]
         ]);
-        console.log(item['Others'])
         background = '#FFFFFF'
         text_color = '#707070'
         if (body_chart.classList.contains("dark")) {
@@ -37,7 +95,7 @@ function drawGooglePieChart() {
         var options = {
           title: 'Problems Solved',
           // Set font size to 20px
-          fontSize: 11,
+          fontSize: 12,
           titleTextStyle: {
             fontSize: 25, // Increase the font size to 24px
             textAlign: 'center',
@@ -46,7 +104,7 @@ function drawGooglePieChart() {
           legend: {
             textStyle: {
               color: text_color, // Set legend text color here
-              fontSize: 14, // Set legend font size here
+              fontSize: 15, // Set legend font size here
             }
           },
           backgroundColor: background,
@@ -55,9 +113,10 @@ function drawGooglePieChart() {
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
-      }
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
 
-    };
-    xhr.send();
   }
 }

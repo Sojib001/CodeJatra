@@ -24,17 +24,13 @@ fetch(apiUrl)
       Email: "sajibbhattacharjee128@gmail.com",
       Name: "Sojib",
       codeforces_handle: userData.handle,
-      atcoder_handle: "sojib_003",
       codeforces_current_rating: userData.rating,
       codeforces_max_rating: userData.maxRating,
       codeforces_titlephoto: userData.titlePhoto,
       codeforces_current_rank: userData.rank,
       codeforces_max_rank: userData.maxRank,
-      atcoder_current_rank: "4 kyu",
-      atcoder_max_rank: "3 kyu",
-      atcoder_current_rating: 1200,
-      atcoder_max_rating: 1300,
-      atcoder_contest_count: 10
+      country: "Bangladesh",
+      Institute: "Chittagong University of Engineering and Technology"
     };
     const jsonBody = JSON.stringify(dataToUpdate);
     fetch('http://localhost/registered_people.php', {
@@ -49,6 +45,7 @@ fetch(apiUrl)
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+        console.log(response)
         // Parse JSON response
       })
 
