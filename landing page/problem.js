@@ -3,7 +3,7 @@
 if (localStorage.getItem("dark") === null) {
     localStorage.setItem("dark", 0)
 }
-const given_handle = "doge_bonk";
+const given_handle = "b_AHA_r";
 
 // Construct the API URL with the handle variable
 const Url1 = `https://codeforces.com/api/user.info?handles=${given_handle}&checkHistoricHandles=true`;
@@ -35,7 +35,6 @@ fetch(apiUrl)
             .then(data => {
                 // Store the data in a variable
                 const userData = data.result;
-
                 const dataToUpdate = []
                 for (var i = 0; i < userData.length; i++) {
                     const problem_link = `https://codeforces.com/problemset/problem/${String(userData[i].contestId)}/${userData[i].problem.index}`;
@@ -52,15 +51,19 @@ fetch(apiUrl)
                         rating = userData[i].problem.rating
                     const obj = {
                         "problem_name": userData[i].problem.name,
+                        "solved_by": handle2,
                         "problem_id": problem_id,
                         "problem_link": problem_link,
                         "rating": rating,
                         "tags": userData[i].problem.tags,
-                        "solved": solved
+                        "solved": solved,
+                        "attempted": 1,
+                        "last_update": userData[i].creationTimeSeconds
                     }
                     dataToUpdate.push(obj)
                 }
-
+                // Sort dataToUpdate by ascending order of last_update
+                dataToUpdate.sort((a, b) => a.last_update - b.last_update);
                 const jsonBody = JSON.stringify(dataToUpdate);
                 fetch('http://localhost/problems.php', {
                     method: 'POST',
