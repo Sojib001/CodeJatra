@@ -3,12 +3,12 @@
 if (localStorage.getItem("dark") === null) {
     localStorage.setItem("dark", 0)
 }
-const given_handle = "b_AHA_r";
+var given_handle = "doge_bonk";
 
 // Construct the API URL with the handle variable
-const Url1 = `https://codeforces.com/api/user.info?handles=${given_handle}&checkHistoricHandles=true`;
+var Url1 = `https://codeforces.com/api/user.info?handles=${given_handle}&checkHistoricHandles=true`;
 
-fetch(apiUrl)
+fetch(Url1)
     .then(response => {
         // Check if response is OK
         if (!response.ok) {
@@ -19,7 +19,7 @@ fetch(apiUrl)
     })
     .then(data => {
         // Store the data in a variable
-        const userData = data.result[0];
+        var userData = data.result[0];
         var handle2 = data.result[0].handle
         url = `https://codeforces.com/api/user.status?handle=${handle2}&from=1&count=1000000000`;
         // Fetching data from the API
@@ -34,12 +34,12 @@ fetch(apiUrl)
             })
             .then(data => {
                 // Store the data in a variable
-                const userData = data.result;
-                const dataToUpdate = []
+                var userData = data.result;
+                var dataToUpdate = []
                 for (var i = 0; i < userData.length; i++) {
-                    const problem_link = `https://codeforces.com/problemset/problem/${String(userData[i].contestId)}/${userData[i].problem.index}`;
+                    var problem_link = `https://codeforces.com/problemset/problem/${String(userData[i].contestId)}/${userData[i].problem.index}`;
 
-                    const problem_id = String(userData[i].contestId) + userData[i].problem.index
+                    var problem_id = String(userData[i].contestId) + userData[i].problem.index
 
                     var solved = 0
                     if (userData[i].verdict == "OK") {
@@ -49,7 +49,7 @@ fetch(apiUrl)
                     var rating = 0
                     if (userData[i].problem.rating != null)
                         rating = userData[i].problem.rating
-                    const obj = {
+                    var obj = {
                         "problem_name": userData[i].problem.name,
                         "solved_by": handle2,
                         "problem_id": problem_id,
@@ -64,7 +64,7 @@ fetch(apiUrl)
                 }
                 // Sort dataToUpdate by ascending order of last_update
                 dataToUpdate.sort((a, b) => a.last_update - b.last_update);
-                const jsonBody = JSON.stringify(dataToUpdate);
+                var jsonBody = JSON.stringify(dataToUpdate);
                 fetch('http://localhost/problems.php', {
                     method: 'POST',
                     body: jsonBody,

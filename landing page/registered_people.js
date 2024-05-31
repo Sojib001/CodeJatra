@@ -1,10 +1,9 @@
 // Define the handle
-localStorage.setItem("lastname", "Smith");
 
-const handle = "doge_bonk";
+var handle = "doge_bonk";
 
-// Construct the API URL with the handle variable
-const apiUrl = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
+// construct the API URL with the handle variable
+var apiUrl = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
 
 // Fetching data from the API
 fetch(apiUrl)
@@ -18,9 +17,9 @@ fetch(apiUrl)
   })
   .then(data => {
     // Store the data in a variable
-    const userData = data.result[0];
+    var userData = data.result[0];
     // Now you can do whatever you want with the userData
-    const dataToUpdate = {
+    var dataToUpdate = {
       Email: "sajibbhattacharjee128@gmail.com",
       Name: "Sojib",
       codeforces_handle: userData.handle,
@@ -30,9 +29,11 @@ fetch(apiUrl)
       codeforces_current_rank: userData.rank,
       codeforces_max_rank: userData.maxRank,
       country: "Bangladesh",
-      Institute: "Chittagong University of Engineering and Technology"
+      Institute: "Chittagong University of Engineering and Technology",
+      Solved: 0,
+      Submission: 0
     };
-    const jsonBody = JSON.stringify(dataToUpdate);
+    var jsonBody = JSON.stringify(dataToUpdate);
     fetch('http://localhost/registered_people.php', {
       method: 'POST',
       body: jsonBody,
