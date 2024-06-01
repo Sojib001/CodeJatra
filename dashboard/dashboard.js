@@ -13,7 +13,6 @@ if (localStorage.getItem("dark") == 1) {
     body.classList.add("dark")
 }
 
-
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
 })

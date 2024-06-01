@@ -13,6 +13,15 @@ loginLink.addEventListener('click',()=> {
     wrapper.classList.remove('active');
 });
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('loginButton').addEventListener('click', handleLogin);
+});
+
+function handleLogin() {
+    // Get the values from the form inputs
+    const username = document.getElementById('emailfield').value;
+    localStorage.setItem('email', username)
+}
 
 
 let eyeicon=document.getElementById("LOCKHIDDEN");
