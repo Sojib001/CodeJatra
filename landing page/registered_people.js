@@ -1,8 +1,9 @@
 // Define the handle
-const handle = "doge_bonk";
 
-// Construct the API URL with the handle variable
-const apiUrl = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
+var handle = "doge_bonk";
+
+// construct the API URL with the handle variable
+var apiUrl = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
 
 // Fetching data from the API
 fetch(apiUrl)
@@ -16,27 +17,23 @@ fetch(apiUrl)
   })
   .then(data => {
     // Store the data in a variable
-    const userData = data.result[0];
-    console.log(userData); // Output the fetched data
-    console.log(userData.maxRank); // Output the fetched data
+    var userData = data.result[0];
     // Now you can do whatever you want with the userData
-    const dataToUpdate = {
+    var dataToUpdate = {
       Email: "sajibbhattacharjee128@gmail.com",
       Name: "Sojib",
       codeforces_handle: userData.handle,
-      atcoder_handle: "sojib_003",
       codeforces_current_rating: userData.rating,
       codeforces_max_rating: userData.maxRating,
       codeforces_titlephoto: userData.titlePhoto,
       codeforces_current_rank: userData.rank,
       codeforces_max_rank: userData.maxRank,
-      atcoder_current_rank: "4 kyu",
-      atcoder_max_rank: "3 kyu",
-      atcoder_current_rating: 1200,
-      atcoder_max_rating: 1300,
-      atcoder_contest_count: 10
+      country: "Bangladesh",
+      Institute: "Chittagong University of Engineering and Technology",
+      Solved: 0,
+      Submission: 0
     };
-    const jsonBody = JSON.stringify(dataToUpdate);
+    var jsonBody = JSON.stringify(dataToUpdate);
     fetch('http://localhost/registered_people.php', {
       method: 'POST',
       body: jsonBody,
@@ -49,8 +46,8 @@ fetch(apiUrl)
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+        console.log(response)
         // Parse JSON response
-        console.log("Data sent")
       })
 
   })
