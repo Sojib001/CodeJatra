@@ -3,25 +3,25 @@
 if (localStorage.getItem("dark") === null) {
     localStorage.setItem("dark", 0)
 }
-var given_handle = "doge_bonk";
+var email = localStorage.getItem('email');
 
-// Construct the API URL with the handle variable
-var Url1 = `https://codeforces.com/api/user.info?handles=${given_handle}&checkHistoricHandles=true`;
+// Define the first API URL using the encoded email
+var apiUrl1 = `http://localhost/data_from_registered_people.php?email=${email}`;
 
-fetch(Url1)
+
+fetch(apiUrl1)
     .then(response => {
         // Check if response is OK
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         // Parse JSON response
+        console.log(response)
         return response.json();
     })
     .then(data => {
-        // Store the data in a variable
-        var userData = data.result[0];
-        var handle2 = data.result[0].handle
-        url = `https://codeforces.com/api/user.status?handle=${handle2}&from=1&count=1000000000`;
+        var given_handle = data[0].codeforces_handle
+        url = `https://codeforces.com/api/user.status?handle=${given_handle}&from=1&count=1000000000`;
         // Fetching data from the API
         fetch(url)
             .then(response => {
@@ -51,7 +51,7 @@ fetch(Url1)
                         rating = userData[i].problem.rating
                     var obj = {
                         "problem_name": userData[i].problem.name,
-                        "solved_by": handle2,
+                        "solved_by": given_handle,
                         "problem_id": problem_id,
                         "problem_link": problem_link,
                         "rating": rating,
@@ -91,7 +91,5 @@ fetch(Url1)
 
     })
     .catch(error => {
-        console.error('There was a problem with the first fetch operation:', error);
+        console.error('There was a problem with the fetch operation:', error);
     });
-
-// Construct the API URL with the handle2 variable

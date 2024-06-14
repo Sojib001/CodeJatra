@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 06:10 PM
+-- Generation Time: May 31, 2024 at 09:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -236,15 +236,17 @@ CREATE TABLE `registered_people` (
   `codeforces_current_rank` varchar(50) DEFAULT NULL,
   `codeforces_max_rank` varchar(50) DEFAULT NULL,
   `Country` varchar(30) NOT NULL,
-  `Institute` varchar(100) NOT NULL
+  `Institute` varchar(100) NOT NULL,
+  `Solved` int(20) NOT NULL,
+  `Submission` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registered_people`
 --
 
-INSERT INTO `registered_people` (`Email`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`) VALUES
-('sajibbhattacharjee128@gmail.com', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology');
+INSERT INTO `registered_people` (`Email`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`) VALUES
+('sajibbhattacharjee128@gmail.com', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 162, 400);
 
 -- --------------------------------------------------------
 
