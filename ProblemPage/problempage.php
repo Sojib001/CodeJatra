@@ -4,7 +4,7 @@
     $result=mysqli_query($con,$query);
 
 ?>
-
+<!-- comment -->
 
 <!DOCTYPE html>
 <html lang="en">
