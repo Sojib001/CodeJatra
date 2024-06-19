@@ -47,10 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     $formType="register";
     if(!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)){
 
-        $query = "SELECT * FROM form WHERE email = '$email' LIMIT 1";
+        $query = "SELECT * FROM registered_people WHERE email = '$email' LIMIT 1";
         $result = mysqli_query($con, $query);
 
-        $q = "SELECT * FROM form WHERE username = '$username' LIMIT 1";
+        $q = "SELECT * FROM registered_people WHERE username = '$username' LIMIT 1";
         $r = mysqli_query($con, $q);
 
         if($result && mysqli_num_rows($result) > 0){
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         else{
 
         
-        $query = "insert into form (email,pass,username) values('$email','$pass','$username')";
+        $query = "insert into registered_people (email,pass,username) values('$email','$pass','$username')";
         mysqli_query($con,$query);
 
         $alertMessage = 'Successfully registered';
