@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="landingpage.html">
+            <a class="navbar-brand" href="landingpage.php">
                 <img src="image/LOGOBRIGHT.jpg" alt="notfound" style="max-height: 50px; max-width: 50px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
