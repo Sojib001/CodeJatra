@@ -1,6 +1,6 @@
 // Define the handle
 
-var handle = "doge_bonk";
+var handle = "Adnan.";
 
 // construct the API URL with the handle variable
 var apiUrl = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
@@ -20,8 +20,8 @@ fetch(apiUrl)
     var userData = data.result[0];
     // Now you can do whatever you want with the userData
     var dataToUpdate = {
-      Email: "sajibbhattacharjee128@gmail.com",
-      Name: "Sojib",
+      Email: "adnanjayed6399@gmail.com",
+      Name: "Adnan",
       codeforces_handle: userData.handle,
       codeforces_current_rating: userData.rating,
       codeforces_max_rating: userData.maxRating,
@@ -33,6 +33,7 @@ fetch(apiUrl)
       Solved: 0,
       Submission: 0
     };
+    console.log(dataToUpdate)
     var jsonBody = JSON.stringify(dataToUpdate);
     fetch('http://localhost/registered_people.php', {
       method: 'POST',
