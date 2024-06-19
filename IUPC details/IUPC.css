@@ -448,7 +448,7 @@ td:not(:last-child)::after {
     border-radius: 50%;
     background: limegreen;
     position: absolute;
-    top: 37px;
+    top: 30px;
     left: 30px;
 }
 .site{

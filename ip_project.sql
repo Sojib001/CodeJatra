@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 09:43 PM
+-- Generation Time: Jun 02, 2024 at 06:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -283,8 +283,12 @@ CREATE TABLE `upcoming_contests` (
 INSERT INTO `upcoming_contests` (`Contest_ID`, `Contest_Name`, `Site`, `Start`, `Duration`, `Link`) VALUES
 ('1978', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-16 15:05:00', '2h 0m', 'https://codeforces.com/contestRegistration/1978'),
 ('1979', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-06 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1979'),
-('1980', 'Codeforces Round (Div. 3)', 'CodeForces', '2024-06-03 20:35:00', '2h 15m', 'https://codeforces.com/contestRegistration/1980'),
-('abc358', 'Ⓐ◉ CodeQUEEN 2024 予選 (AtCoder Beginner Contest 358)', 'AtCoder', '2024-06-15 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc358'),
+('1980', 'Codeforces Round 950 (Div. 3)', 'CodeForces', '2024-06-03 20:35:00', '2h 15m', 'https://codeforces.com/contestRegistration/1980'),
+('1983', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-07 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1983'),
+('abc357', 'Ⓐ◉ SuntoryProgrammingContest2024（AtCoder Beginner Contest 357）', 'AtCoder', '2024-06-08 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc357'),
+('abc358', 'Ⓐ◉ AtCoder Beginner Contest 358', 'AtCoder', '2024-06-15 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc358'),
+('abc360', 'Ⓐ◉ AtCoder Beginner Contest 360', 'AtCoder', '2024-06-30 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc360'),
+('abc361', 'Ⓐ◉ Denso Create Programming Contest 2024（AtCoder Beginner Contest 361）', 'AtCoder', '2024-07-06 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc361'),
 ('ahc034', 'Ⓗ◉ Toyota Programming Contest 2024#6（AtCoder Heuristic Contest 034）', 'AtCoder', '2024-06-16 12:00:00', '4h 0m', 'https://atcoder.jp/contests/ahc034'),
 ('arc179', 'Ⓐ◉ AtCoder Regular Contest 179', 'AtCoder', '2024-06-02 18:00:00', '2h 0m', 'https://atcoder.jp/contests/arc179'),
 ('arc180', 'Ⓐ◉ AtCoder Regular Contest 180', 'AtCoder', '2024-06-29 18:00:00', '2h 0m', 'https://atcoder.jp/contests/arc180');
