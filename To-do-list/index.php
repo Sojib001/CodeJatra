@@ -92,7 +92,7 @@ require 'db_conn.php';
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="http://127.0.0.1:5500/landing%20page/landingpage.html" id = "Logout">
+                    <a href="/landing page/landingpage.php" id = "Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
