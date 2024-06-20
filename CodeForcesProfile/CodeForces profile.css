@@ -39,7 +39,9 @@ body.dark {
     --text-color: #CCC;
     --bell-color: #FFF;
 }
-
+body.dark .body-text {
+    color: var(--text-color);
+}
 /* ========== Reusable CSS ======== */
 .sidebar .text {
     font-size: 16px;
@@ -162,6 +164,7 @@ header .image-text .header-text {
 
 .toggle {
     position: absolute;
+    cursor: pointer;
     top: 48%;
     right: -10px;
     transform: translateY(-50%) rotate(180deg);
@@ -366,7 +369,6 @@ body.dark .bell {
     background: var(--body-color);
     transition: var(--tran-03);
 }
-
 .sidebar.close~.home {
     left: 88px;
     width: calc(100% - 88px);
@@ -404,17 +406,21 @@ body.dark .bell {
 }
 
 .mid {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding-top: 90px;
     padding-bottom: 30px;
     align-items: center;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 #user_profile_icon {
-    
-    height: 100px;
-    border: 3px solid white;
     border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
 
 .mn {

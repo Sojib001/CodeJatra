@@ -4,14 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mixed_profile.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--============= css ====================-->
+    <link rel="stylesheet" href="CodeForces profile.css">
+
+
+    <!--============= boxicon ====================-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <!--============= php ====================-->
+    <link href="table.php">
+
     <title>
-        CodeForcesProfile
+        CodeForces Profile
     </title>
 </head>
 
@@ -161,8 +166,37 @@
         <!-- Top end -->
 
         <div class="mid">
-            <img id="user_profile_icon" src="DP.jpg">
-            <h2>Handle:AJFaisal002 </h2>
+            <img id="user_profile_icon">
+            <script>
+                // JavaScript to set the image source dynamically
+                    // Retrieve the email from localStorage
+                    var email = localStorage.getItem('email');
+
+                    // Check if email is available
+                    if (email) {
+                        // Fetch the image path from the PHP script
+                        fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.text();
+                            })
+                            .then(imagePath => {
+                                // Set the src attribute of the img element
+                                var actualPath = '../landing page/'
+                                actualPath += imagePath
+                                document.getElementById('user_profile_icon').src = actualPath;
+                            })
+                            .catch(error => {
+                                console.error('Error fetching image path:', error);
+                            });
+                    } else {
+                        // Handle the case where email is not available in localStorage
+                        console.error('Email not found in localStorage');
+                    }
+            </script>
+            <span class = "handle-name">Handle:AJFaisal002 </span>
         </div>
 
         <!-- Bar graph start -->
