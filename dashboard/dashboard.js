@@ -8,7 +8,6 @@ const title = document.title;
 
 const glow_swich = document.getElementById(title)
 glow_swich.classList.add("glow")
-console.log(localStorage.getItem('email'))
 if (localStorage.getItem("dark") == 1) {
     body.classList.add("dark")
 }

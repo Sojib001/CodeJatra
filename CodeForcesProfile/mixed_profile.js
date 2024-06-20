@@ -8,14 +8,13 @@ const title = document.title;
 
 const glow_swich = document.getElementById(title)
 glow_swich.classList.add("glow")
-
 if (localStorage.getItem("dark") == 1) {
     body.classList.add("dark")
 }
 
-
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
+    console.log("Hello")
 })
 searchBar.addEventListener("click", () => {
     sidebar.classList.remove("close")

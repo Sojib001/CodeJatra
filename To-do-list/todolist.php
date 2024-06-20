@@ -10,7 +10,7 @@ require 'db_conn.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>ToDo List</title>
     <link rel="stylesheet" href="css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -133,11 +133,26 @@ require 'db_conn.php';
                             window.onload = function() {
                                 // Retrieve the email from localStorage
                                 var email = localStorage.getItem('email');
+
                                 // Check if email is available
                                 if (email) {
-                                    console.log(email)
-                                    // Set the src attribute of the img element
-                                    document.getElementById('userImage').src = `http://localhost/image.php?email=${email}`;
+                                    // Fetch the image path from the PHP script
+                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Network response was not ok');
+                                            }
+                                            return response.text();
+                                        })
+                                        .then(imagePath => {
+                                            // Set the src attribute of the img element
+                                            var actualPath = '../landing page/'
+                                            actualPath += imagePath
+                                            document.getElementById('userImage').src = actualPath;
+                                        })
+                                        .catch(error => {
+                                            console.error('Error fetching image path:', error);
+                                        });
                                 } else {
                                     // Handle the case where email is not available in localStorage
                                     console.error('Email not found in localStorage');

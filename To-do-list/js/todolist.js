@@ -19,7 +19,10 @@ const modeSwitch = body.querySelector(".toggle-switch")
 const modeText = body.querySelector(".mode-text")
 const rightPartition = document.querySelector(".right-partition")
 const faqAnswers = document.querySelectorAll(".answer");
-
+const title = document.title;
+console.log(title)
+const glow_swich = document.getElementById(title)
+glow_swich.classList.add("glow")
 function adjustAnswerPosition() {
     if (sidebar.classList.contains("close")) {
         faqAnswers.forEach(function(answer) {

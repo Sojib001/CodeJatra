@@ -131,11 +131,26 @@
                             window.onload = function() {
                                 // Retrieve the email from localStorage
                                 var email = localStorage.getItem('email');
+
                                 // Check if email is available
                                 if (email) {
-                                    console.log(email)
-                                    // Set the src attribute of the img element
-                                    document.getElementById('userImage').src = `http://localhost/image.php?email=${email}`;
+                                    // Fetch the image path from the PHP script
+                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Network response was not ok');
+                                            }
+                                            return response.text();
+                                        })
+                                        .then(imagePath => {
+                                            // Set the src attribute of the img element
+                                            var actualPath = '../landing page/'
+                                            actualPath += imagePath
+                                            document.getElementById('userImage').src = actualPath;
+                                        })
+                                        .catch(error => {
+                                            console.error('Error fetching image path:', error);
+                                        });
                                 } else {
                                     // Handle the case where email is not available in localStorage
                                     console.error('Email not found in localStorage');
