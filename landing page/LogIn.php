@@ -50,13 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
 
     // Check if file was uploaded and handle it
     if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
+       
         $file_tmp = $_FILES['Photo']['tmp_name'];
         $file_name = $_FILES['Photo']['name'];
-        $file_path =  $file_name;
+        $file_path =  'image/'.$file_name;
 
         // Move the uploaded file to the target directory
         if (move_uploaded_file($file_tmp, $file_path)) {
             $photoContent = $file_path;
+           
+           
            
         } else {
             die('Failed to upload file.');
@@ -246,7 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
                 <div class="input-box">
                     <span class="icon"><ion-icon name="image-outline"></ion-icon></span>
                     
-                    <input type="file" name="Photo" id="yyyyy" required>
+                    <input type="file" name="Photo" id="yyyyy"  required>
                     
                 </div>
                 <div class="remember-forgot">
