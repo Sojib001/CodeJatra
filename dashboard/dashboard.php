@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--============= css ====================-->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dasboard.css">
 
 
     <!--============= boxicon ====================-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+    <!--============= php ====================-->
+    <link href="table.php">
+
     <title>
-        LeaderBoard
+        Dashboard
     </title>
 </head>
 
@@ -47,37 +50,37 @@
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/dashboard/dashboard.html" id="Dashboard">
+                        <a href="../dashboard/dashboard.php" id="Dashboard">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/Mixed%20Profile/Mixed_profile.html" id="CodeForces Profile">
+                        <a href="../CodeForcesProfile/CodeForces profile.php" id="CodeForces Profile">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">CodeForces Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id="Atcoder Profile">
+                        <a href="../problemtable/problemtable.php" id="Atcoder Profile">
                             <i class='bx bx-bug icon'></i>
                             <span class="text nav-text">Atcoder Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id="LeaderBoard">
+                        <a href="../Leaderboard/leaderboardPage.php" id="LeaderBoard">
                             <i class='bx bx-trophy icon'></i>
                             <span class="text nav-text">LeaderBoard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/IUPC%20details/IUPC.html" id="IUPC Details">
+                        <a href="../IUPC details/IUPC.php" id="IUPC Details">
                             <i class='bx bx-detail icon'></i>
                             <span class="text nav-text">IUPC Details</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id="ToDo List">
+                        <a href="../To-do-list/todolist.php" id="ToDo List">
                             <i class='bx bx-list-check icon'></i>
                             <span class="text nav-text">ToDo List</span>
                         </a>
@@ -87,7 +90,7 @@
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="http://127.0.0.1:5500/landing%20page/landingpage.html" id="Logout">
+                    <a href="../landing page/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -120,61 +123,87 @@
                 </a>
 
                 <li class="dp">
-                    <a href="http://127.0.0.1:5500/profile_page/profile_page.html">
-                        <img src="DP.jpg" alt="">
+                    <a href="../profile_page/profile_page.php">
+                        <img id="userImage" alt="Image" />
+
+                        <script>
+                            // JavaScript to set the image source dynamically
+                            window.onload = function() {
+                                // Retrieve the email from localStorage
+                                var email = localStorage.getItem('email');
+                                // Check if email is available
+                                if (email) {
+                                    console.log(email)
+                                    // Set the src attribute of the img element
+                                    document.getElementById('userImage').src = `http://localhost/image.php?email=${email}`;
+                                } else {
+                                    // Handle the case where email is not available in localStorage
+                                    console.error('Email not found in localStorage');
+                                }
+                            }
+                        </script>
                     </a>
                 </li>
 
             </ul>
         </div>
 
-        <div class="container">
-            <table class="table table-striped">
+        <div class="table">
+            <h1 class="heading body-text">
+                Upcoming Contests
+            </h1>
+            <p class='body-text' style="text-align: center; font-weight: 400;">Note all times are in GMT +6:00 </p>
+
+            <table class="upcoming-contests body-text">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Handle</th>
-                        <th>Region</th>
-                        <th>Institute</th>
-                        <th>Solved</th>
-                        <th>Submitted</th>
+                        <td class="table-text">Contest Name</td>
+                        <td class="table-text">Site</td>
+                        <td class="table-text">Start</td>
+                        <td class="table-text">Duration</td>
+                        <td class="table-text">Link</td>
+                        <td class="table-text">Add Reminder</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    $conn = new mysqli("localhost", "root", "", "ip project");
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-                    $sql = "SELECT * FROM registered_people ORDER BY Solved DESC,Submission DESC";
-                    $result = $conn->query($sql);
-                    $institute = 'CUET';
-                    $region = 'BD';
-                    if ($result->num_rows > 0) {
-                        $i = 1;
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>
-                                    <td>{$i}</td>
-                                    <td>{$row['Name']}</td>
-                                    <td>{$row['codeforces_handle']}</td>
-                                    <td>{$region}</td>
-                                    <td>{$institute}</td>
-                                    <td>{$row['Solved']}</td>
-                                    <td>{$row['Submission']}</td>
-                                </tr>";
-                            $i++;
-                        }
-                    } else {
-                        echo "<tr><td colspan='7'>No data found</td></tr>";
-                    }
-                    $conn->close();
-                    ?>
+                <tbody id="table-body">
+
                 </tbody>
             </table>
         </div>
     </section>
-    <script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="dashboard.js"></script>
+    <script src="populate table.js"></script>
+    <script src="registered_people.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,9 @@
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
-
+if (localStorage.getItem("dark") === null) {
+    localStorage.setItem("dark", 0)
+}
 registerLink.addEventListener('click',()=> {
 
     wrapper.classList.add('active');

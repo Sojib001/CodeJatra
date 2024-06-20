@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <nav class="sidebar close">
+<nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -34,9 +34,10 @@
                 </div>
             </div>
 
-            
+
+
         </header>
-        
+
         <div class="menu-bar">
             <div class="menu">
                 <i class='bx bx-chevron-right toggle'></i>
@@ -48,37 +49,37 @@
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/dashboard/dashboard.html" id = "Dashboard">
+                        <a href="../dashboard/dashboard.php" id="Dashboard">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/Mixed%20Profile/Mixed_profile.html" id = "CodeForces Profile">
+                        <a href="../CodeForcesProfile/CodeForces profile.php" id="CodeForces Profile">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">CodeForces Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id = "Atcoder Profile">
+                        <a href="../problemtable/problemtable.php" id="Atcoder Profile">
                             <i class='bx bx-bug icon'></i>
                             <span class="text nav-text">Atcoder Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id = "LeaderBoard">
+                        <a href="../Leaderboard/leaderboardPage.php" id="LeaderBoard">
                             <i class='bx bx-trophy icon'></i>
                             <span class="text nav-text">LeaderBoard</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="http://127.0.0.1:5500/IUPC%20details/IUPC.html"  id = "IUPC Details">
+                        <a href="../IUPC details/IUPC.php" id="IUPC Details">
                             <i class='bx bx-detail icon'></i>
                             <span class="text nav-text">IUPC Details</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id = "ToDo List">
+                        <a href="../To-do-list/todolist.php" id="ToDo List">
                             <i class='bx bx-list-check icon'></i>
                             <span class="text nav-text">ToDo List</span>
                         </a>
@@ -88,15 +89,15 @@
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="http://127.0.0.1:5500/landing%20page/landingpage.html">
+                    <a href="../landing page/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
                 <li class="mode">
                     <div class="moon-sun">
-                        <i class='bx bx-sun icon sun'></i>
                         <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
 
                     </div>
                     <span class="mode-text text">Dark Mode</span>
@@ -121,8 +122,25 @@
                 </a>
 
                 <li class="dp">
-                    <a href="http://127.0.0.1:5500/profile_page/profile_page.html">
-                        <img src="DP.jpg" alt="">
+                    <a href="../profile_page/profile_page.php">
+                        <img id="userImage" alt="Image" />
+
+                        <script>
+                            // JavaScript to set the image source dynamically
+                            window.onload = function() {
+                                // Retrieve the email from localStorage
+                                var email = localStorage.getItem('email');
+                                // Check if email is available
+                                if (email) {
+                                    console.log(email)
+                                    // Set the src attribute of the img element
+                                    document.getElementById('userImage').src = `http://localhost/image.php?email=${email}`;
+                                } else {
+                                    // Handle the case where email is not available in localStorage
+                                    console.error('Email not found in localStorage');
+                                }
+                            }
+                        </script>
                     </a>
                 </li>
 

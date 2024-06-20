@@ -16,14 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
     $password = $_POST['PASS'];
 
     if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
-        $query = "SELECT * FROM form WHERE email = '$gmail' LIMIT 1";
+        $query = "SELECT * FROM registered_people WHERE email = '$gmail' LIMIT 1";
         $result = mysqli_query($con, $query);
-        $formType="login";
+        $formType = "login";
         if ($result) {
             if ($result && mysqli_num_rows($result) > 0) {
                 $user_data = mysqli_fetch_assoc($result);
-                if ($user_data['pass'] == $password) {
-                    header('Location: ../To-do-list/index.php');
+                if ($user_data['Password'] == $password) {
+                    // Pass the email to JavaScript for storing in local storage
+                    echo "<script>
+                             localStorage.setItem('email', '" . $gmail . "');
+                        console.log(localStorage.getItem('email'));
+                         </script>";
+                    echo '<meta http-equiv="refresh" content="0.5;url=../dashboard/dashboard.php">';
                     exit();
                 } else {
                     $alertMessage = 'Wrong username or password';
@@ -57,13 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         // Move the uploaded file to the target directory
         if (move_uploaded_file($file_tmp, $file_path)) {
             $photoContent = $file_path;
-           
         } else {
             die('Failed to upload file.');
         }
     } else {
         $photoContent = NULL;
-        
     }
 
     // Continue with form validation
@@ -118,6 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,7 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
 
             const response = await fetch('forgot_password.php', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
                 body: new URLSearchParams({
                     'FORGOT_PASSWORD': true,
                     'EMAIL': email,
@@ -166,10 +172,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
             const result = await response.json();
 
             alert(result.message);
+
             function clearForgotPasswordModal() {
                 document.getElementById('forgot-email').value = '';
                 document.getElementById('forgot-username').value = '';
-              }
+            }
             if (result.status === 'success') {
                 hideForgotPasswordModal();
             } else {
@@ -180,6 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         }
     </script>
 </head>
+
 <body onload="showAlert('<?php echo $alertMessage; ?>'); type('<?php echo $formType; ?>')">
     <div class="wrapper">
         <a href="landingpage.php"><span class="icon-close"><ion-icon name="close"></ion-icon></span></a>
@@ -210,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         </div>
 
         <!-- Registration Form -->
-        <div class="form-box register" >
+        <div class="form-box register">
             <img src="image/panda1.jpg" alt="notfound" id="profilepiC">
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="input-box">
@@ -245,9 +253,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="image-outline"></ion-icon></span>
-                    
+
                     <input type="file" name="Photo" id="yyyyy" required>
-                    
+
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Agree to terms and conditions</label>
@@ -283,4 +291,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
