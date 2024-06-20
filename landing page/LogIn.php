@@ -38,66 +38,81 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
         $alertMessage = 'Wrong username or password';
     }
 }
+
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
+    $email = $_POST['EMAIL'];
+    $pass = $_POST['PASS'];
+    $username = $_POST['USERNAME'];
+    $handle = $_POST['handle'];
+    $country = $_POST['country'];
+    $institute = $_POST['institute'];
+    $photoContent = NULL;
 
+    // Check if file was uploaded and handle it
+    if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
+        $file_tmp = $_FILES['Photo']['tmp_name'];
+        $file_name = $_FILES['Photo']['name'];
+        $file_path =  $file_name;
 
-    $email=$_POST['EMAIL'];
-    $pass=$_POST['PASS'];
-    $username =$_POST['USERNAME'];
-    $formType="register";
-    if(!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)){
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($file_tmp, $file_path)) {
+            $photoContent = $file_path;
+           
+        } else {
+            die('Failed to upload file.');
+        }
+    } else {
+        $photoContent = NULL;
+        
+    }
 
-        $query = "SELECT * FROM registered_people WHERE email = '$email' LIMIT 1";
+    // Continue with form validation
+    if (!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)) {
+
+        $query = "SELECT * FROM registered_people WHERE Email = '$email' LIMIT 1";
         $result = mysqli_query($con, $query);
 
-        $q = "SELECT * FROM registered_people WHERE username = '$username' LIMIT 1";
+        $q = "SELECT * FROM registered_people WHERE Name = '$username' LIMIT 1";
         $r = mysqli_query($con, $q);
 
-        if($result && mysqli_num_rows($result) > 0){
-            $alertMessage = 'Email already exists'; 
+        if ($result && mysqli_num_rows($result) > 0) {
+            $alertMessage = 'Email already exists';
+        } elseif ($r && mysqli_num_rows($r) > 0) {
+            $alertMessage = 'Username already exists';
+        } else {
+            // Insert user data into the database
+            $query = "INSERT INTO `registered_people` (`Email`, `password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `image`) 
+                      VALUES ('$email', '$pass', '$username', '$handle', '', '', '', '', '', '$country', '$institute', '', '', '$photoContent')";
+            mysqli_query($con, $query);
+
+            $alertMessage = 'Successfully registered';
+
+            // Send email notification
+            try {
+                $mail = new PHPMailer(true);
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'sagormdsagorchowdhury@gmail.com';
+                $mail->Password = 'yerrswugaweehakn';
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = 465;
+
+                $mail->setFrom('sagormdsagorchowdhury@gmail.com');
+                $mail->addAddress($email);
+
+                $mail->isHTML(true);
+                $mail->Subject = "Welcome to CodeJatra";
+                $mail->Body = "Welcome " . $username . ' to our website';
+
+                $mail->send();
+            } catch (Exception $e) {
+                $alertMessage = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+            }
         }
-        elseif($r && mysqli_num_rows($r) > 0){
-            $alertMessage = 'username already exits'; 
-        }
-        else{
-
-        
-        $query = "insert into registered_people (email,pass,username) values('$email','$pass','$username')";
-        mysqli_query($con,$query);
-
-        $alertMessage = 'Successfully registered';
-        
-
-        
-        
-
-        
-
-        $mail=new PHPMailer(true);
-
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'sagormdsagorchowdhury@gmail.com';
-        $mail->Password = 'yerrswugaweehakn';
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
-
-        $mail->setFrom('sagormdsagorchowdhury@gmail.com');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);
-        $mail->Subject = "Welcome to CodeJatra";
-        $mail->Body = "Welcome " . $username .' to our website';
-
-        $mail->send();
-        }
+    } else {
+        $alertMessage = 'Please enter valid information';
     }
-    else{
-        echo "<script type='text/javascript'> alert('Please enter valid information')</script>";
-    }
-
-
 }
 ?>
 
@@ -195,9 +210,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         </div>
 
         <!-- Registration Form -->
-        <div class="form-box register">
+        <div class="form-box register" >
             <img src="image/panda1.jpg" alt="notfound" id="profilepiC">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" id="emailfielD" name="EMAIL" required>
@@ -210,8 +225,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" name="USERNAME" id="#" required>
+                    <input type="text" name="USERNAME" id="y" required>
                     <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" name="handle" id="yy" required>
+                    <label>Codeforces Handle</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="globe-outline"></ion-icon></span>
+                    <input type="text" name="country" id="yyy" required>
+                    <label>Country</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                    <input type="text" name="institute" id="yyyy" required>
+                    <label>Institute</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="image-outline"></ion-icon></span>
+                    
+                    <input type="file" name="Photo" id="yyyyy" required>
+                    
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Agree to terms and conditions</label>

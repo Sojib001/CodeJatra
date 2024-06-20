@@ -23,6 +23,7 @@ modeSwitch.addEventListener("click", () => {
         rightPartition.classList.remove("light-mode");
     } else {
         modeText.innerText = "Dark Mode";
+        
         rightPartition.classList.add("light-mode");
         rightPartition.classList.remove("dark-mode");
     }

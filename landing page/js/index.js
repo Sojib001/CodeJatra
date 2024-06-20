@@ -28,7 +28,11 @@ let eyeicon=document.getElementById("LOCKHIDDEN");
 let pass=document.getElementById("PASSWORD");
 let pf=document.getElementById("profilepic");
 var mailfield=document.getElementById("emailfield");
-
+let Y=document.getElementById("y");
+let YY=document.getElementById("yy");
+let YYY=document.getElementById("yyy");
+let YYYY=document.getElementById("yyyy");
+let YYYYY=document.getElementById("yyyyy");
 
 let eyeicon2=document.getElementById("LOCKHIDDEn");
 let pass2=document.getElementById("PASSWORd");
@@ -233,4 +237,19 @@ mailfield2.onclick=function(){
         pf2.src="image/panda6.jpg";
     }
 
+}
+Y.onclick =function(){
+    pf2.src="image/panda1.jpg";
+}
+YY.onclick =function(){
+    pf2.src="image/panda1.jpg";
+}
+YYY.onclick =function(){
+    pf2.src="image/panda1.jpg";
+}
+YYYY.onclick =function(){
+    pf2.src="image/panda1.jpg";
+}
+YYYYY.onclick =function(){
+    pf2.src="image/panda1.jpg";
 }

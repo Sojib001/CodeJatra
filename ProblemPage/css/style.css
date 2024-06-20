@@ -32,7 +32,7 @@ body {
 }
 
 body.dark {
-    --body-color: #18191A;
+    --body-color: rgb(24, 26, 27);
     --sidebar-color: #242526;
     --primary-color: #39C5CA;
     --primary-color-light: #3A3B3C;
@@ -495,7 +495,7 @@ body.dark .container {
     background-color: black;
 }
 .right-partition .light-mode{
-    background-color: white;
+    background-color: #e4e9f7;
 }
 
 
@@ -514,12 +514,12 @@ body.dark .container {
 }
 
 body.dark .right-partition {
-    background-color: rgb(36, 37, 38); /* Dark mode background color */
+    background-color: rgb(24, 26, 27); /* Dark mode background color */
     transition: background-color 0.3s ease;
 }
 
-body.light .right-partition {
-    background-color: white; /* Light mode background color */
+body .right-partition {
+    background-color: #e4e9f7; /* Light mode background color */
     transition: background-color 0.3s ease;
 }
 

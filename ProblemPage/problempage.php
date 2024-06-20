@@ -4,7 +4,7 @@
     $result=mysqli_query($con,$query);
 
 ?>
-
+<!-- comment -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +156,7 @@
     <!-- Sidebar End -->
 
     <!-- Right partition Start -->
-    <div class ="right-partition bootstrap">
+    <div class ="light-mode right-partition bootstrap ">
         <div class="main-section">
             <div class="row section-half" >
                 <div class="col-md-8 section-top-left" >
@@ -187,7 +187,7 @@
                 <div class="col-md-4 section-top-right">
                     <div class="section">
                         <div>
-                            <canvas id="myPieChart" width="400" height="400"></canvas>
+                            <canvas id="myPieChart" width="400px" height="400px"></canvas>
                         </div>
                     </div>
                 </div>
