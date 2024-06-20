@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--============= css ====================-->
+    <link rel="stylesheet" href="styles.css">
+
+
+    <!--============= boxicon ====================-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>
+        LeaderBoard
+    </title>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="logo">
+                </span>
+
+                <div class="text head-text">
+                    <span class="name">CODEJATRA </span>
+                    <br>
+                    <span class="slogan">Track Transform Triumph </span>
+                </div>
+            </div>
+
+
+
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <i class='bx bx-chevron-right toggle'></i>
+                <li class="search-box">
+
+                    <i class='bx bx-search-alt-2 icon'></i>
+                    <input type="text" placeholder="Search...">
+
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="http://127.0.0.1:5500/dashboard/dashboard.html" id="Dashboard">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="http://127.0.0.1:5500/Mixed%20Profile/Mixed_profile.html" id="CodeForces Profile">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">CodeForces Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" id="Atcoder Profile">
+                            <i class='bx bx-bug icon'></i>
+                            <span class="text nav-text">Atcoder Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" id="LeaderBoard">
+                            <i class='bx bx-trophy icon'></i>
+                            <span class="text nav-text">LeaderBoard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="http://127.0.0.1:5500/IUPC%20details/IUPC.html" id="IUPC Details">
+                            <i class='bx bx-detail icon'></i>
+                            <span class="text nav-text">IUPC Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#" id="ToDo List">
+                            <i class='bx bx-list-check icon'></i>
+                            <span class="text nav-text">ToDo List</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="http://127.0.0.1:5500/landing%20page/landingpage.html" id="Logout">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="home">
+        <div class="nav-bar">
+            <ul class="dp-bell">
+                <a href="#">
+                    <li class="bell">
+                        <i class='bx bxs-bell icon'></i>
+                    </li>
+                </a>
+
+                <li class="dp">
+                    <a href="http://127.0.0.1:5500/profile_page/profile_page.html">
+                        <img src="DP.jpg" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Handle</th>
+                        <th>Region</th>
+                        <th>Institute</th>
+                        <th>Solved</th>
+                        <th>Submitted</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $conn = new mysqli("localhost", "root", "", "ip project");
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sql = "SELECT * FROM registered_people ORDER BY Solved DESC,Submission DESC";
+                    $result = $conn->query($sql);
+                    $institute = 'CUET';
+                    $region = 'BD';
+                    if ($result->num_rows > 0) {
+                        $i = 1;
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                    <td>{$i}</td>
+                                    <td>{$row['Name']}</td>
+                                    <td>{$row['codeforces_handle']}</td>
+                                    <td>{$region}</td>
+                                    <td>{$institute}</td>
+                                    <td>{$row['Solved']}</td>
+                                    <td>{$row['Submission']}</td>
+                                </tr>";
+                            $i++;
+                        }
+                    } else {
+                        echo "<tr><td colspan='7'>No data found</td></tr>";
+                    }
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
