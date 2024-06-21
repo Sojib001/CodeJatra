@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
         if ($result) {
             if ($result && mysqli_num_rows($result) > 0) {
                 $user_data = mysqli_fetch_assoc($result);
-                if ($user_data['Password'] == $password) {
+                if ($user_data['password'] == $password) {
                     // Pass the email to JavaScript for storing in local storage
                     echo "<script>
                              localStorage.setItem('email', '" . $gmail . "');
