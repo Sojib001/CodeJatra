@@ -15,6 +15,10 @@
     <!--============= php ====================-->
     <link href="table.php">
 
+    <!-- =============== Google Charts =============-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
     <title>
         CodeForces Profile
     </title>
@@ -169,70 +173,309 @@
             <img id="user_profile_icon">
             <script>
                 // JavaScript to set the image source dynamically
-                    // Retrieve the email from localStorage
-                    var email = localStorage.getItem('email');
+                // Retrieve the email from localStorage
+                var email = localStorage.getItem('email');
 
-                    // Check if email is available
-                    if (email) {
-                        // Fetch the image path from the PHP script
-                        fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                }
-                                return response.text();
-                            })
-                            .then(imagePath => {
-                                // Set the src attribute of the img element
-                                var actualPath = '../landing page/'
-                                actualPath += imagePath
-                                document.getElementById('user_profile_icon').src = actualPath;
-                            })
-                            .catch(error => {
-                                console.error('Error fetching image path:', error);
-                            });
-                    } else {
-                        // Handle the case where email is not available in localStorage
-                        console.error('Email not found in localStorage');
-                    }
+                // Check if email is available
+                if (email) {
+                    // Fetch the image path from the PHP script
+                    fetch(`http://localhost/CF_image.php?email=${encodeURIComponent(email)}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(imagePath => {
+                            // Set the src attribute of the img element
+                            document.getElementById('user_profile_icon').src = imagePath;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching image path:', error);
+                        });
+                } else {
+                    // Handle the case where email is not available in localStorage
+                    console.error('Email not found in localStorage');
+                }
             </script>
-            <span class = "handle-name">Handle:AJFaisal002 </span>
+            <span class="handle-name" id="handle">
+                <script>
+                    var email = localStorage.getItem('email');
+                    var apiUrl1 = `http://localhost/data_from_registered_people.php?email=${email}`;
+                    fetch(apiUrl1)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            var handle = data[0].codeforces_handle;
+                            var text = "Handle: "
+                            text += handle
+                            document.getElementById('handle').innerText = text;
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                        });
+                </script>
+            </span>
         </div>
+        <div class="all-charts">
+            <div class="bar-chart">
 
-        <!-- Bar graph start -->
-        <div class="container">
-            <div class="percent">
-                <span>300</span>
-                <span>250</span>
-                <span>200</span>
-                <span>150</span>
-                <span>100</span>
-                <span>50</span>
-                <span>0</span>
             </div>
-            <p>
-            <div class="options">
-                <span class="option">800</span>
-                <span class="option">900</span>
-                <span class="option">1000</span>
-                <span class="option">1100</span>
-                <span class="option">1200</span>
-                <span class="option">1300</span>
+            <div class="pie-chart">
+
             </div>
-            <div class="chart-label">Bar Chart Submission</div>
+            <div class="line-chart">
 
-
+            </div>
         </div>
-
-        <!-- Bar graph end -->
-
-        <!-- Line graph start -->
-
-        <!-- Line graph end -->
 
     </section>
 
-    <script src="mixed_profile.js"></script>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            // Fetch data from the server (example for column chart)
+            var email = localStorage.getItem('email');
+            var url_to_get_handle = `http://localhost/data_from_registered_people.php?email=${email}`;
+
+            fetch(url_to_get_handle)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    handle = data[0].codeforces_handle;
+                    var url_to_get_all_problems = `https://codeforces.com/api/user.status?handle=${handle}&from=1&count=1000000000`;
+
+                    return fetch(url_to_get_all_problems);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Format data for Google Charts (example for column chart)
+                    const formattedDataColumn = [
+                        ['Rating', 'Solved', {
+                            role: 'style'
+                        }]
+                    ];
+                    var mapColumn = {};
+                    data.result.forEach(item => {
+                        if (item.problem && item.problem.rating !== undefined && item.problem.rating !== null) {
+                            key = item.problem.rating
+
+                            if (mapColumn[key]) {
+                                mapColumn[key]++;
+                            } else {
+                                mapColumn[key] = 1;
+                            }
+                        }
+                    });
+
+                    for (let key in mapColumn) {
+                        var color = "#808080";
+                        switch (true) {
+                            case (key >= 2200):
+                                color = "#FF0000"; // GM
+                                break;
+                            case (key >= 2000):
+                                color = "#FF8C00"; // Master
+                                break;
+                            case (key >= 1800):
+                                color = "#AA00AA"; // CM
+                                break;
+                            case (key >= 1600):
+                                color = "#0000FF"; // Expert
+                                break;
+                            case (key >= 1400):
+                                color = "#03A89E"; // Specialist
+                                break;
+                            case (key >= 1200):
+                                color = "#008000"; // Pupil
+                                break;
+                            default:
+                                color = "#808080"; // Newbie
+                                break;
+                        }
+                        formattedDataColumn.push([key, mapColumn[key], color]);
+                    }
+
+                    var dataTableColumn = google.visualization.arrayToDataTable(formattedDataColumn);
+
+                    var optionsColumn = {
+                        title: 'Problems Solved (Column Chart)',
+                        hAxis: {
+                            title: 'Rating',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'Solved'
+                        }
+                    };
+
+                    var chartColumn = new google.visualization.ColumnChart(document.querySelector('.bar-chart'));
+                    chartColumn.draw(dataTableColumn, optionsColumn);
+                })
+                .catch(error => {
+                    console.error('Error fetching data for column chart:', error);
+                });
+
+
+            // Fetch data from the server (example for column chart)
+            var email = localStorage.getItem('email');
+            var url_to_get_handle = `http://localhost/data_from_registered_people.php?email=${email}`;
+
+            fetch(url_to_get_handle)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    handle = data[0].codeforces_handle;
+                    var url_to_get_all_problems = `https://codeforces.com/api/user.status?handle=${handle}&from=1&count=1000000000`;
+
+                    return fetch(url_to_get_all_problems);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Format data for Google Charts (example for column chart)
+                    var mapPie = {};
+                    data.result.forEach(item => {
+                        key = item.verdict
+                        if (mapPie[key]) {
+                            mapPie[key]++;
+                        } else {
+                            mapPie[key] = 1;
+                        }
+
+                    });
+                    // Define the data for pie chart
+                    const formattedDataPie = [
+                        ['Type', 'Number of problems']
+                    ];
+                    for (let verdict in mapPie) {
+                        var tmp = verdict;
+                        if (verdict === "OK") verdict = "Accepted";
+                        formattedDataPie.push([verdict, mapPie[tmp]]);
+                    }
+                    var dataPie = google.visualization.arrayToDataTable(formattedDataPie);
+                    // Set options for pie chart
+                    var optionsPie = {
+                        title: 'All Submission Status(Pie Chart)',
+                        is3D: true,
+                    };
+
+                    // Instantiate and draw the pie chart
+                    var chartPie = new google.visualization.PieChart(document.querySelector('.pie-chart'));
+                    chartPie.draw(dataPie, optionsPie);
+                })
+                .catch(error => {
+                    console.error('Error fetching data for column chart:', error);
+                });
+
+
+
+            // Fetch user handle and ratings data
+            var email = localStorage.getItem('email');
+            var url_to_get_handle = `http://localhost/data_from_registered_people.php?email=${email}`;
+
+            fetch(url_to_get_handle)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    var handle = data[0].codeforces_handle;
+                    var url_to_get_all_contest_rating = `https://codeforces.com/api/user.rating?handle=${handle}`;
+
+                    return fetch(url_to_get_all_contest_rating);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Format data for Google Charts (line chart)
+                    var mapLine = {};
+                    data.result.forEach(item => {
+                        var timestamp = item.ratingUpdateTimeSeconds; // Unix timestamp
+                        var date = new Date(timestamp * 1000); // Convert to milliseconds
+
+                        // Format date as Oct 2022
+                        var options_for_date = {
+                            year: 'numeric',
+                            month: 'short'
+                        };
+                        var formattedDate = date.toLocaleDateString('en-US', options_for_date);
+
+                        // Store rating data by formatted date
+                        mapLine[formattedDate] = {
+                            newRating: item.newRating,
+                            contestName: item.contestName // Assuming contestName is available
+                        };
+                    });
+
+                    // Prepare data array for Google Charts
+                    var formattedDataLine = [
+                        ['Date', 'New Rating']
+                    ];
+
+                    // Iterate over formatted dates and push data to array
+                    for (var date in mapLine) {
+                        formattedDataLine.push([
+                            date,
+                            mapLine[date].newRating
+                        ]);
+                    }
+
+                    // Create DataTable from formatted data
+                    var dataTable = google.visualization.arrayToDataTable(formattedDataLine);
+
+                    // Define options for the line chart
+                    var options = {
+                        title: 'Rating Change Graph',
+                        curveType: 'none', // Straight line
+                        legend: {
+                            position: 'bottom'
+                        },
+                        hAxis: {
+                            title: 'Date'
+                        },
+                        vAxis: {
+                            title: 'Rating'
+                        },
+                        series: {
+                            0: {
+                                pointShape: 'circle',
+                                pointSize: 7
+                            } // Customize point shape and size
+                        }
+                    };
+
+                    // Instantiate and draw the chart
+                    var chart = new google.visualization.LineChart(document.querySelector('.line-chart'));
+                    chart.draw(dataTable, options);
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing data:', error);
+                });
+
+
+        }
+    </script>
+
+    <script src="CodeForces profile.js"></script>
 
 </body>
 

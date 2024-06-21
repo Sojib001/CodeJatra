@@ -1,24 +1,26 @@
 <?php
 
-if(isset($_POST['title'])){
+if (isset($_POST['title']) && isset($_POST['email'])) {
     require '../db_conn.php';
 
     $title = $_POST['title'];
+    $email = $_POST['email'];
 
     if(empty($title)){
-        header("Location: ../index.php?mess=error");
+        header("Location: ../todolist.php?mess=error");
     }else {
-        $stmt = $conn->prepare("INSERT INTO todos(title) VALUE(?)");
-        $res = $stmt->execute([$title]);
+        $stmt = $conn->prepare("INSERT INTO todos(title, email) VALUES(?, ?)");
+        $res = $stmt->execute([$title, $email]);
 
         if($res){
-            header("Location: ../index.php?mess=success"); 
+            header("Location: ../todolist.php?mess=success"); 
         }else {
-            header("Location: ../index.php");
+            header("Location: ../todolist.php");
         }
         $conn = null;
         exit();
     }
 }else {
-    header("Location: ../index.php?mess=error");
+    header("Location: ../todolist.php?mess=error");
 }
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2024 at 06:49 AM
+-- Generation Time: Jun 20, 2024 at 09:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -228,6 +228,7 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 
 CREATE TABLE `registered_people` (
   `Email` varchar(100) NOT NULL,
+  `Password` varchar(250) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `codeforces_handle` varchar(100) NOT NULL,
   `codeforces_current_rating` int(15) DEFAULT NULL,
@@ -238,15 +239,16 @@ CREATE TABLE `registered_people` (
   `Country` varchar(30) NOT NULL,
   `Institute` varchar(100) NOT NULL,
   `Solved` int(20) NOT NULL,
-  `Submission` int(20) NOT NULL
+  `Submission` int(20) NOT NULL,
+  `Image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registered_people`
 --
 
-INSERT INTO `registered_people` (`Email`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`) VALUES
-('sajibbhattacharjee128@gmail.com', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 162, 400);
+INSERT INTO `registered_people` (`Email`, `Password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `Image`) VALUES
+('sajibbhattacharjee128@gmail.com', '1234', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 162, 400, 'image/logo.PNG');
 
 -- --------------------------------------------------------
 
@@ -281,17 +283,12 @@ CREATE TABLE `upcoming_contests` (
 --
 
 INSERT INTO `upcoming_contests` (`Contest_ID`, `Contest_Name`, `Site`, `Start`, `Duration`, `Link`) VALUES
-('1978', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-16 15:05:00', '2h 0m', 'https://codeforces.com/contestRegistration/1978'),
-('1979', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-06-06 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1979'),
-('1980', 'Codeforces Round 950 (Div. 3)', 'CodeForces', '2024-06-03 20:35:00', '2h 15m', 'https://codeforces.com/contestRegistration/1980'),
+('1982', 'Codeforces Round 955 (Div. 2)', 'CodeForces', '2024-06-25 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1982'),
 ('1983', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-07 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1983'),
-('abc357', 'Ⓐ◉ SuntoryProgrammingContest2024（AtCoder Beginner Contest 357）', 'AtCoder', '2024-06-08 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc357'),
-('abc358', 'Ⓐ◉ AtCoder Beginner Contest 358', 'AtCoder', '2024-06-15 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc358'),
-('abc360', 'Ⓐ◉ AtCoder Beginner Contest 360', 'AtCoder', '2024-06-30 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc360'),
-('abc361', 'Ⓐ◉ Denso Create Programming Contest 2024（AtCoder Beginner Contest 361）', 'AtCoder', '2024-07-06 18:00:00', '1h 40m', 'https://atcoder.jp/contests/abc361'),
-('ahc034', 'Ⓗ◉ Toyota Programming Contest 2024#6（AtCoder Heuristic Contest 034）', 'AtCoder', '2024-06-16 12:00:00', '4h 0m', 'https://atcoder.jp/contests/ahc034'),
-('arc179', 'Ⓐ◉ AtCoder Regular Contest 179', 'AtCoder', '2024-06-02 18:00:00', '2h 0m', 'https://atcoder.jp/contests/arc179'),
-('arc180', 'Ⓐ◉ AtCoder Regular Contest 180', 'AtCoder', '2024-06-29 18:00:00', '2h 0m', 'https://atcoder.jp/contests/arc180');
+('1986', 'Codeforces Round 954 (Div. 3)', 'CodeForces', '2024-06-23 20:35:00', '2h 15m', 'https://codeforces.com/contestRegistration/1986'),
+('1987', 'Codeforces Round (Div. 1 + Div. 2)', 'CodeForces', '2024-06-30 20:35:00', '3h 0m', 'https://codeforces.com/contestRegistration/1987'),
+('1988', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-15 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1988'),
+('1989', 'Educational Codeforces Round 167 (Rated for Div. 2)', 'CodeForces', '2024-06-27 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1989');
 
 -- --------------------------------------------------------
 

@@ -20,5 +20,5 @@ if(isset($_POST['id'])){
         exit();
     }
 }else {
-    header("Location: ../index.php?mess=error");
+    header("Location: ../todolist.php?mess=error");
 }
