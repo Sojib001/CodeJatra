@@ -192,8 +192,6 @@
                     }
                     $sql = "SELECT * FROM registered_people ORDER BY Solved DESC,Submission DESC";
                     $result = $conn->query($sql);
-                    $institute = 'CUET';
-                    $region = 'BD';
                     if ($result->num_rows > 0) {
                         $i = 1;
                         while ($row = $result->fetch_assoc()) {
@@ -201,8 +199,8 @@
                                     <td>{$i}</td>
                                     <td>{$row['Name']}</td>
                                     <td>{$row['codeforces_handle']}</td>
-                                    <td>{$region}</td>
-                                    <td>{$institute}</td>
+                                    <td>{$row['Country']}</td>
+                                    <td>{$row['Institute']}</td>
                                     <td>{$row['Solved']}</td>
                                     <td>{$row['Submission']}</td>
                                 </tr>";
