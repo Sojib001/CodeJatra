@@ -101,10 +101,26 @@ require 'db_conn.php';
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="../To-do-list/todolist.php" id="ToDo List">
+                        <a href="#" id="ToDo List">
                             <i class='bx bx-list-check icon'></i>
                             <span class="text nav-text">ToDo List</span>
                         </a>
+                        <script>
+                            // JavaScript to set the image source dynamically and handle profile link click
+                            var email = localStorage.getItem('email');
+                            // Check if email is available
+                            if (email) {
+                                document.getElementById('ToDo List').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../To-do-list/todolist.php?email=${encodeURIComponent(email)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        </script>
                     </li>
                 </ul>
             </div>
@@ -230,31 +246,39 @@ require 'db_conn.php';
 
                 </div>
                 <?php
-                $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
+                $email = "";
+                if (isset($_GET['email'])) {
+                    $email = $_GET['email'];
+                }
+                $stmt = $conn->prepare("SELECT * FROM todos WHERE email = ? ORDER BY id DESC");
+                $stmt->execute([$email]);
+
+                // Fetch all the todos
+                $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <div class="show-todo-section">
-                    <?php if ($todos->rowCount() <= 0) { ?>
+                    <?php if (empty($todos)) { ?>
                         <div class="todo-item">
                             <div class="empty">
                                 <img src="img/f.png" width="100%" />
                                 <img src="img/Ellipsis.gif" width="80px">
                             </div>
                         </div>
-                    <?php } ?>
-
-                    <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <div class="todo-item">
-                            <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
-                            <?php if ($todo['checked']) { ?>
-                                <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id']; ?>" checked />
-                                <h2 class="checked"><?php echo $todo['title'] ?></h2>
-                            <?php } else { ?>
-                                <input type="checkbox" data-todo-id="<?php echo $todo['id']; ?>" class="check-box" />
-                                <h2><?php echo $todo['title'] ?></h2>
-                            <?php } ?>
-                            <br>
-                            <small>created: <?php echo $todo['date_time'] ?></small>
-                        </div>
+                    <?php } else { ?>
+                        <?php foreach ($todos as $todo) { ?>
+                            <div class="todo-item">
+                                <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
+                                <?php if ($todo['checked']) { ?>
+                                    <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id']; ?>" checked />
+                                    <h2 class="checked"><?php echo htmlspecialchars($todo['title']); ?></h2>
+                                <?php } else { ?>
+                                    <input type="checkbox" data-todo-id="<?php echo $todo['id']; ?>" class="check-box" />
+                                    <h2><?php echo htmlspecialchars($todo['title']); ?></h2>
+                                <?php } ?>
+                                <br>
+                                <small>created: <?php echo htmlspecialchars($todo['date_time']); ?></small>
+                            </div>
+                        <?php } ?>
                     <?php } ?>
                 </div>
             </div>

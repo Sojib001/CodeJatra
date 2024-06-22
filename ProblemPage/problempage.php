@@ -130,6 +130,22 @@ $result = mysqli_query($con, $query);
                             <i class='bx bx-list-check icon'></i>
                             <span class="text nav-text">ToDo List</span>
                         </a>
+                        <script>
+                            // JavaScript to set the image source dynamically and handle profile link click
+                            var email = localStorage.getItem('email');
+                            // Check if email is available
+                            if (email) {
+                                document.getElementById('ToDo List').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../To-do-list/todolist.php?email=${encodeURIComponent(email)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        </script>
                     </li>
                 </ul>
             </div>
