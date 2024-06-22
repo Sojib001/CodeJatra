@@ -2,8 +2,10 @@
 session_start();
 include("db_conn.php");
 
-$email = "sajibbhattacharjee128@gmail.com";
-
+$email = "ajfaisal1208023@gmail.com";
+if (isset($_GET['email'])) {
+    $email = $_GET['email'];
+}
 $query = "SELECT * FROM `registered_people` WHERE Email='$email'";
 $result = mysqli_fetch_assoc(mysqli_query($con, $query));
 $query2 = "select codeforces_handle from registered_people where Email='$email'";
@@ -242,42 +244,52 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                 </a>
 
                 <li class="dp">
-                    <a href="../profile_page/profilepage.php">
-                        <img id="userImage" alt="Image" />
+                <a href="#" id="profileLink">
+    <img id="userImage" alt="Image" />
+</a>
 
-                        <script>
-                            // JavaScript to set the image source dynamically
-                            window.onload = function() {
-                                // Retrieve the email from localStorage
-                                var email = localStorage.getItem('email');
+<script>
+    // JavaScript to set the image source dynamically and handle profile link click
+    window.onload = function() {
+        // Retrieve the email from localStorage
+        var email = localStorage.getItem('email');
 
-                                // Check if email is available
-                                if (email) {
-                                    console.log(email)
-                                    // Fetch the image path from the PHP script
-                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                throw new Error('Network response was not ok');
-                                            }
-                                            return response.text();
-                                        })
-                                        .then(imagePath => {
-                                            // Set the src attribute of the img element
-                                            var actualPath = '../landingpage/'
-                                            actualPath += imagePath
-                                            document.getElementById('userImage').src = actualPath;
-                                        })
-                                        .catch(error => {
-                                            console.error('Error fetching image path:', error);
-                                        });
-                                } else {
-                                    // Handle the case where email is not available in localStorage
-                                    console.error('Email not found in localStorage');
-                                }
-                            }
-                        </script>
-                    </a>
+        // Check if email is available
+        if (email) {
+            console.log(email)
+            // Fetch the image path from the PHP script
+            fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(imagePath => {
+                    // Set the src attribute of the img element
+                    var actualPath = '../landingpage/';
+                    actualPath += imagePath;
+                    document.getElementById('userImage').src = actualPath;
+                })
+                .catch(error => {
+                    console.error('Error fetching image path:', error);
+                });
+
+            // Attach click event listener to the profile link
+            document.getElementById('profileLink').addEventListener('click', function(event) {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+                
+                // Redirect to profile page with email as query parameter
+                window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
+            });
+        } else {
+            // Handle the case where email is not available in localStorage
+            console.error('Email not found in localStorage');
+        }
+    }
+</script>
+
                 </li>
 
             </ul>
