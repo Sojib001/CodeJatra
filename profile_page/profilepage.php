@@ -300,9 +300,9 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
         <div class="light-mode right-partition bootstrap">
             <div class="main-section col-md-12">
                 <div class="row section-half" style="background-color: #e4e9f7;">
-                    <div style="height: 100%; margin-left: 410px;">
+                    <div style="height: 100%; margin-left: 300px;">
                         <img src="<?php echo '../landingpage/' . $result['Image']; ?>" alt="Not Found" onerror="this.onerror=null; this.src='DP.jpg'; this.alt='Alternative Image'" style="height: 250px; width: 250px; border-radius: 50%;">
-                        <p style="font-size: 50px;margin-left: 50px"><?php echo $result['Name']; ?></p>
+                        <p style="font-size: 50px;margin-left: 0px"><?php echo $result['Name']; ?></p>
                     </div>
                 </div>
                 <div class="row section-half" style="background-color: #e4e9f7;">

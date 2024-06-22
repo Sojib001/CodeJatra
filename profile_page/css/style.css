@@ -528,7 +528,7 @@ body .right-partition {
 
 .right-partition-close {
     width: calc(100% - 0px); 
-    padding-left: 330px;
+    
     transition: width 0.3s ease;
     transition: padding-left 0.3s ease;
 }
