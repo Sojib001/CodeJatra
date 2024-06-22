@@ -193,7 +193,7 @@
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="/landing page/landingpage.php" id="Logout">
+                    <a href="/landingpage/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -221,9 +221,41 @@
             </a>
 
             <li class="dp">
-                <a href="http://127.0.0.1:5500/profile_page/profile_page.html">
-                    <img src="DP.jpg" alt="">
-                </a>
+            <a href="../profile_page/profile_page.php">
+                        <img id="userImage" alt="Image" />
+
+                        <script>
+                            // JavaScript to set the image source dynamically
+                            window.onload = function() {
+                                // Retrieve the email from localStorage
+                                var email = localStorage.getItem('email');
+
+                                // Check if email is available
+                                if (email) {
+                                    // Fetch the image path from the PHP script
+                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                        .then(response => {
+                                            if (!response.ok) {
+                                                throw new Error('Network response was not ok');
+                                            }
+                                            return response.text();
+                                        })
+                                        .then(imagePath => {
+                                            // Set the src attribute of the img element
+                                            var actualPath = '../landingpage/'
+                                            actualPath += imagePath
+                                            document.getElementById('userImage').src = actualPath;
+                                        })
+                                        .catch(error => {
+                                            console.error('Error fetching image path:', error);
+                                        });
+                                } else {
+                                    // Handle the case where email is not available in localStorage
+                                    console.error('Email not found in localStorage');
+                                }
+                            }
+                        </script>
+                    </a>
             </li>
         </ul>
     </div>

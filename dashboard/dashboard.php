@@ -134,6 +134,7 @@
 
                                 // Check if email is available
                                 if (email) {
+                                    console.log(email)
                                     // Fetch the image path from the PHP script
                                     fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
                                         .then(response => {
@@ -144,7 +145,7 @@
                                         })
                                         .then(imagePath => {
                                             // Set the src attribute of the img element
-                                            var actualPath = '../landing page/'
+                                            var actualPath = '../landingpage/'
                                             actualPath += imagePath
                                             document.getElementById('userImage').src = actualPath;
                                         })

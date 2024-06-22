@@ -148,7 +148,7 @@ require 'db_conn.php';
                                         })
                                         .then(imagePath => {
                                             // Set the src attribute of the img element
-                                            var actualPath = '../landing page/'
+                                            var actualPath = '../landingpage/'
                                             actualPath += imagePath
                                             document.getElementById('userImage').src = actualPath;
                                         })
