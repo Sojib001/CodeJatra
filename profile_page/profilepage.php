@@ -234,7 +234,7 @@
         <div class="main-section col-md-12">
             <div class="row section-half" style="background-color: #e4e9f7;">
                 <div style="height: 100%; margin-left: 410px;">
-                    <img src="<?php echo '../landingpage/' . $result['image']; ?>" alt="Not Found" onerror="this.onerror=null; this.src='DP.jpg'; this.alt='Alternative Image'"  style="max-height: 250px; max-width: 250px; border-radius: 50%;">
+                    <img src="<?php echo '../landingpage/' . $result['Image']; ?>" alt="Not Found" onerror="this.onerror=null; this.src='DP.jpg'; this.alt='Alternative Image'"  style="height: 250px; width: 250px; border-radius: 50%;">
                     <p style="font-size: 50px;margin-left: 50px"><?php echo $result['Name']; ?></p>
                 </div>
             </div>

@@ -123,7 +123,7 @@
                 </a>
 
                 <li class="dp">
-                    <a href="../profile_page/profile_page.php">
+                    <a href="../profile_page/profilepage.php">
                         <img id="userImage" alt="Image" />
 
                         <script>
