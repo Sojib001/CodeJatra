@@ -23,9 +23,9 @@
                 </span>
 
                 <div class="text head-text">
-                    <span class="name">CODEJATRA </span>
+                    <span class="name">CODEJATRA</span>
                     <br>
-                    <span class="slogan">Track Transform Triumph </span>
+                    <span class="slogan">Track Transform Triumph</span>
                 </div>
             </div>
         </header>
@@ -114,7 +114,7 @@
 
                         <script>
                             // JavaScript to set the image source dynamically
-                            window.onload = function () {
+                            window.onload = function() {
                                 // Retrieve the email from localStorage
                                 var email = localStorage.getItem('email');
 
@@ -154,29 +154,63 @@
                     <tr>
                         <th>Problem Name</th>
                         <th>Problem ID</th>
-                        <th>Link </th>
-                        <th id="ratingHeader">Rating <i class='bx bx-link-external sort'> </th>
+                        <th>Link</th>
+                        <th id="ratingHeader">Rating <i class='bx bx-sort-down' id="sort-icon"></i></th>
                         <th>Tags</th>
                     </tr>
                 </thead>
                 <tbody id="problemsTable">
                     <?php
+                    // Database connection
                     $conn = new mysqli("localhost", "root", "", "ip project");
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    $sql = "SELECT DISTINCT * FROM problems";
+
+                    // Fetch user handle
+                    // Assuming the handle is stored in the session
+                    // session_start();
+                    // $handle = $_SESSION['handle'];
+                    $handle = '-is-this-dft_';
+
+                    // Fetch problems data
+                    $sql = "SELECT * FROM problems";
                     $result = $conn->query($sql);
+
                     if ($result->num_rows > 0) {
+                        $usedNames = [];
+                        $problemsArray = array();
                         while ($row = $result->fetch_assoc()) {
-                            $rating = $row['Rating'] == 0 ? "Unavailable" : $row['Rating'];
-                            $tags = $row['Tags'] == NULL ? "Unavailable" : $row['Tags'];
-                            echo "<tr>
-                                    <td>{$row['Name']}</td>
-                                    <td>{$row['Problem_ID']}</td>
-                                    <td><a href='{$row['Link']}'><i class='bx bx-link-external link'></i></a></td>
-                                    <td>{$rating}</td>
-                                    <td>{$tags}</td>
+                            // Determine solved class
+                            $solvedClass = "";
+                            if ($row['Solved_By'] == $handle) {
+                                $solvedClass = $row['Solved'] == 1 ? "solved" : ($row['Attempted'] >= 1 ? "attempted" : "");
+                            }
+                            if (in_array($row['Name'], $usedNames)) {
+                                continue; // Skip this row if name has already been displayed
+                            }
+                            $usedNames[] = $row['Name'];
+
+                            // Prepare the problem details
+                            $problemDetails = array(
+                                'Name' => $row['Name'],
+                                'Problem_ID' => $row['Problem_ID'],
+                                'Link' => $row['Link'],
+                                'Rating' => $row['Rating'] == 0 ? "Unavailable" : $row['Rating'],
+                                'Tags' => $row['Tags'] == NULL ? "Unavailable" : $row['Tags'],
+                                'SolvedClass' => $solvedClass
+                            );
+
+                            // Add the problem details to the array
+                            $problemsArray[] = $problemDetails;
+                        }
+                        foreach ($problemsArray as $problem) {
+                            echo "<tr class='{$problem['SolvedClass']}'>
+                                    <td>{$problem['Name']}</td>
+                                    <td>{$problem['Problem_ID']}</td>
+                                    <td><a href='{$problem['Link']}'><i class='bx bx-link-external link'></i></a></td>
+                                    <td>{$problem['Rating']}</td>
+                                    <td>{$problem['Tags']}</td>
                                 </tr>";
                         }
                     } else {
@@ -189,19 +223,37 @@
         </div>
     </section>
     <script>
-        document.getElementById('ratingHeader').addEventListener('click', function () {
-            var table = document.getElementById('problemsTable');
-            var rows = Array.from(table.rows);
+        let isAscending = true;
 
-            rows.sort(function (a, b) {
-                var ratingA = a.cells[3].innerText === "Unavailable" ? Infinity : parseInt(a.cells[3].innerText);
-                var ratingB = b.cells[3].innerText === "Unavailable" ? Infinity : parseInt(b.cells[3].innerText);
-                return ratingA - ratingB;
+        document.getElementById('ratingHeader').addEventListener('click', function() {
+            const table = document.getElementById('problemsTable');
+            const rows = Array.from(table.rows);
+            const sorter = document.getElementById('sort-icon');
+
+            rows.sort(function(a, b) {
+                const ratingA = a.cells[3].innerText === "Unavailable" ? Infinity : parseInt(a.cells[3].innerText);
+                const ratingB = b.cells[3].innerText === "Unavailable" ? Infinity : parseInt(b.cells[3].innerText);
+
+                if (isAscending) {
+                    return ratingA - ratingB;
+                } else {
+                    return ratingB - ratingA;
+                }
             });
 
-            rows.forEach(function (row) {
+            rows.forEach(function(row) {
                 table.appendChild(row);
             });
+
+            if (isAscending) {
+                sorter.classList.remove('bx-sort-down');
+                sorter.classList.add('bx-sort-up');
+            } else {
+                sorter.classList.remove('bx-sort-up');
+                sorter.classList.add('bx-sort-down');
+            }
+
+            isAscending = !isAscending; // Toggle the sorting order
         });
     </script>
     <script src="script.js"></script>

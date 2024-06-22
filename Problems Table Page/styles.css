@@ -416,7 +416,7 @@ body.dark th {
     transition: var(--tran-03);
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: var(--primary-color-light);
     transition: var(--tran-03);
 }
@@ -424,7 +424,7 @@ tr:nth-child(even) {
 body.dark tr:nth-child(even) {
     background-color: var(--primary-color-light);
     transition: var(--tran-03);
-}
+} */
 
 tr {
     color: var(--text-color);
@@ -439,4 +439,18 @@ body.dark tr {
 .link{
     font-size: 26px;
     color: var(--text-color-dark);
+}
+
+.ratingHeader{
+    cursor: pointer;
+}
+
+#ratingHeader {
+    cursor: pointer;
+}
+.solved {
+    background-color: #90EE90;
+}
+.attempted {
+    background-color: #FF474C;
 }
