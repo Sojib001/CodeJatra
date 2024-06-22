@@ -15,6 +15,7 @@ fetch(apiUrl1)
   })
   .then(data => {
     handle = data[0].codeforces_handle;
+    localStorage.setItem('handle', handle)
     var apiUrl_for_handle_info = `https://codeforces.com/api/user.info?handles=${handle}&checkHistoricHandles=true`;
 
     return fetch(apiUrl_for_handle_info);

@@ -139,7 +139,7 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
         }
     </style>
     <script>
-         function showForgotPasswordModal() {
+        function showForgotPasswordModal() {
             document.getElementById('forgot-password-modal').style.display = 'flex';
         }
 
@@ -227,10 +227,27 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="../problemtable/problemtable.php" id="Atcoder Profile">
+                        <a href="#" id="Problems">
                             <i class='bx bx-bug icon'></i>
-                            <span class="text nav-text">Atcoder Profile</span>
+                            <span class="text nav-text">Problems</span>
                         </a>
+                        <script>
+                            // JavaScript to set the image source dynamically and handle profile link click
+                            var handle_local = localStorage.getItem('handle');
+                            console.log(handle_local)
+                            // Check if email is available
+                            if (handle_local) {
+                                document.getElementById('Problems').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../Problems Table Page/ProblemsTablePage.php?handle=${encodeURIComponent(handle_local)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        </script>
                     </li>
                     <li class="nav-link">
                         <a href="../Leaderboard/leaderboardPage.php" id="LeaderBoard">
@@ -288,51 +305,51 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                 </a>
 
                 <li class="dp">
-                <a href="#" id="profileLink">
-    <img id="userImage" alt="Image" />
-</a>
+                    <a href="#" id="profileLink">
+                        <img id="userImage" alt="Image" />
+                    </a>
 
-<script>
-    // JavaScript to set the image source dynamically and handle profile link click
-    window.onload = function() {
-        // Retrieve the email from localStorage
-        var email = localStorage.getItem('email');
+                    <script>
+                        // JavaScript to set the image source dynamically and handle profile link click
+                        window.onload = function() {
+                            // Retrieve the email from localStorage
+                            var email = localStorage.getItem('email');
 
-        // Check if email is available
-        if (email) {
-            console.log(email)
-            // Fetch the image path from the PHP script
-            fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(imagePath => {
-                    // Set the src attribute of the img element
-                    var actualPath = '../landingpage/';
-                    actualPath += imagePath;
-                    document.getElementById('userImage').src = actualPath;
-                })
-                .catch(error => {
-                    console.error('Error fetching image path:', error);
-                });
+                            // Check if email is available
+                            if (email) {
+                                console.log(email)
+                                // Fetch the image path from the PHP script
+                                fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Network response was not ok');
+                                        }
+                                        return response.text();
+                                    })
+                                    .then(imagePath => {
+                                        // Set the src attribute of the img element
+                                        var actualPath = '../landingpage/';
+                                        actualPath += imagePath;
+                                        document.getElementById('userImage').src = actualPath;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching image path:', error);
+                                    });
 
-            // Attach click event listener to the profile link
-            document.getElementById('profileLink').addEventListener('click', function(event) {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-                
-                // Redirect to profile page with email as query parameter
-                window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
-            });
-        } else {
-            // Handle the case where email is not available in localStorage
-            console.error('Email not found in localStorage');
-        }
-    }
-</script>
+                                // Attach click event listener to the profile link
+                                document.getElementById('profileLink').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        }
+                    </script>
 
                 </li>
 
@@ -359,27 +376,27 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                             <p><strong>INSTITUTION: </strong></p>
                             <p><?php echo $result['Institute']; ?></p><br>
                             <p><strong>ADD IUPC: <a href="#" onclick="showForgotPasswordModal(); return false;">+</a></strong></p>
-                            
+
                             <div id="forgot-password-modal" class="modal">
                                 <div class="modal-content">
                                     <span class="close" onclick="hideForgotPasswordModal()">&times;</span>
-                                    
+
                                     <form id="forgot-password-form" onsubmit="handleForgotPassword(event)">
                                         <label for="contest-name">Contest Name:</label>
                                         <input type="text" id="contest-name" name="contest_name" required><br><br>
-                                        
+
                                         <label for="site">Site:</label>
                                         <input type="text" id="site" name="site" required><br><br>
-                                        
+
                                         <label for="start-time">Start Time (Format: 2024-06-25 20:35:00):</label>
                                         <input type="text" id="start-time" name="start_time" required><br><br>
-                                        
+
                                         <label for="duration">Duration (Format: 2h 0m):</label>
                                         <input type="text" id="duration" name="duration" required><br><br>
-                                        
+
                                         <label for="link">Link:</label>
                                         <input type="text" id="link" name="link" required><br><br>
-                                        
+
                                         <button type="submit" style="color: white; font-size: large">Submit</button>
                                     </form>
 
@@ -574,60 +591,59 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
         <!-- Right partition End -->
 
 
-        
 
-   
+
+
 
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="js/profilepage.js"></script>
         <script>
-    function showForgotPasswordModal() {
-        document.getElementById('forgot-password-modal').style.display = 'block';
-    }
+            function showForgotPasswordModal() {
+                document.getElementById('forgot-password-modal').style.display = 'block';
+            }
 
-    function hideForgotPasswordModal() {
-        document.getElementById('forgot-password-modal').style.display = 'none';
-    }
+            function hideForgotPasswordModal() {
+                document.getElementById('forgot-password-modal').style.display = 'none';
+            }
 
-    async function handleForgotPassword(event) {
-    event.preventDefault();
+            async function handleForgotPassword(event) {
+                event.preventDefault();
 
-    const contestName = document.getElementById('contest-name').value;
-    const site = document.getElementById('site').value;
-    const startTime = document.getElementById('start-time').value;
-    const duration = document.getElementById('duration').value;
-    const link = document.getElementById('link').value;
+                const contestName = document.getElementById('contest-name').value;
+                const site = document.getElementById('site').value;
+                const startTime = document.getElementById('start-time').value;
+                const duration = document.getElementById('duration').value;
+                const link = document.getElementById('link').value;
 
-    const response = await fetch('forgot_password.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-            'FORGOT_PASSWORD': true,
-            'CONTEST_NAME': contestName,
-            'SITE': site,
-            'START_TIME': startTime,
-            'DURATION': duration,
-            'LINK': link
-        })
-    });
+                const response = await fetch('forgot_password.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        'FORGOT_PASSWORD': true,
+                        'CONTEST_NAME': contestName,
+                        'SITE': site,
+                        'START_TIME': startTime,
+                        'DURATION': duration,
+                        'LINK': link
+                    })
+                });
 
-    const result = await response.json();
+                const result = await response.json();
 
-    alert(result.message);
+                alert(result.message);
 
-    if (result.status === 'success') {
-        // Clear form fields if submission is successful
-        document.getElementById('forgot-password-form').reset();
-        hideForgotPasswordModal();
-    } else {
-        // Handle error scenario if needed
-    }
-}
-
-</script>
+                if (result.status === 'success') {
+                    // Clear form fields if submission is successful
+                    document.getElementById('forgot-password-form').reset();
+                    hideForgotPasswordModal();
+                } else {
+                    // Handle error scenario if needed
+                }
+            }
+        </script>
 
 </body>
 

@@ -51,10 +51,27 @@
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="../problems Table Page/problemsTablePage.php" id="Problems">
+                        <a href="#" id="Problems">
                             <i class='bx bx-bug icon'></i>
                             <span class="text nav-text">Problems</span>
                         </a>
+                        <script>
+                            // JavaScript to set the image source dynamically and handle profile link click
+                            var handle_local = localStorage.getItem('handle');
+                            console.log(handle_local)
+                            // Check if email is available
+                            if (handle_local) {
+                                document.getElementById('Problems').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../Problems Table Page/ProblemsTablePage.php?handle=${encodeURIComponent(handle_local)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        </script>
                     </li>
                     <li class="nav-link">
                         <a href="../Leaderboard/leaderboardPage.php" id="LeaderBoard">
@@ -109,41 +126,51 @@
                 </a>
 
                 <li class="dp">
-                    <a href="../profile_page/profile_page.php">
+                    <a href="#" id="profileLink">
                         <img id="userImage" alt="Image" />
-
-                        <script>
-                            // JavaScript to set the image source dynamically
-                            window.onload = function() {
-                                // Retrieve the email from localStorage
-                                var email = localStorage.getItem('email');
-
-                                // Check if email is available
-                                if (email) {
-                                    // Fetch the image path from the PHP script
-                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                throw new Error('Network response was not ok');
-                                            }
-                                            return response.text();
-                                        })
-                                        .then(imagePath => {
-                                            // Set the src attribute of the img element
-                                            var actualPath = '../landingpage/';
-                                            actualPath += imagePath;
-                                            document.getElementById('userImage').src = actualPath;
-                                        })
-                                        .catch(error => {
-                                            console.error('Error fetching image path:', error);
-                                        });
-                                } else {
-                                    // Handle the case where email is not available in localStorage
-                                    console.error('Email not found in localStorage');
-                                }
-                            };
-                        </script>
                     </a>
+
+                    <script>
+                        // JavaScript to set the image source dynamically and handle profile link click
+                        window.onload = function() {
+                            // Retrieve the email from localStorage
+                            var email = localStorage.getItem('email');
+
+                            // Check if email is available
+                            if (email) {
+                                console.log(email)
+                                // Fetch the image path from the PHP script
+                                fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Network response was not ok');
+                                        }
+                                        return response.text();
+                                    })
+                                    .then(imagePath => {
+                                        // Set the src attribute of the img element
+                                        var actualPath = '../landingpage/';
+                                        actualPath += imagePath;
+                                        document.getElementById('userImage').src = actualPath;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching image path:', error);
+                                    });
+
+                                // Attach click event listener to the profile link
+                                document.getElementById('profileLink').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        }
+                    </script>
                 </li>
             </ul>
         </div>
@@ -171,7 +198,7 @@
                     // Assuming the handle is stored in the session
                     // session_start();
                     // $handle = $_SESSION['handle'];
-                    $handle = '-is-this-dft_';
+                    $handle = isset($_GET['handle']) ? $_GET['handle'] : '';
 
                     // Fetch problems data
                     $sql = "SELECT * FROM problems";

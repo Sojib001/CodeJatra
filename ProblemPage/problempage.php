@@ -1,7 +1,7 @@
 <?php
-    require "db_conn.php";
-    $query="select * from problempage";
-    $result=mysqli_query($con,$query);
+require "db_conn.php";
+$query = "select * from problempage";
+$result = mysqli_query($con, $query);
 
 ?>
 <!-- comment -->
@@ -20,12 +20,12 @@
     <style>
         .section {
             display: flex;
-            
+
             color: rgb(242, 237, 237);
             font-weight: bold;
             height: 100%;
         }
-        
+
         .section-half {
             height: 50vh;
         }
@@ -46,11 +46,11 @@
             width: 100;
             padding-top: 20px;
         }
+
         .main-section {
             width: 100%;
             height: 100%;
         }
-       
     </style>
 </head>
 
@@ -91,10 +91,27 @@
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#" id="Atcoder Profile">
+                        <a href="#" id="Problems">
                             <i class='bx bx-bug icon'></i>
-                            <span class="text nav-text">Atcoder Profile</span>
+                            <span class="text nav-text">Problems</span>
                         </a>
+                        <script>
+                            // JavaScript to set the image source dynamically and handle profile link click
+                            var handle_local = localStorage.getItem('handle');
+                            console.log(handle_local)
+                            // Check if email is available
+                            if (handle_local) {
+                                document.getElementById('Problems').addEventListener('click', function(event) {
+                                    // Prevent default anchor click behavior
+                                    event.preventDefault();
+                                    // Redirect to profile page with email as query parameter
+                                    window.location.href = `../Problems Table Page/ProblemsTablePage.php?handle=${encodeURIComponent(handle_local)}`;
+                                });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
+                            }
+                        </script>
                     </li>
                     <li class="nav-link">
                         <a href="#" id="LeaderBoard">
@@ -147,54 +164,54 @@
             </a>
 
             <li class="dp">
-            <a href="../profile_page/profile_page.php">
-                        <img id="userImage" alt="Image" />
+                <a href="../profile_page/profile_page.php">
+                    <img id="userImage" alt="Image" />
 
-                        <script>
-                            // JavaScript to set the image source dynamically
-                            window.onload = function() {
-                                // Retrieve the email from localStorage
-                                var email = localStorage.getItem('email');
+                    <script>
+                        // JavaScript to set the image source dynamically
+                        window.onload = function() {
+                            // Retrieve the email from localStorage
+                            var email = localStorage.getItem('email');
 
-                                // Check if email is available
-                                if (email) {
-                                    // Fetch the image path from the PHP script
-                                    fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                                        .then(response => {
-                                            if (!response.ok) {
-                                                throw new Error('Network response was not ok');
-                                            }
-                                            return response.text();
-                                        })
-                                        .then(imagePath => {
-                                            // Set the src attribute of the img element
-                                            var actualPath = '../landingpage/'
-                                            actualPath += imagePath
-                                            document.getElementById('userImage').src = actualPath;
-                                        })
-                                        .catch(error => {
-                                            console.error('Error fetching image path:', error);
-                                        });
-                                } else {
-                                    // Handle the case where email is not available in localStorage
-                                    console.error('Email not found in localStorage');
-                                }
+                            // Check if email is available
+                            if (email) {
+                                // Fetch the image path from the PHP script
+                                fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Network response was not ok');
+                                        }
+                                        return response.text();
+                                    })
+                                    .then(imagePath => {
+                                        // Set the src attribute of the img element
+                                        var actualPath = '../landingpage/'
+                                        actualPath += imagePath
+                                        document.getElementById('userImage').src = actualPath;
+                                    })
+                                    .catch(error => {
+                                        console.error('Error fetching image path:', error);
+                                    });
+                            } else {
+                                // Handle the case where email is not available in localStorage
+                                console.error('Email not found in localStorage');
                             }
-                        </script>
-                    </a>
+                        }
+                    </script>
+                </a>
             </li>
         </ul>
     </div>
     <!-- Sidebar End -->
 
     <!-- Right partition Start -->
-    <div class ="light-mode right-partition bootstrap ">
+    <div class="light-mode right-partition bootstrap ">
         <div class="main-section">
-            <div class="row section-half" >
-                <div class="col-md-8 section-top-left" >
+            <div class="row section-half">
+                <div class="col-md-8 section-top-left">
                     <div class="section">
-                        
-                       
+
+
                         <div style="font-size: 25px;">
                             <p id="problemName" style="color: black;"><strong>Problem Name:</strong> <span style="font-weight: normal;"></span></p>
                             <p style="color: black;"><strong>Site:</strong> <span style="font-weight: normal;">Codeforces</span></p>
@@ -209,8 +226,8 @@
                             </p>
                             <p style="color: black;"><strong>Problem Setters:</strong> <span style="font-weight: normal;">Aj Styles</span></p>
                         </div>
-                           
-                        
+
+
 
 
 
@@ -225,52 +242,51 @@
                 </div>
             </div>
             <div class="row section-half">
-            <div class="col-md-12 section-bottom" style="overflow: auto; height: 400px;">
-    <table id="mytable" class="table table-bordered table-hover" style="width: 100%; table-layout: fixed;">
-        <thead>
-            <tr class="table table-dark">
-                <th scope="col">Time of Submission</th>
-                <th scope="col">Problem Name</th>
-                <th scope="col">Language</th>
-                <th scope="col">Status</th>
-                <th scope="col">Rating</th>
-                <th scope="col">View/Download</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                while($row = mysqli_fetch_assoc($result))
-                {
-            ?>
-            <tr>
-                <td><?php echo $row['Time of Submission']; ?></td>
-                <td><?php echo $row['Problem']; ?></td>
-                <td><?php echo $row['Language']; ?></td>
-                <td><?php echo $row['Status']; ?></td>
-                <td><?php echo $row['Rating']; ?></td>
-                <td>
-                    <button class="btn btn-primary">
-                        <a href="<?php echo $row['View/Download Code']; ?>" style="color: white;">View/Download</a>
-                    </button>
-                </td>
-            </tr>
-            <?php
-                }
-            ?>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-</div>
+                <div class="col-md-12 section-bottom" style="overflow: auto; height: 400px;">
+                    <table id="mytable" class="table table-bordered table-hover" style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr class="table table-dark">
+                                <th scope="col">Time of Submission</th>
+                                <th scope="col">Problem Name</th>
+                                <th scope="col">Language</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Rating</th>
+                                <th scope="col">View/Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['Time of Submission']; ?></td>
+                                    <td><?php echo $row['Problem']; ?></td>
+                                    <td><?php echo $row['Language']; ?></td>
+                                    <td><?php echo $row['Status']; ?></td>
+                                    <td><?php echo $row['Rating']; ?></td>
+                                    <td>
+                                        <button class="btn btn-primary">
+                                            <a href="<?php echo $row['View/Download Code']; ?>" style="color: white;">View/Download</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
-            
-        
+
+
         </div>
-    </div>   
+    </div>
     <!-- Right partition End -->
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/problempage.js"></script>
 </body>

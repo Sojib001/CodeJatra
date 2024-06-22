@@ -32,3 +32,26 @@ modeSwitch.addEventListener("click", () => {
         localStorage.setItem("dark", 0)
     }
 })
+
+var email = localStorage.getItem('email');
+
+// Define the first API URL using the encoded email
+var apiUrl_to_get_handle = `http://localhost/data_from_registered_people.php?email=${email}`;
+
+var handle_local; // Define handle in a broader scope
+
+fetch(apiUrl_to_get_handle)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    handle = data[0].codeforces_handle;
+    localStorage.setItem('handle', handle_local)
+    console.log("Done")
+})
+.catch(error => {
+  console.error('There was a problem with the fetch operation:', error);
+});
