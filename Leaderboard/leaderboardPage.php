@@ -41,8 +41,31 @@
                 <i class='bx bx-chevron-right toggle'></i>
                 <li class="search-box">
 
-                    <i class='bx bx-search-alt-2 icon'></i>
-                    <input type="text" placeholder="Search...">
+                <i class='bx bx-search-alt-2 icon'></i>
+                    <input type="text" placeholder="Handle..." id="handleInput">
+                    <script>
+                        document.getElementById('handleInput').addEventListener('keypress', function(event) {
+                            if (event.key === 'Enter') {
+                                var handle = document.getElementById('handleInput').value;
+                                if (handle) {
+                                    fetch('http://localhost/get email.php?handle=' + encodeURIComponent(handle))
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            event.preventDefault();
+                                            if (data === 'No email found for the given handle' || data === 'No handle provided') {
+                                                alert(data);
+                                            } else {
+                                                // Redirect to profile page with email as query parameter
+                                                window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(data)}`;
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                } else {
+                                    alert('Please enter a handle.');
+                                }
+                            }
+                        });
+                    </script>
 
                 </li>
                 <ul class="menu-links">

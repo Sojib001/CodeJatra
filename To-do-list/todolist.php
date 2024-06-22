@@ -49,7 +49,30 @@ require 'db_conn.php';
                 <li class="search-box">
 
                     <i class='bx bx-search-alt-2 icon'></i>
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="Handle..." id="handleInput">
+                    <script>
+                        document.getElementById('handleInput').addEventListener('keypress', function(event) {
+                            if (event.key === 'Enter') {
+                                var handle = document.getElementById('handleInput').value;
+                                if (handle) {
+                                    fetch('http://localhost/get email.php?handle=' + encodeURIComponent(handle))
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            event.preventDefault();
+                                            if (data === 'No email found for the given handle' || data === 'No handle provided') {
+                                                alert(data);
+                                            } else {
+                                                // Redirect to profile page with email as query parameter
+                                                window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(data)}`;
+                                            }
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                } else {
+                                    alert('Please enter a handle.');
+                                }
+                            }
+                        });
+                    </script>
 
                 </li>
                 <ul class="menu-links">
@@ -57,6 +80,12 @@ require 'db_conn.php';
                         <a href="../dashboard/dashboard.php" id="Dashboard">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../CodeForcesProfile/CodeForces profile.php" id="CodeForces Profile">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">CodeForces Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
@@ -81,12 +110,6 @@ require 'db_conn.php';
                                 console.error('Email not found in localStorage');
                             }
                         </script>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../problemtable/problemtable.php" id="Atcoder Profile">
-                            <i class='bx bx-bug icon'></i>
-                            <span class="text nav-text">Atcoder Profile</span>
-                        </a>
                     </li>
                     <li class="nav-link">
                         <a href="../Leaderboard/leaderboardPage.php" id="LeaderBoard">
