@@ -122,6 +122,7 @@ fetch(apiUrl1)
           solved: solved,
           submission: submission
         };
+        console.log(handle)
         var jsonBody = JSON.stringify(dataToUpdate);
         return fetch(`http://localhost/leaderboard.php?handle=${handle}`, {
           method: 'POST',
@@ -135,7 +136,6 @@ fetch(apiUrl1)
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        
         console.log(response);
         return response.json(); // Parse JSON response if needed
       })
