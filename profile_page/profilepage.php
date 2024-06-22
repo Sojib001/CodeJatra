@@ -211,7 +211,7 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="../landing page/landingpage.php" id="Logout">
+                    <a href="../landingpage/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
