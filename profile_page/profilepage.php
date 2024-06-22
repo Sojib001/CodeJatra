@@ -138,6 +138,50 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
             margin: 5px 0;
         }
     </style>
+    <script>
+         function showForgotPasswordModal() {
+            document.getElementById('forgot-password-modal').style.display = 'flex';
+        }
+
+        function hideForgotPasswordModal() {
+            document.getElementById('forgot-password-modal').style.display = 'none';
+        }
+
+        async function handleForgotPassword(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('forgot-email').value;
+            const username = document.getElementById('forgot-username').value;
+
+            const response = await fetch('forgot_password.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'FORGOT_PASSWORD': true,
+                    'EMAIL': email,
+                    'USERNAME': username
+                })
+            });
+
+            const result = await response.json();
+
+            alert(result.message);
+
+            function clearForgotPasswordModal() {
+                document.getElementById('forgot-email').value = '';
+                document.getElementById('forgot-username').value = '';
+            }
+            if (result.status === 'success') {
+                hideForgotPasswordModal();
+            } else {
+                // Close the modal
+                clearForgotPasswordModal();
+                hideForgotPasswordModal();
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -314,7 +358,36 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                             <p><?php echo $handle; ?></p><br>
                             <p><strong>INSTITUTION: </strong></p>
                             <p><?php echo $result['Institute']; ?></p><br>
-                            <p><strong>ADD IUPC: +</strong></p><br>
+                            <p><strong>ADD IUPC: <a href="#" onclick="showForgotPasswordModal(); return false;">+</a></strong></p>
+                            
+                            <div id="forgot-password-modal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close" onclick="hideForgotPasswordModal()">&times;</span>
+                                    
+                                    <form id="forgot-password-form" onsubmit="handleForgotPassword(event)">
+                                        <label for="contest-name">Contest Name:</label>
+                                        <input type="text" id="contest-name" name="contest_name" required><br><br>
+                                        
+                                        <label for="site">Site:</label>
+                                        <input type="text" id="site" name="site" required><br><br>
+                                        
+                                        <label for="start-time">Start Time (Format: 2024-06-25 20:35:00):</label>
+                                        <input type="text" id="start-time" name="start_time" required><br><br>
+                                        
+                                        <label for="duration">Duration (Format: 2h 0m):</label>
+                                        <input type="text" id="duration" name="duration" required><br><br>
+                                        
+                                        <label for="link">Link:</label>
+                                        <input type="text" id="link" name="link" required><br><br>
+                                        
+                                        <button type="submit" style="color: white; font-size: large">Submit</button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+
+
                         </div>
                         <div class="inner-middle">
                             <div>
@@ -500,9 +573,62 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
         </div>
         <!-- Right partition End -->
 
+
+        
+
+   
+
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="js/profilepage.js"></script>
+        <script>
+    function showForgotPasswordModal() {
+        document.getElementById('forgot-password-modal').style.display = 'block';
+    }
+
+    function hideForgotPasswordModal() {
+        document.getElementById('forgot-password-modal').style.display = 'none';
+    }
+
+    async function handleForgotPassword(event) {
+    event.preventDefault();
+
+    const contestName = document.getElementById('contest-name').value;
+    const site = document.getElementById('site').value;
+    const startTime = document.getElementById('start-time').value;
+    const duration = document.getElementById('duration').value;
+    const link = document.getElementById('link').value;
+
+    const response = await fetch('forgot_password.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+            'FORGOT_PASSWORD': true,
+            'CONTEST_NAME': contestName,
+            'SITE': site,
+            'START_TIME': startTime,
+            'DURATION': duration,
+            'LINK': link
+        })
+    });
+
+    const result = await response.json();
+
+    alert(result.message);
+
+    if (result.status === 'success') {
+        // Clear form fields if submission is successful
+        document.getElementById('forgot-password-form').reset();
+        hideForgotPasswordModal();
+    } else {
+        // Handle error scenario if needed
+    }
+}
+
+</script>
+
 </body>
 
 </html>
