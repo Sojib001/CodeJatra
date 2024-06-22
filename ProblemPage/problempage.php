@@ -1,6 +1,6 @@
 <?php
     require "db_conn.php";
-    $query="select * from problems";
+    $query="select * from problempage";
     $result=mysqli_query($con,$query);
 
 ?>
