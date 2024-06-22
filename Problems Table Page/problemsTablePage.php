@@ -8,17 +8,14 @@
     <!--============= css ====================-->
     <link rel="stylesheet" href="styles.css">
 
-
     <!--============= boxicon ====================-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>
-        Problems
-    </title>
+    <title>Problems</title>
 </head>
 
 <body>
-<nav class="sidebar close">
+    <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -31,19 +28,14 @@
                     <span class="slogan">Track Transform Triumph </span>
                 </div>
             </div>
-
-
-
         </header>
 
         <div class="menu-bar">
             <div class="menu">
                 <i class='bx bx-chevron-right toggle'></i>
                 <li class="search-box">
-
                     <i class='bx bx-search-alt-2 icon'></i>
                     <input type="text" placeholder="Search...">
-
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
@@ -96,7 +88,6 @@
                     <div class="moon-sun">
                         <i class='bx bx-moon icon moon'></i>
                         <i class='bx bx-sun icon sun'></i>
-
                     </div>
                     <span class="mode-text text">Dark Mode</span>
 
@@ -107,8 +98,6 @@
             </div>
         </div>
     </nav>
-
-
 
     <section class="home">
         <div class="nav-bar">
@@ -125,7 +114,7 @@
 
                         <script>
                             // JavaScript to set the image source dynamically
-                            window.onload = function() {
+                            window.onload = function () {
                                 // Retrieve the email from localStorage
                                 var email = localStorage.getItem('email');
 
@@ -141,8 +130,8 @@
                                         })
                                         .then(imagePath => {
                                             // Set the src attribute of the img element
-                                            var actualPath = '../landingpage/'
-                                            actualPath += imagePath
+                                            var actualPath = '../landingpage/';
+                                            actualPath += imagePath;
                                             document.getElementById('userImage').src = actualPath;
                                         })
                                         .catch(error => {
@@ -152,11 +141,10 @@
                                     // Handle the case where email is not available in localStorage
                                     console.error('Email not found in localStorage');
                                 }
-                            }
+                            };
                         </script>
                     </a>
                 </li>
-
             </ul>
         </div>
 
@@ -164,41 +152,35 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Handle</th>
-                        <th>Region</th>
-                        <th>Institute</th>
-                        <th>Solved</th>
-                        <th>Submitted</th>
+                        <th>Problem Name</th>
+                        <th>Problem ID</th>
+                        <th>Link </th>
+                        <th id="ratingHeader">Rating <i class='bx bx-link-external sort'> </th>
+                        <th>Tags</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="problemsTable">
                     <?php
                     $conn = new mysqli("localhost", "root", "", "ip project");
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    $sql = "SELECT * FROM registered_people ORDER BY Solved DESC,Submission DESC";
+                    $sql = "SELECT DISTINCT * FROM problems";
                     $result = $conn->query($sql);
-                    $institute = 'CUET';
-                    $region = 'BD';
                     if ($result->num_rows > 0) {
-                        $i = 1;
                         while ($row = $result->fetch_assoc()) {
+                            $rating = $row['Rating'] == 0 ? "Unavailable" : $row['Rating'];
+                            $tags = $row['Tags'] == NULL ? "Unavailable" : $row['Tags'];
                             echo "<tr>
-                                    <td>{$i}</td>
                                     <td>{$row['Name']}</td>
-                                    <td>{$row['codeforces_handle']}</td>
-                                    <td>{$region}</td>
-                                    <td>{$institute}</td>
-                                    <td>{$row['Solved']}</td>
-                                    <td>{$row['Submission']}</td>
+                                    <td>{$row['Problem_ID']}</td>
+                                    <td><a href='{$row['Link']}'><i class='bx bx-link-external link'></i></a></td>
+                                    <td>{$rating}</td>
+                                    <td>{$tags}</td>
                                 </tr>";
-                            $i++;
                         }
                     } else {
-                        echo "<tr><td colspan='7'>No data found</td></tr>";
+                        echo "<tr><td colspan='5'>No data found</td></tr>";
                     }
                     $conn->close();
                     ?>
@@ -206,6 +188,22 @@
             </table>
         </div>
     </section>
+    <script>
+        document.getElementById('ratingHeader').addEventListener('click', function () {
+            var table = document.getElementById('problemsTable');
+            var rows = Array.from(table.rows);
+
+            rows.sort(function (a, b) {
+                var ratingA = a.cells[3].innerText === "Unavailable" ? Infinity : parseInt(a.cells[3].innerText);
+                var ratingB = b.cells[3].innerText === "Unavailable" ? Infinity : parseInt(b.cells[3].innerText);
+                return ratingA - ratingB;
+            });
+
+            rows.forEach(function (row) {
+                table.appendChild(row);
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 

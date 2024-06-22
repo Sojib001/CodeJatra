@@ -436,3 +436,7 @@ body.dark tr {
     transition: var(--tran-03);
 }
 
+.link{
+    font-size: 26px;
+    color: var(--text-color-dark);
+}
