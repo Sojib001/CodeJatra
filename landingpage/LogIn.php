@@ -15,11 +15,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
     $gmail = $_POST['EMAIL'];
     $password = $_POST['PASS'];
 
-    if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
+
+
+     if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
         $query = "SELECT * FROM registered_people WHERE email = '$gmail' LIMIT 1";
         $result = mysqli_query($con, $query);
         $formType = "login";
-        if ($result) {
+        $cmail=$gmail;
+        $query2 = "SELECT * FROM admin WHERE email = '$cmail' LIMIT 1";
+        $result2 = mysqli_query($con, $query2);
+
+        if($result2 && mysqli_num_rows($result2) > 0){
+            $user_data = mysqli_fetch_assoc($result2);
+            if ($user_data['pass'] == $password) {
+                
+                echo '<meta http-equiv="refresh" content="0.5;url=../Admin/admin_dashboard.php">';
+                exit();
+            } else {
+                $alertMessage = 'Wrong email or password';
+            }
+        }
+        else if ($result) {
             if ($result && mysqli_num_rows($result) > 0) {
                 $user_data = mysqli_fetch_assoc($result);
                 if ($user_data['Password'] == $password) {
@@ -31,16 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
                     echo '<meta http-equiv="refresh" content="0.5;url=../dashboard/dashboard.php">';
                     exit();
                 } else {
-                    $alertMessage = 'Wrong username or password';
+                    $alertMessage = 'Wrong email or password';
                 }
             } else {
-                $alertMessage = 'Wrong username or password';
+                $alertMessage = 'Wrong email or password';
             }
         } else {
-            $alertMessage = 'Wrong username or password';
+            $alertMessage = 'Wrong email or password';
         }
     } else {
-        $alertMessage = 'Wrong username or password';
+        $alertMessage = 'Wrong email or password';
     }
 }
 
