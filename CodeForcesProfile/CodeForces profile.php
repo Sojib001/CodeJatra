@@ -339,8 +339,8 @@
                     ];
                     var mapColumn = {};
                     data.result.forEach(item => {
-                        if (item.problem && item.problem.rating !== undefined && item.problem.rating !== null) {
-                            key = item.problem.rating
+                        if (item.problem && item.problem.rating !== undefined && item.problem.rating !== null && item.verdict == "OK") {
+                            key = item.problem.rating 
 
                             if (mapColumn[key]) {
                                 mapColumn[key]++;
