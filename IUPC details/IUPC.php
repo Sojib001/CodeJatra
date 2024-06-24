@@ -229,6 +229,8 @@
 
             </ul>
         </div>
+        
+        <script src="IUPC.js"></script>
 
         <div class="table">
             <h1 class="heading body-text">
@@ -253,40 +255,7 @@
             </table>
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="IUPC.js"></script>
     <script src="populate table.js"></script>
-
-
 </body>
 
 </html>

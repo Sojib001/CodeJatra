@@ -41,7 +41,7 @@
                 <i class='bx bx-chevron-right toggle'></i>
                 <li class="search-box">
 
-                <i class='bx bx-search-alt-2 icon'></i>
+                    <i class='bx bx-search-alt-2 icon'></i>
                     <input type="text" placeholder="Handle..." id="handleInput">
                     <script>
                         document.getElementById('handleInput').addEventListener('keypress', function(event) {
@@ -227,6 +227,7 @@
             </ul>
         </div>
 
+        <script src="script.js"></script>
         <div class="container">
             <table class="table table-striped">
                 <thead>
@@ -271,7 +272,6 @@
             </table>
         </div>
     </section>
-    <script src="script.js"></script>
 </body>
 
 </html>

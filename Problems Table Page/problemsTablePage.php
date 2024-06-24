@@ -154,7 +154,7 @@
             </div>
         </div>
     </nav>
-
+    
     <section class="home">
         <div class="nav-bar">
             <ul class="dp-bell">
@@ -163,7 +163,8 @@
                         <i class='bx bxs-bell icon'></i>
                     </li>
                 </a>
-
+                <script src="script.js"></script>
+                
                 <li class="dp">
                     <a href="#" id="profileLink">
                         <img id="userImage" alt="Image" />
@@ -174,7 +175,7 @@
                         window.onload = function() {
                             // Retrieve the email from localStorage
                             var email = localStorage.getItem('email');
-
+                            
                             // Check if email is available
                             if (email) {
                                 console.log(email)
@@ -195,12 +196,12 @@
                                     .catch(error => {
                                         console.error('Error fetching image path:', error);
                                     });
-
-                                // Attach click event listener to the profile link
-                                document.getElementById('profileLink').addEventListener('click', function(event) {
-                                    // Prevent default anchor click behavior
+                                    
+                                    // Attach click event listener to the profile link
+                                    document.getElementById('profileLink').addEventListener('click', function(event) {
+                                        // Prevent default anchor click behavior
                                     event.preventDefault();
-
+                                    
                                     // Redirect to profile page with email as query parameter
                                     window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
                                 });
@@ -209,13 +210,12 @@
                                 console.error('Email not found in localStorage');
                             }
                         }
-                    </script>
+                        </script>
                 </li>
             </ul>
         </div>
         
         
-        <script src="script.js"></script>
 
 
         <div class="container">

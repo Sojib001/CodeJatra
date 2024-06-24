@@ -6,38 +6,43 @@ const modeSwitch = body.querySelector(".toggle-switch");
 const modeText = body.querySelector(".mode-text");
 const rightPartition = document.querySelector(".right-partition");
 
-if (localStorage.getItem("dark") == 1) {
-    body.classList.add("dark")
-    rightPartition.classList.add("dark-mode");
-        rightPartition.classList.remove("light-mode");
+
+if (localStorage.getItem("sidebar") == 1) {
+    sidebar.classList.remove("close")
 }
+
 toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
+    sidebar.classList.toggle("close")
     rightPartition.classList.toggle("right-partition-close");
-});
+    if (sidebar.classList.contains("close")) {
+        localStorage.setItem("sidebar", 0)
+    }
+    else {
+        localStorage.setItem("sidebar", 1)
+    }
+    console.log(localStorage.getItem('sidebar'))
+})
 
 searchBar.addEventListener("click", () => {
     sidebar.classList.remove("close");
+    localStorage.setItem("sidebar", 1)
 });
+
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
-
     if (body.classList.contains("dark")) {
         modeText.innerText = "Light Mode";
         rightPartition.classList.add("dark-mode");
         rightPartition.classList.remove("light-mode");
-        localStorage.setItem("dark", 1)
     } else {
         modeText.innerText = "Dark Mode";
         
         rightPartition.classList.add("light-mode");
         rightPartition.classList.remove("dark-mode");
-        localStorage.setItem("dark", 0)
     }
     drawGooglePieChart();
 });
-
 
 // profile_page.js or any other relevant JavaScript file
 

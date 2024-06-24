@@ -194,8 +194,8 @@
                                 console.log(email)
                                 // Fetch the image path from the PHP script
                                 fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                                    .then(response => {
-                                        if (!response.ok) {
+                                .then(response => {
+                                    if (!response.ok) {
                                             throw new Error('Network response was not ok');
                                         }
                                         return response.text();
@@ -223,16 +223,17 @@
                                 console.error('Email not found in localStorage');
                             }
                         }
-                    </script>
+                        </script>
 
-                </li>
+</li>
 
-            </ul>
-        </div>
+</ul>
+</div>
 
-        <div class="table">
-            <h1 class="heading body-text">
-                Upcoming Contests
+<script src="dashboard.js"></script>
+<div class="table">
+    <h1 class="heading body-text">
+        Upcoming Contests
             </h1>
             <p class='body-text' style="text-align: center; font-weight: 400;">Note all times are in GMT +6:00 </p>
 
@@ -283,7 +284,6 @@
 
 
 
-    <script src="dashboard.js"></script>
     <script src="populate table.js"></script>
     <script src="registered_people.js"></script>
 </body>
