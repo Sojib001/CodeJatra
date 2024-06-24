@@ -213,6 +213,10 @@
                 </li>
             </ul>
         </div>
+        
+        
+        <script src="script.js"></script>
+
 
         <div class="container">
             <table class="table table-striped">
@@ -322,7 +326,7 @@
             isAscending = !isAscending; // Toggle the sorting order
         });
     </script>
-    <script src="script.js"></script>
+    
 </body>
 
 </html>

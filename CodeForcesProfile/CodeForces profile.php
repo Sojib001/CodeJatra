@@ -163,7 +163,7 @@
 
                     </div>
                     <span class="mode-text text">Dark Mode</span>
-
+                    
                     <div class="toggle-switch">
                         <span class="switch"></span>
                     </div>
@@ -171,9 +171,9 @@
             </div>
         </div>
     </nav>
-
-
-
+    
+    
+    
     <section class="home">
         <div class="nav-bar">
             <ul class="dp-bell">
@@ -182,18 +182,18 @@
                         <i class='bx bxs-bell icon'></i>
                     </li>
                 </a>
-
+                
                 <li class="dp">
                     <a href="#" id="profileLink">
                         <img id="userImage" alt="Image" />
                     </a>
-
+                    
                     <script>
                         // JavaScript to set the image source dynamically and handle profile link click
                         window.onload = function() {
                             // Retrieve the email from localStorage
                             var email = localStorage.getItem('email');
-
+                            
                             // Check if email is available
                             if (email) {
                                 console.log(email)
@@ -215,11 +215,11 @@
                                         console.error('Error fetching image path:', error);
                                     });
 
-                                // Attach click event listener to the profile link
+                                    // Attach click event listener to the profile link
                                 document.getElementById('profileLink').addEventListener('click', function(event) {
                                     // Prevent default anchor click behavior
                                     event.preventDefault();
-
+                                    
                                     // Redirect to profile page with email as query parameter
                                     window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
                                 });
@@ -228,12 +228,13 @@
                                 console.error('Email not found in localStorage');
                             }
                         }
-                    </script>
+                        </script>
 
-                </li>
+</li>
+<script src="CodeForces profile.js"></script>
 
-            </ul>
-        </div>
+</ul>
+</div>
         <!-- Top end -->
 
         <div class="mid">
@@ -542,7 +543,6 @@
         }
     </script>
 
-    <script src="CodeForces profile.js"></script>
 
 </body>
 

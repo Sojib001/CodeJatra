@@ -12,18 +12,26 @@ if (localStorage.getItem("dark") == 1) {
     body.classList.add("dark")
 }
 
+
+if (localStorage.getItem("sidebar") == 1) {
+    sidebar.classList.remove("close")
+}
+
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
-    console.log("Hello")
-})
-searchBar.addEventListener("click", () => {
-    sidebar.classList.remove("close")
+    if (sidebar.classList.contains("close")) {
+        localStorage.setItem("sidebar", 0)
+    }
+    else {
+        localStorage.setItem("sidebar", 1)
+    }
+    console.log(localStorage.getItem('sidebar'))
 })
 
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark")
-    
+
     if (body.classList.contains("dark")) {
         modeText.innerText = "Light Morde"
         localStorage.setItem("dark", 1)

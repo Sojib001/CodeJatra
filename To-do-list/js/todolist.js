@@ -23,6 +23,11 @@ const title = document.title;
 console.log(title)
 const glow_swich = document.getElementById(title)
 glow_swich.classList.add("glow")
+
+if (localStorage.getItem("dark") == 1) {
+    body.classList.add("dark")
+}
+
 function adjustAnswerPosition() {
     if (sidebar.classList.contains("close")) {
         faqAnswers.forEach(function(answer) {
@@ -48,18 +53,19 @@ searchBar.addEventListener("click", () => {
 })
 
 
+
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark")
+    
     if (body.classList.contains("dark")) {
-        modeText.innerText = "Light Mode"
+        modeText.innerText = "Light Morde"
+        localStorage.setItem("dark", 1)
     }
     else {
-        modeText.innerText = "Dark Mode"
+        modeText.innerText = "Dark Morde"
+        localStorage.setItem("dark", 0)
     }
-    drawGooglePieChart()
-
 })
-
 
 
 

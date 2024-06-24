@@ -5,6 +5,9 @@ const registerLink = document.querySelector('.register-link');
 if (localStorage.getItem("dark") === null) {
     localStorage.setItem("dark", 0)
 }
+if (localStorage.getItem("sidebar") === null) {
+    localStorage.setItem("sidebar", 0)
+}
 registerLink.addEventListener('click',()=> {
 
     wrapper.classList.add('active');

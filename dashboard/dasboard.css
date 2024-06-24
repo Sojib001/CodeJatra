@@ -225,7 +225,7 @@ header .image-text .header-text {
     align-items: center;
     text-decoration: none;
     border-radius: 6px;
-    transition: var(--tran-04);
+    transition: var(--tran-03);
 }
 
 .sidebar li a:hover {

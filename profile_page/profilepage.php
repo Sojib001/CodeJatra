@@ -398,9 +398,9 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
 
         <!-- Right partition Start -->
         <div class="light-mode right-partition bootstrap">
-            <div class="main-section col-md-12">
+            <div class="main-section col-md-12" style="margin-left: -150px;">
                 <div class="row section-half" style="background-color: #e4e9f7;">
-                    <div style="height: 100%; margin-left: 300px;">
+                    <div style="height: 100%; margin-left: 0px;" class="text-center">
                         <img src="<?php echo '../landingpage/' . $result['Image']; ?>" alt="Not Found" onerror="this.onerror=null; this.src='DP.jpg'; this.alt='Alternative Image'" style="height: 250px; width: 250px; border-radius: 50%;">
                         <p style="font-size: 50px;margin-left: 0px"><?php echo $result['Name']; ?></p>
                     </div>
