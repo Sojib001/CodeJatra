@@ -27,7 +27,9 @@ searchBar.addEventListener("click", () => {
     sidebar.classList.remove("close");
     localStorage.setItem("sidebar", 1)
 });
-
+if (localStorage.getItem("dark") == 1) {
+    body.classList.add("dark")
+}
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
