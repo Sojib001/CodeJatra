@@ -138,14 +138,6 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
             margin: 5px 0;
         }
     </style>
-    <script>
-        function showForgotPasswordModal() {
-            document.getElementById('forgot-password-modal').style.display = 'flex';
-        }
-
-        function hideForgotPasswordModal() {
-            document.getElementById('forgot-password-modal').style.display = 'none';
-        }
 
         async function handleForgotPassword(event) {
             event.preventDefault();
