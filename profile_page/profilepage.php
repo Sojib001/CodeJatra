@@ -6,17 +6,84 @@ $email = "ajfaisal1208023@gmail.com";
 if (isset($_GET['email'])) {
     $email = $_GET['email'];
 }
+
 $query = "SELECT * FROM `registered_people` WHERE Email='$email'";
 $result = mysqli_fetch_assoc(mysqli_query($con, $query));
-$query2 = "select codeforces_handle from registered_people where Email='$email'";
+$query2 = "SELECT codeforces_handle FROM registered_people WHERE Email='$email'";
 $handle = $result['codeforces_handle'];
-$query3 = "select * from problems where Solved_By='$handle'";
+
+// Assuming $handle is retrieved correctly, proceed with fetching problems
+$query3 = "SELECT * FROM problems WHERE Solved_By='$handle'";
 $result2 = mysqli_query($con, $query3);
 
-
+// This script tag is used to pass PHP variables to JavaScript
 echo '<script>const userHandle = "' . $handle . '";</script>';
 
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
+    
+    $name = $_POST['update_name'];
+    $pass = $_POST['update_password'];
+    $handle = $_POST['update_handle'];
+    $country = $_POST['update_country'];
+    $institute = $_POST['update_institute'];
+    $photoContent = NULL;
+
+    // Handle image upload
+    if (isset($_FILES['update_image']) && $_FILES['update_image']['error'] == UPLOAD_ERR_OK) {
+        $file_tmp = $_FILES['update_image']['tmp_name'];
+        $file_name = $_FILES['update_image']['name'];
+        $file_path =  '../landingpage/image/' . $file_name;
+
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($file_tmp, $file_path)) {
+            $photoContent = 'image/'.$file_name;
+        } else {
+            die('Failed to upload file.');
+        }
+    }
+
+    // Validate form data
+    if (!empty($pass) && !empty($name) && !empty($email) && !empty($handle) && !empty($country) && !empty($institute)) {
+
+        // Check if email or name already exists in the database
+        $email_check_query = "SELECT * FROM registered_people WHERE Email = '$email' LIMIT 1";
+        $result_email_check = mysqli_query($con, $email_check_query);
+
+        $name_check_query = "SELECT * FROM registered_people WHERE Name = '$name' LIMIT 1";
+        $result_name_check = mysqli_query($con, $name_check_query);
+
+        if (mysqli_num_rows($result_name_check) > 0) {
+            // Name already exists, handle error
+            echo "<script>alert('Username already exists!');</script>";
+        }
+        else if (mysqli_num_rows($result_email_check) > 0) {
+            // Email exists, handle update
+            $update_query = "UPDATE registered_people SET Name='$name', Password='$pass', codeforces_handle='$handle', Country='$country', Institute='$institute'";
+
+            if ($photoContent) {
+                $update_query .= ", image='$photoContent'";
+            }
+
+            $update_query .= " WHERE Email='$email'";
+
+            if (mysqli_query($con, $update_query)) {
+                echo "<script>alert('Updated successfully!');</script>";
+            } else {
+                echo "<script>alert('Failed to update.');</script>";
+            }
+
+        } else {
+            // Insert new record (if needed) or handle as per your application logic
+            echo "<script>alert('No existing record found to update!');</script>";
+        }
+
+    } else {
+        echo "<script>alert('Invalid form data.');</script>";
+    }
+}
 ?>
+
 <!-- comment -->
 
 <!DOCTYPE html>
@@ -138,42 +205,7 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
             margin: 5px 0;
         }
     </style>
-
-        async function handleForgotPassword(event) {
-            event.preventDefault();
-
-            const email = document.getElementById('forgot-email').value;
-            const username = document.getElementById('forgot-username').value;
-
-            const response = await fetch('forgot_password.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    'FORGOT_PASSWORD': true,
-                    'EMAIL': email,
-                    'USERNAME': username
-                })
-            });
-
-            const result = await response.json();
-
-            alert(result.message);
-
-            function clearForgotPasswordModal() {
-                document.getElementById('forgot-email').value = '';
-                document.getElementById('forgot-username').value = '';
-            }
-            if (result.status === 'success') {
-                hideForgotPasswordModal();
-            } else {
-                // Close the modal
-                clearForgotPasswordModal();
-                hideForgotPasswordModal();
-            }
-        }
-    </script>
+    <script></script>
 </head>
 
 <body>
@@ -407,6 +439,40 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                             <p><strong>INSTITUTION: </strong></p>
                             <p><?php echo $result['Institute']; ?></p><br>
                             <p><strong>ADD IUPC: <a href="#" onclick="showForgotPasswordModal(); return false;">+</a></strong></p>
+                            <p><strong>UPDATE PROFILE: <a href="#" onclick="showUpdateModal(); return false;">+</a></strong></p>
+
+                            <div id="update-modal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="hideUpdateModal()">&times;</span>
+
+                                <form method="POST" id="update-form"  enctype="multipart/form-data">
+                                    <label for="update-email">Email:</label>
+                                    <input type="email" id="update-email" name="update_email" value="<?php echo $result['Email']; ?>" readonly><br><br>
+
+                                    <label for="update-name">Name:</label>
+                                    <input type="text" id="update-name" name="update_name" value="<?php echo $result['Name']; ?>" required><br><br>
+                                    
+                                    <label for="update-name">Password:</label>
+                                    <input type="text" id="update-password" name="update_password" value="<?php echo $result['Password']; ?>" required><br><br>
+
+                                    <label for="update-handle">Codeforces Handle:</label>
+                                    <input type="text" id="update-handle" name="update_handle" value="<?php echo $handle; ?>" required><br><br>
+
+                                    <label for="update-country">Country:</label>
+                                    <input type="text" id="update-country" name="update_country" value="<?php echo $result['Country']; ?>" required><br><br>
+
+                                    <label for="update-institution">Institution:</label>
+                                    <input type="text" id="update-institute" name="update_institute" value="<?php echo $result['Institute']; ?>" required><br><br>
+
+                                    <label for="update-image">Image:</label>
+                                    <input type="file" id="update-image" name="update_image"><br><br>
+
+                                    <button type="submit" style="color: white; font-size: large" name="REGISTER">Update</button>
+                                </form>
+                            </div>
+                        </div>
+
+
 
                             <div id="forgot-password-modal" class="modal">
                                 <div class="modal-content">
@@ -428,7 +494,7 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                                         <label for="link">Link:</label>
                                         <input type="text" id="link" name="link" required><br><br>
 
-                                        <button type="submit" style="color: white; font-size: large">Submit</button>
+                                        <button type="submit" style="color: white; font-size: large"  >Submit</button>
                                     </form>
 
                                 </div>
@@ -675,6 +741,18 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                 }
             }
         </script>
+        <script>
+                function showUpdateModal() {
+                    document.getElementById('update-modal').style.display = 'block';
+                }
+
+                function hideUpdateModal() {
+                    document.getElementById('update-modal').style.display = 'none';
+                }
+
+                
+            </script>
+
 
 </body>
 
