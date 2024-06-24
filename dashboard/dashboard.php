@@ -20,6 +20,13 @@
     </title>
 </head>
 
+<script>
+    if (localStorage.getItem("email") == null) {
+        alert("You must log in first")
+        window.location.href = `../landingpage/landingpage.php`;
+    }
+</script>
+
 <body>
     <nav class="sidebar close">
         <header>
@@ -149,6 +156,12 @@
                     <a href="../landingpage/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
+                        <script>
+                            document.getElementById('Logout').addEventListener('click', function(event) {
+                                localStorage.removeItem('email')
+                                localStorage.removeItem('handle')
+                            });
+                        </script>
                     </a>
                 </li>
                 <li class="mode">

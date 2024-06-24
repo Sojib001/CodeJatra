@@ -24,6 +24,13 @@
     </title>
 </head>
 
+<script>
+    if (localStorage.getItem("email") == null) {
+        alert("You must log in first")
+        window.location.href = `../landingpage/landingpage.php`;
+    }
+</script>
+
 <body>
     <!-- SideBar start -->
     <nav class="sidebar close">
@@ -49,7 +56,7 @@
                 <i class='bx bx-chevron-right toggle'></i>
                 <li class="search-box">
 
-                <i class='bx bx-search-alt-2 icon'></i>
+                    <i class='bx bx-search-alt-2 icon'></i>
                     <input type="text" placeholder="Handle..." id="handleInput">
                     <script>
                         document.getElementById('handleInput').addEventListener('keypress', function(event) {
@@ -151,9 +158,15 @@
 
             <div class="bottom-content">
                 <li class="nav-link">
-                    <a href="../landing page/landingpage.php" id="Logout">
+                    <a href="../landingpage/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
+                        <script>
+                            document.getElementById('Logout').addEventListener('click', function(event) {
+                                localStorage.removeItem('email')
+                                localStorage.removeItem('handle')
+                            });
+                        </script>
                     </a>
                 </li>
                 <li class="mode">
@@ -163,7 +176,7 @@
 
                     </div>
                     <span class="mode-text text">Dark Mode</span>
-                    
+
                     <div class="toggle-switch">
                         <span class="switch"></span>
                     </div>
@@ -171,9 +184,9 @@
             </div>
         </div>
     </nav>
-    
-    
-    
+
+
+
     <section class="home">
         <div class="nav-bar">
             <ul class="dp-bell">
@@ -182,18 +195,18 @@
                         <i class='bx bxs-bell icon'></i>
                     </li>
                 </a>
-                
+
                 <li class="dp">
                     <a href="#" id="profileLink">
                         <img id="userImage" alt="Image" />
                     </a>
-                    
+
                     <script>
                         // JavaScript to set the image source dynamically and handle profile link click
                         window.onload = function() {
                             // Retrieve the email from localStorage
                             var email = localStorage.getItem('email');
-                            
+
                             // Check if email is available
                             if (email) {
                                 console.log(email)
@@ -215,11 +228,11 @@
                                         console.error('Error fetching image path:', error);
                                     });
 
-                                    // Attach click event listener to the profile link
+                                // Attach click event listener to the profile link
                                 document.getElementById('profileLink').addEventListener('click', function(event) {
                                     // Prevent default anchor click behavior
                                     event.preventDefault();
-                                    
+
                                     // Redirect to profile page with email as query parameter
                                     window.location.href = `../profile_page/profilepage.php?email=${encodeURIComponent(email)}`;
                                 });
@@ -228,13 +241,13 @@
                                 console.error('Email not found in localStorage');
                             }
                         }
-                        </script>
+                    </script>
 
-</li>
-<script src="CodeForces profile.js"></script>
+                </li>
+                <script src="CodeForces profile.js"></script>
 
-</ul>
-</div>
+            </ul>
+        </div>
         <!-- Top end -->
 
         <div class="mid">
@@ -340,7 +353,7 @@
                     var mapColumn = {};
                     data.result.forEach(item => {
                         if (item.problem && item.problem.rating !== undefined && item.problem.rating !== null && item.verdict == "OK") {
-                            key = item.problem.rating 
+                            key = item.problem.rating
 
                             if (mapColumn[key]) {
                                 mapColumn[key]++;

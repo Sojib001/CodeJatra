@@ -22,6 +22,13 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
 <!DOCTYPE html>
 <html lang="en">
 
+<script>
+    if (localStorage.getItem("email") == null) {
+        alert("You must log in first")
+        window.location.href = `../landingpage/landingpage.php`;
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -314,6 +321,12 @@ echo '<script>const userHandle = "' . $handle . '";</script>';
                     <a href="../landingpage/landingpage.php" id="Logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
+                        <script>
+                            document.getElementById('Logout').addEventListener('click', function(event) {
+                                localStorage.removeItem('email')
+                                localStorage.removeItem('handle')
+                            });
+                        </script>
                     </a>
                 </li>
                 <li class="mode">
