@@ -11,14 +11,25 @@ glow_swich.classList.add("glow")
 if (localStorage.getItem("dark") == 1) {
     body.classList.add("dark")
 }
+glow_swich.classList.add("glow")
+if (localStorage.getItem("sidebar") == 1) {
+    sidebar.classList.remove("close")
+}
 
 toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-});
-glow_swich.classList.add("glow")
+    sidebar.classList.toggle("close")
+    if (sidebar.classList.contains("close")) {
+        localStorage.setItem("sidebar", 0)
+    }
+    else {
+        localStorage.setItem("sidebar", 1)
+    }
+    console.log(localStorage.getItem('sidebar'))
+})
 
 searchBar.addEventListener("click", () => {
     sidebar.classList.remove("close");
+    localStorage.setItem("sidebar", 1)
 });
 
 

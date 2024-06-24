@@ -44,15 +44,30 @@ function adjustAnswerPosition() {
 adjustAnswerPosition();
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close")
-    rightPartition.classList.toggle("right-partition-close")
 })
-searchBar.addEventListener("click", () => {
+
+
+if (localStorage.getItem("sidebar") == 1) {
     sidebar.classList.remove("close")
-    rightPartition.classList.remove("right-partition-close")
-    adjustAnswerPosition();
+}
+
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close")
+    rightPartition.classList.toggle("right-partition-close")
+    if (sidebar.classList.contains("close")) {
+        localStorage.setItem("sidebar", 0)
+    }
+    else {
+        localStorage.setItem("sidebar", 1)
+    }
+    console.log(localStorage.getItem('sidebar'))
 })
 
-
+searchBar.addEventListener("click", () => {
+    sidebar.classList.remove("close");
+    rightPartition.classList.remove("right-partition-close")
+    localStorage.setItem("sidebar", 1)
+});
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark")

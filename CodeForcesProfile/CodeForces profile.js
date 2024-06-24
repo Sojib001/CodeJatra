@@ -28,6 +28,11 @@ toggle.addEventListener("click", () => {
     console.log(localStorage.getItem('sidebar'))
 })
 
+searchBar.addEventListener("click", () => {
+    sidebar.classList.remove("close");
+    localStorage.setItem("sidebar", 1)
+});
+
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark")
