@@ -232,6 +232,9 @@
 
 
         <div class="container">
+            <div style="width: 100%; height: 50px; text-align: center">
+                <span class="body-text" style="font-size: 48px; font-weight: 500; text-align: center;"> Problems </span>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>

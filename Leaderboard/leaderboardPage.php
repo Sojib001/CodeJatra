@@ -242,6 +242,9 @@
         </div>
 
         <script src="script.js"></script>
+        <div style="width: 100%; height: 30px; text-align: center">
+                <span class="body-text" style="font-size: 48px; font-weight: 500; text-align: center;"> Leaderboard </span>
+            </div>
         <div class="container">
             <table class="table table-striped">
                 <thead>
