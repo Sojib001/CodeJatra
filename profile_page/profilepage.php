@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
         $email_check_query = "SELECT * FROM registered_people WHERE Email = '$email' LIMIT 1";
         $result_email_check = mysqli_query($con, $email_check_query);
 
-        $name_check_query = "SELECT * FROM registered_people WHERE Name = '$name' LIMIT 1";
+        $name_check_query = "SELECT * FROM registered_people WHERE Name = 'z' LIMIT 1";
         $result_name_check = mysqli_query($con, $name_check_query);
 
         if (mysqli_num_rows($result_name_check) > 0) {
