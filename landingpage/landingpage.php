@@ -104,7 +104,7 @@
                 </div>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-6">
-                        <img src="./image/about.jpg" alt="not found">
+                        <img src="./image/group_.jpg" alt="not found">
                     </div>
                     <div class="col-lg-5">
                         <h1>About CodeJatra</h1>
@@ -260,43 +260,43 @@
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-1.jpg" alt="">
+                            <img src="./image/project-11.jpg" alt="">
                         </div>
-                        <a href="./image/project-1.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-11.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-2.jpg" alt="">
+                            <img src="./image/project-22.jpg" alt="">
                         </div>
-                        <a href="./image/project-2.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-22.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-3.jpg" alt="">
+                            <img src="./image/project-33.jpg" alt="">
                         </div>
-                        <a href="./image/project-3.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-33.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-4.jpg" alt="">
+                            <img src="./image/project-44.jpg" alt="">
                         </div>
-                        <a href="./image/project-4.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-44.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-5.jpg" alt="">
+                            <img src="./image/project-55.jpg" alt="">
                         </div>
-                        <a href="./image/project-5.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-55.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-6.jpg" alt="">
+                            <img src="./image/project-66.jpg" alt="">
                         </div>
-                        <a href="./image/project-6.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-66.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -331,7 +331,7 @@
                 <div class="col-md-4">
                     <div class="team-member image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/person-2.jpg" alt="">
+                            <img src="./image/sagor2.jpg" alt="">
                         </div>
                         <div class="team-member-content">
                             <h4 class="text-white">MD Sagor Chowdhury</h4>
