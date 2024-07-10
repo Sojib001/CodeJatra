@@ -68,13 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     $apiUrl = "https://codeforces.com/api/user.info?handles=$handle&checkHistoricHandles=true";
     $apiResponse = @file_get_contents($apiUrl);
     if ($apiResponse === FALSE) {
+        $formType = 'register';
         $alertMessage = $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Invalid Handle';
     } else {
         $apiData = json_decode($apiResponse, true);
         if ($apiData === null) {
             $alertMessage = 'Failed to decode API response.';
+            $formType = 'register';
         } elseif ($apiData['status'] !== 'OK') {
             $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Unknown error';
+            $formType = 'register';
         } else {
             if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
                 $file_tmp = $_FILES['Photo']['tmp_name'];
