@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 08:06 AM
+-- Generation Time: Jun 27, 2024 at 08:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -454,6 +454,8 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Reversing Encryption', 'AJFaisal', '999B', 'https://codeforces.com/problemset/problem/999/B', 900, 'implementation', 1, 1, '1696050130'),
 ('Alphabetic Removals', 'AJFaisal', '999C', 'https://codeforces.com/problemset/problem/999/C', 1200, 'implementation', 1, 1, '1696051760'),
 ('Equalize the Remainders', 'AJFaisal', '999D', 'https://codeforces.com/problemset/problem/999/D', 1900, 'data structures,greedy,implementation', 0, 1, '1696055009'),
+('The number of positions', 'asd', '124A', 'https://codeforces.com/problemset/problem/124/A', 1000, 'math', 1, 3, '1320334235'),
+('Permutations', 'asd', '124B', 'https://codeforces.com/problemset/problem/124/B', 1400, 'brute force,combinatorics,implementation', 1, 2, '1320338903'),
 ('Polycarp\'s Pockets', 'b_AHA_r', '1003A', 'https://codeforces.com/problemset/problem/1003/A', 800, 'implementation', 1, 2, '1705397443'),
 ('Binary String Constructing', 'b_AHA_r', '1003B', 'https://codeforces.com/problemset/problem/1003/B', 1300, 'constructive algorithms', 1, 2, '1705401217'),
 ('Intense Heat', 'b_AHA_r', '1003C', 'https://codeforces.com/problemset/problem/1003/C', 1300, 'brute force,implementation,math', 1, 4, '1705405077'),
@@ -744,10 +746,10 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Even Picture', 'b_AHA_r', '1368C', 'https://codeforces.com/problemset/problem/1368/C', 1500, 'constructive algorithms', 1, 1, '1674050137'),
 ('AccurateLee', 'b_AHA_r', '1369B', 'https://codeforces.com/problemset/problem/1369/B', 1200, 'greedy,implementation,strings', 1, 2, '1672306750'),
 ('Presents', 'b_AHA_r', '136A', 'https://codeforces.com/problemset/problem/136/A', 800, 'implementation', 1, 1, '1673923481'),
-('Ternary Logic', 'b_AHA_r', '136B', 'https://codeforces.com/problemset/problem/136/B', 1100, 'implementation,math', 1, 4, '1693507953'),
-('Maximum GCD', 'b_AHA_r', '1370A', 'https://codeforces.com/problemset/problem/1370/A', 800, 'greedy,implementation,math,number theory', 1, 1, '1643380639'),
-('GCD Compression', 'b_AHA_r', '1370B', 'https://codeforces.com/problemset/problem/1370/B', 1100, 'constructive algorithms,math,number theory', 1, 2, '1672836746');
+('Ternary Logic', 'b_AHA_r', '136B', 'https://codeforces.com/problemset/problem/136/B', 1100, 'implementation,math', 1, 4, '1693507953');
 INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('Maximum GCD', 'b_AHA_r', '1370A', 'https://codeforces.com/problemset/problem/1370/A', 800, 'greedy,implementation,math,number theory', 1, 1, '1643380639'),
+('GCD Compression', 'b_AHA_r', '1370B', 'https://codeforces.com/problemset/problem/1370/B', 1100, 'constructive algorithms,math,number theory', 1, 2, '1672836746'),
 ('Number Game', 'b_AHA_r', '1370C', 'https://codeforces.com/problemset/problem/1370/C', 1400, 'games,math,number theory', 1, 1, '1686915944'),
 ('Grid-00100', 'b_AHA_r', '1371D', 'https://codeforces.com/problemset/problem/1371/D', 1600, 'constructive algorithms,greedy,implementation', 1, 1, '1676550370'),
 ('Omkar and Last Class of Math', 'b_AHA_r', '1372B', 'https://codeforces.com/problemset/problem/1372/B', 1300, 'greedy,math,number theory', 1, 12, '1709272767'),
@@ -1071,11 +1073,11 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Circle Game', 'b_AHA_r', '1695B', 'https://codeforces.com/problemset/problem/1695/B', 1000, 'games,greedy', 1, 13, '1672593928'),
 ('Zero Path', 'b_AHA_r', '1695C', 'https://codeforces.com/problemset/problem/1695/C', 1700, 'brute force,data structures,dp,graphs,greedy,shortest paths', 1, 5, '1691692341'),
 ('NIT orz!', 'b_AHA_r', '1696A', 'https://codeforces.com/problemset/problem/1696/A', 800, 'bitmasks,greedy', 1, 2, '1657085997'),
-('NIT Destroys the Universe', 'b_AHA_r', '1696B', 'https://codeforces.com/problemset/problem/1696/B', 900, 'greedy', 1, 1, '1691495768'),
+('NIT Destroys the Universe', 'b_AHA_r', '1696B', 'https://codeforces.com/problemset/problem/1696/B', 900, 'greedy', 1, 1, '1691495768');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('Parkway Walk', 'b_AHA_r', '1697A', 'https://codeforces.com/problemset/problem/1697/A', 800, 'greedy,implementation', 1, 1, '1655048736'),
 ('Promo', 'b_AHA_r', '1697B', 'https://codeforces.com/problemset/problem/1697/B', 900, 'greedy,sortings', 1, 1, '1655088136'),
-('XOR Mixup', 'b_AHA_r', '1698A', 'https://codeforces.com/problemset/problem/1698/A', 800, 'bitmasks,brute force', 1, 1, '1657099380');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('XOR Mixup', 'b_AHA_r', '1698A', 'https://codeforces.com/problemset/problem/1698/A', 800, 'bitmasks,brute force', 1, 1, '1657099380'),
 ('3SUM Closure', 'b_AHA_r', '1698C', 'https://codeforces.com/problemset/problem/1698/C', 1300, 'brute force,data structures', 1, 1, '1694760661'),
 ('The Third Three Number Problem', 'b_AHA_r', '1699A', 'https://codeforces.com/problemset/problem/1699/A', 800, 'constructive algorithms,math', 1, 1, '1671711471'),
 ('Almost Ternary Matrix', 'b_AHA_r', '1699B', 'https://codeforces.com/problemset/problem/1699/B', 900, 'bitmasks,constructive algorithms,matrices', 1, 1, '1689778007'),
@@ -1399,11 +1401,11 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Trust Nobody', 'b_AHA_r', '1826A', 'https://codeforces.com/problemset/problem/1826/A', 1200, 'brute force,greedy,implementation,sortings', 1, 1, '1683509848'),
 ('Lunatic Never Content', 'b_AHA_r', '1826B', 'https://codeforces.com/problemset/problem/1826/B', 1100, 'math,number theory', 1, 2, '1683509499'),
 ('Dreaming of Freedom', 'b_AHA_r', '1826C', 'https://codeforces.com/problemset/problem/1826/C', 1300, 'greedy,math,number theory', 1, 3, '1685265299'),
-('Divisible Array', 'b_AHA_r', '1828A', 'https://codeforces.com/problemset/problem/1828/A', 800, 'constructive algorithms,math', 1, 1, '1684090797'),
+('Divisible Array', 'b_AHA_r', '1828A', 'https://codeforces.com/problemset/problem/1828/A', 800, 'constructive algorithms,math', 1, 1, '1684090797');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('Permutation Swap', 'b_AHA_r', '1828B', 'https://codeforces.com/problemset/problem/1828/B', 900, 'math,number theory', 1, 2, '1684093523'),
 ('Counting Orders', 'b_AHA_r', '1828C', 'https://codeforces.com/problemset/problem/1828/C', 1100, 'binary search,combinatorics,sortings', 1, 1, '1684138053'),
-('Love Story', 'b_AHA_r', '1829A', 'https://codeforces.com/problemset/problem/1829/A', 800, 'implementation,strings', 1, 1, '1683638070');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('Love Story', 'b_AHA_r', '1829A', 'https://codeforces.com/problemset/problem/1829/A', 800, 'implementation,strings', 1, 1, '1683638070'),
 ('Blank Space', 'b_AHA_r', '1829B', 'https://codeforces.com/problemset/problem/1829/B', 800, 'implementation', 1, 1, '1683638267'),
 ('Mr. Perfectly Fine', 'b_AHA_r', '1829C', 'https://codeforces.com/problemset/problem/1829/C', 800, 'bitmasks,greedy,implementation', 1, 1, '1683638935'),
 ('Gold Rush', 'b_AHA_r', '1829D', 'https://codeforces.com/problemset/problem/1829/D', 1000, 'brute force,dfs and similar,dp,implementation', 1, 1, '1683686946'),
@@ -1725,11 +1727,11 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Inaccurate Subsequence Search', 'b_AHA_r', '1955D', 'https://codeforces.com/problemset/problem/1955/D', 1400, 'data structures,two pointers', 1, 1, '1712736839'),
 ('Long Inversions', 'b_AHA_r', '1955E', 'https://codeforces.com/problemset/problem/1955/E', 1700, 'brute force,greedy,implementation,sortings', 1, 6, '1712929111'),
 ('Unfair Game', 'b_AHA_r', '1955F', 'https://codeforces.com/problemset/problem/1955/F', 1800, 'dp,games,greedy,math,schedules', 1, 1, '1712945532'),
-('Nene\'s Game', 'b_AHA_r', '1956A', 'https://codeforces.com/problemset/problem/1956/A', 800, 'binary search,brute force,data structures,games,greedy', 1, 2, '1713105679'),
+('Nene\'s Game', 'b_AHA_r', '1956A', 'https://codeforces.com/problemset/problem/1956/A', 800, 'binary search,brute force,data structures,games,greedy', 1, 2, '1713105679');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('Nene and the Card Game', 'b_AHA_r', '1956B', 'https://codeforces.com/problemset/problem/1956/B', 800, 'games,greedy', 1, 1, '1713020248'),
 ('Nene\'s Magical Matrix', 'b_AHA_r', '1956C', 'https://codeforces.com/problemset/problem/1956/C', 1600, 'constructive algorithms,greedy,math', 1, 2, '1713166969'),
-('Nene vs. Monsters (Easy Version)', 'b_AHA_r', '1956E1', 'https://codeforces.com/problemset/problem/1956/E1', 2500, 'brute force,implementation,math', 0, 1, '1713021829');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('Nene vs. Monsters (Easy Version)', 'b_AHA_r', '1956E1', 'https://codeforces.com/problemset/problem/1956/E1', 2500, 'brute force,implementation,math', 0, 1, '1713021829'),
 ('Stickogon', 'b_AHA_r', '1957A', 'https://codeforces.com/problemset/problem/1957/A', 800, 'constructive algorithms,greedy', 1, 6, '1713762411'),
 ('A BIT of a Construction', 'b_AHA_r', '1957B', 'https://codeforces.com/problemset/problem/1957/B', 1100, 'bitmasks,constructive algorithms,greedy,implementation', 1, 2, '1713951953'),
 ('How Does the Rook Move?', 'b_AHA_r', '1957C', 'https://codeforces.com/problemset/problem/1957/C', 1600, 'combinatorics,dp,math', 1, 2, '1713961463'),
@@ -2064,12 +2066,12 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Crossword solving', 'b_AHA_r', '822B', 'https://codeforces.com/problemset/problem/822/B', 1000, 'brute force,implementation,strings', 1, 3, '1695391230'),
 ('Double Cola', 'b_AHA_r', '82A', 'https://codeforces.com/problemset/problem/82/A', 1100, 'implementation,math', 1, 1, '1701947969'),
 ('Key races', 'b_AHA_r', '835A', 'https://codeforces.com/problemset/problem/835/A', 800, 'math', 1, 2, '1667218572'),
-('The number on the board', 'b_AHA_r', '835B', 'https://codeforces.com/problemset/problem/835/B', 1100, 'greedy', 1, 1, '1693504319'),
+('The number on the board', 'b_AHA_r', '835B', 'https://codeforces.com/problemset/problem/835/B', 1100, 'greedy', 1, 1, '1693504319');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('Text Volume', 'b_AHA_r', '837A', 'https://codeforces.com/problemset/problem/837/A', 800, 'implementation', 1, 1, '1694230440'),
 ('Arya and Bran', 'b_AHA_r', '839A', 'https://codeforces.com/problemset/problem/839/A', 900, 'implementation', 1, 2, '1696909083'),
 ('Curriculum Vitae', 'b_AHA_r', '846A', 'https://codeforces.com/problemset/problem/846/A', 1500, 'brute force,implementation', 1, 2, '1678714555'),
-('University Classes', 'b_AHA_r', '847G', 'https://codeforces.com/problemset/problem/847/G', 900, 'implementation', 1, 1, '1668658869');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('University Classes', 'b_AHA_r', '847G', 'https://codeforces.com/problemset/problem/847/G', 900, 'implementation', 1, 1, '1668658869'),
 ('From Y to Y', 'b_AHA_r', '848A', 'https://codeforces.com/problemset/problem/848/A', 1600, 'constructive algorithms', 1, 1, '1674814169'),
 ('Tom Riddle\'s Diary', 'b_AHA_r', '855A', 'https://codeforces.com/problemset/problem/855/A', 800, 'brute force,implementation,strings', 1, 1, '1641804402'),
 ('Kayaking', 'b_AHA_r', '863B', 'https://codeforces.com/problemset/problem/863/B', 1500, 'brute force,greedy,sortings', 1, 4, '1694232739'),
@@ -2396,12 +2398,12 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Rule of League', 'ratnajit_dhar', '1733B', 'https://codeforces.com/problemset/problem/1733/B', 900, 'constructive algorithms,math', 1, 4, '1663601925'),
 ('Select Three Sticks', 'ratnajit_dhar', '1734A', 'https://codeforces.com/problemset/problem/1734/A', 800, 'brute force,greedy,sortings', 1, 1, '1663944917'),
 ('Bright, Nice, Brilliant', 'ratnajit_dhar', '1734B', 'https://codeforces.com/problemset/problem/1734/B', 800, 'constructive algorithms', 1, 1, '1663946738'),
-('Removing Smallest Multiples', 'ratnajit_dhar', '1734C', 'https://codeforces.com/problemset/problem/1734/C', 1200, 'greedy,math', 1, 2, '1664089121'),
+('Removing Smallest Multiples', 'ratnajit_dhar', '1734C', 'https://codeforces.com/problemset/problem/1734/C', 1200, 'greedy,math', 1, 2, '1664089121');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('Working Week', 'ratnajit_dhar', '1735A', 'https://codeforces.com/problemset/problem/1735/A', 800, 'constructive algorithms,greedy,math', 1, 2, '1664784366'),
 ('Tea with Tangerines', 'ratnajit_dhar', '1735B', 'https://codeforces.com/problemset/problem/1735/B', 900, 'greedy,math', 1, 1, '1664820583'),
 ('Make A Equal to B', 'ratnajit_dhar', '1736A', 'https://codeforces.com/problemset/problem/1736/A', 800, 'brute force,greedy,sortings', 1, 1, '1665427961'),
-('Good Subarrays (Easy Version)', 'ratnajit_dhar', '1736C1', 'https://codeforces.com/problemset/problem/1736/C1', 1300, 'binary search,data structures,schedules,two pointers', 0, 1, '1665426373');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('Good Subarrays (Easy Version)', 'ratnajit_dhar', '1736C1', 'https://codeforces.com/problemset/problem/1736/C1', 1300, 'binary search,data structures,schedules,two pointers', 0, 1, '1665426373'),
 ('Ela Sorting Books', 'ratnajit_dhar', '1737A', 'https://codeforces.com/problemset/problem/1737/A', 900, 'greedy,implementation,strings', 1, 1, '1665158028'),
 ('Ela\'s Fitness and the Luxury Number', 'ratnajit_dhar', '1737B', 'https://codeforces.com/problemset/problem/1737/B', 1300, 'binary search,implementation,math', 0, 1, '1665156110'),
 ('Ela and Crickets', 'ratnajit_dhar', '1737C', 'https://codeforces.com/problemset/problem/1737/C', 1500, 'constructive algorithms,games,implementation,math', 1, 2, '1665161277'),
@@ -2717,12 +2719,12 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('George and Accommodation', 'ratnajit_dhar', '467A', 'https://codeforces.com/problemset/problem/467/A', 800, 'implementation', 1, 2, '1650320091'),
 ('George and Job', 'ratnajit_dhar', '467C', 'https://codeforces.com/problemset/problem/467/C', 1700, 'dp,implementation', 1, 1, '1706987010'),
 ('24 Game', 'ratnajit_dhar', '468A', 'https://codeforces.com/problemset/problem/468/A', 1500, 'constructive algorithms,greedy,math', 0, 2, '1693291004'),
-('I Wanna Be the Guy', 'ratnajit_dhar', '469A', 'https://codeforces.com/problemset/problem/469/A', 800, 'greedy,implementation', 1, 1, '1676993489'),
+('I Wanna Be the Guy', 'ratnajit_dhar', '469A', 'https://codeforces.com/problemset/problem/469/A', 800, 'greedy,implementation', 1, 1, '1676993489');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
 ('MUH and Cube Walls', 'ratnajit_dhar', '471D', 'https://codeforces.com/problemset/problem/471/D', 1800, 'string suffix structures,strings', 0, 1, '1686343690'),
 ('Design Tutorial: Make It Nondeterministic', 'ratnajit_dhar', '472C', 'https://codeforces.com/problemset/problem/472/C', 1400, 'greedy', 1, 2, '1693284125'),
 ('Worms', 'ratnajit_dhar', '474B', 'https://codeforces.com/problemset/problem/474/B', 1200, 'binary search,implementation', 1, 1, '1654929137'),
-('Flowers', 'ratnajit_dhar', '474D', 'https://codeforces.com/problemset/problem/474/D', 1700, 'dp', 1, 4, '1706796318');
-INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('Flowers', 'ratnajit_dhar', '474D', 'https://codeforces.com/problemset/problem/474/D', 1700, 'dp', 1, 4, '1706796318'),
 ('Ant colony', 'ratnajit_dhar', '474F', 'https://codeforces.com/problemset/problem/474/F', 2100, 'data structures,math,number theory', 1, 1, '1706810070'),
 ('Dreamoon and Stairs', 'ratnajit_dhar', '476A', 'https://codeforces.com/problemset/problem/476/A', 1000, 'implementation,math', 1, 3, '1657556813'),
 ('Dreamoon and WiFi', 'ratnajit_dhar', '476B', 'https://codeforces.com/problemset/problem/476/B', 1300, 'bitmasks,brute force,combinatorics,dp,math,probabilities', 1, 1, '1670393760'),
@@ -2791,7 +2793,358 @@ INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Ta
 ('Wrong Subtraction', 'ratnajit_dhar', '977A', 'https://codeforces.com/problemset/problem/977/A', 800, 'implementation', 1, 1, '1650105245'),
 ('Less or Equal', 'ratnajit_dhar', '977C', 'https://codeforces.com/problemset/problem/977/C', 1200, 'sortings', 1, 3, '1674463161'),
 ('Consecutive Subsequence', 'ratnajit_dhar', '977F', 'https://codeforces.com/problemset/problem/977/F', 1700, 'dp', 1, 6, '1715487630'),
-('Hit the Lottery', 'ratnajit_dhar', '996A', 'https://codeforces.com/problemset/problem/996/A', 800, 'dp,greedy', 1, 3, '1650982428');
+('Hit the Lottery', 'ratnajit_dhar', '996A', 'https://codeforces.com/problemset/problem/996/A', 800, 'dp,greedy', 1, 3, '1650982428'),
+('Guess the Number', 'ss303', '1010211', 'https://codeforces.com/problemset/problem/101021/1', 0, '', 1, 1, '1675919427'),
+('Final Problem', 'ss303', '102191B', 'https://codeforces.com/problemset/problem/102191/B', 0, '', 1, 1, '1669495132'),
+('Trick or Treat', 'ss303', '102470A', 'https://codeforces.com/problemset/problem/102470/A', 0, '', 0, 2, '1655389428'),
+('Distinct Numbers', 'ss303', '102961A', 'https://codeforces.com/problemset/problem/102961/A', 0, '', 1, 1, '1650693167'),
+('Subarray Sums I', 'ss303', '102961ZA', 'https://codeforces.com/problemset/problem/102961/ZA', 0, '', 0, 2, '1647454300'),
+('Dualites in Pain - The Beginning', 'ss303', '103785C', 'https://codeforces.com/problemset/problem/103785/C', 0, '', 1, 3, '1657198187'),
+('Mixed Economy', 'ss303', '103870E', 'https://codeforces.com/problemset/problem/103870/E', 0, '', 1, 3, '1664100720'),
+('Non-Coprime Partition', 'ss303', '1038B', 'https://codeforces.com/problemset/problem/1038/B', 1100, 'constructive algorithms,math', 0, 1, '1707986669'),
+('Base62', 'ss303', '104021I', 'https://codeforces.com/problemset/problem/104021/I', 0, '', 1, 3, '1671560004'),
+('Find GCD', 'ss303', '104283F', 'https://codeforces.com/problemset/problem/104283/F', 0, '', 0, 2, '1682588161'),
+('Treasure Hunter', 'ss303', '1044413', 'https://codeforces.com/problemset/problem/104441/3', 0, '', 0, 3, '1688125631'),
+('Shooting', 'ss303', '104454B', 'https://codeforces.com/problemset/problem/104454/B', 0, '', 1, 4, '1695045026'),
+('The Fair Nut and Elevator', 'ss303', '1084A', 'https://codeforces.com/problemset/problem/1084/A', 1000, 'brute force,implementation', 0, 1, '1649150394'),
+('Nastya Is Playing Computer Games', 'ss303', '1136B', 'https://codeforces.com/problemset/problem/1136/B', 1000, 'constructive algorithms,math', 1, 1, '1707973908'),
+('Lost Numbers', 'ss303', '1167B', 'https://codeforces.com/problemset/problem/1167/B', 1400, 'brute force,divide and conquer,interactive,math', 1, 4, '1675920132'),
+('News Distribution', 'ss303', '1167C', 'https://codeforces.com/problemset/problem/1167/C', 1400, 'dfs and similar,dsu,graphs', 1, 1, '1668945534'),
+('Block Adventure', 'ss303', '1200B', 'https://codeforces.com/problemset/problem/1200/B', 1200, 'dp,greedy', 1, 3, '1671089034'),
+('Make Product Equal One', 'ss303', '1206B', 'https://codeforces.com/problemset/problem/1206/B', 900, 'dp,implementation', 1, 3, '1677463683'),
+('XOR Guessing', 'ss303', '1207E', 'https://codeforces.com/problemset/problem/1207/E', 1900, 'bitmasks,interactive,math', 1, 3, '1675924449'),
+('Multiplication Table', 'ss303', '1220B', 'https://codeforces.com/problemset/problem/1220/B', 1300, 'math,number theory', 1, 1, '1676913675'),
+('The number of positions', 'ss303', '124A', 'https://codeforces.com/problemset/problem/124/A', 1000, 'math', 1, 2, '1681930837'),
+('Nearest Opposite Parity', 'ss303', '1272E', 'https://codeforces.com/problemset/problem/1272/E', 1900, 'dfs and similar,graphs,shortest paths', 0, 12, '1647662503'),
+('Bogosort', 'ss303', '1312B', 'https://codeforces.com/problemset/problem/1312/B', 1000, 'constructive algorithms,sortings', 1, 1, '1678254294'),
+('Journey Planning', 'ss303', '1320A', 'https://codeforces.com/problemset/problem/1320/A', 1400, 'data structures,dp,greedy,math,sortings', 1, 4, '1669099919'),
+('Yet Another Tetris Problem', 'ss303', '1324A', 'https://codeforces.com/problemset/problem/1324/A', 900, 'implementation,number theory', 1, 1, '1676480595'),
+('Composite Coloring', 'ss303', '1332B', 'https://codeforces.com/problemset/problem/1332/B', 1400, 'brute force,constructive algorithms,greedy,math,number theory', 1, 5, '1676824363'),
+('Candies and Two Sisters', 'ss303', '1335A', 'https://codeforces.com/problemset/problem/1335/A', 800, 'math', 1, 3, '1651230244'),
+('Construct the String', 'ss303', '1335B', 'https://codeforces.com/problemset/problem/1335/B', 900, 'constructive algorithms', 1, 3, '1677083766'),
+('Filling Diamonds', 'ss303', '1339A', 'https://codeforces.com/problemset/problem/1339/A', 900, 'brute force,dp,implementation,math', 1, 1, '1677173054'),
+('Polygon', 'ss303', '1360E', 'https://codeforces.com/problemset/problem/1360/E', 1300, 'dp,graphs,implementation,shortest paths', 1, 3, '1691596568'),
+('Shuffle', 'ss303', '1366B', 'https://codeforces.com/problemset/problem/1366/B', 1300, 'math,two pointers', 1, 1, '1683108231'),
+('Palindromic Paths', 'ss303', '1366C', 'https://codeforces.com/problemset/problem/1366/C', 1500, 'greedy,math', 1, 1, '1680544937'),
+('Boring Apartments', 'ss303', '1433A', 'https://codeforces.com/problemset/problem/1433/A', 800, 'implementation,math', 1, 1, '1691660930'),
+('Yet Another Bookshelf', 'ss303', '1433B', 'https://codeforces.com/problemset/problem/1433/B', 800, 'greedy,implementation', 1, 1, '1691661018'),
+('Dominant Piranha', 'ss303', '1433C', 'https://codeforces.com/problemset/problem/1433/C', 900, 'constructive algorithms,greedy', 1, 5, '1691664034'),
+('Districts Connection', 'ss303', '1433D', 'https://codeforces.com/problemset/problem/1433/D', 1200, 'constructive algorithms,dfs and similar', 1, 4, '1691663150'),
+('Two Round Dances', 'ss303', '1433E', 'https://codeforces.com/problemset/problem/1433/E', 1300, 'combinatorics,math', 1, 1, '1691664531'),
+('Zero Remainder Sum ', 'ss303', '1433F', 'https://codeforces.com/problemset/problem/1433/F', 2100, 'dp', 1, 1, '1691671121'),
+('Odd Divisor', 'ss303', '1475A', 'https://codeforces.com/problemset/problem/1475/A', 900, 'math,number theory', 1, 1, '1676999719'),
+('Red and Blue Beans', 'ss303', '1519A', 'https://codeforces.com/problemset/problem/1519/A', 800, 'math', 0, 1, '1669091730'),
+('Soft Drinking', 'ss303', '151A', 'https://codeforces.com/problemset/problem/151/A', 800, 'implementation,math', 1, 2, '1641922265'),
+('Do Not Be Distracted!', 'ss303', '1520A', 'https://codeforces.com/problemset/problem/1520/A', 800, 'brute force,implementation', 1, 1, '1643030385'),
+('Mean Inequality', 'ss303', '1526A', 'https://codeforces.com/problemset/problem/1526/A', 800, 'constructive algorithms,sortings', 1, 1, '1707988179'),
+('Potions (Easy Version)', 'ss303', '1526C1', 'https://codeforces.com/problemset/problem/1526/C1', 1500, 'brute force,data structures,dp,greedy', 1, 3, '1707032424'),
+('Potions (Hard Version)', 'ss303', '1526C2', 'https://codeforces.com/problemset/problem/1526/C2', 1600, 'data structures,greedy', 1, 1, '1707032443'),
+('Array Reodering', 'ss303', '1535B', 'https://codeforces.com/problemset/problem/1535/B', 900, 'brute force,greedy,math,number theory,sortings', 1, 7, '1676653026'),
+('Air Conditioners', 'ss303', '1547E', 'https://codeforces.com/problemset/problem/1547/E', 1500, 'data structures,dp,implementation,shortest paths,sortings,two pointers', 1, 2, '1707583306'),
+('Web of Lies', 'ss303', '1549C', 'https://codeforces.com/problemset/problem/1549/C', 1400, 'graphs,greedy', 1, 1, '1706597797'),
+('Penalty', 'ss303', '1553C', 'https://codeforces.com/problemset/problem/1553/C', 1200, 'bitmasks,brute force,dp,greedy', 1, 1, '1669094113'),
+('Mocha and Math', 'ss303', '1559A', 'https://codeforces.com/problemset/problem/1559/A', 900, 'bitmasks,constructive algorithms,math', 1, 1, '1676642322'),
+('Next Round', 'ss303', '158A', 'https://codeforces.com/problemset/problem/158/A', 800, '*special,implementation', 1, 4, '1641917404'),
+('XOR Specia-LIS-t', 'ss303', '1604B', 'https://codeforces.com/problemset/problem/1604/B', 1100, '', 1, 1, '1708059503'),
+('Update Files', 'ss303', '1606B', 'https://codeforces.com/problemset/problem/1606/B', 1100, 'greedy,implementation,math', 1, 2, '1707032400'),
+('Menorah', 'ss303', '1615C', 'https://codeforces.com/problemset/problem/1615/C', 1600, 'brute force,graphs,greedy,math', 1, 1, '1669494817'),
+('Square String?', 'ss303', '1619A', 'https://codeforces.com/problemset/problem/1619/A', 800, 'implementation,strings', 1, 1, '1649655573'),
+('Squares and Cubes', 'ss303', '1619B', 'https://codeforces.com/problemset/problem/1619/B', 800, 'implementation,math', 1, 1, '1649748070'),
+('Wrong Addition', 'ss303', '1619C', 'https://codeforces.com/problemset/problem/1619/C', 1200, 'implementation', 1, 4, '1707997638'),
+('Replace the Numbers', 'ss303', '1620E', 'https://codeforces.com/problemset/problem/1620/E', 1900, 'constructive algorithms,data structures,dsu,implementation', 1, 21, '1641720744'),
+('Plus One on the Subset', 'ss303', '1624A', 'https://codeforces.com/problemset/problem/1624/A', 800, 'math', 1, 2, '1641827019'),
+('Make AP', 'ss303', '1624B', 'https://codeforces.com/problemset/problem/1624/B', 900, 'implementation,math', 1, 2, '1641835725'),
+('Ancient Civilization', 'ss303', '1625A', 'https://codeforces.com/problemset/problem/1625/A', 800, 'bitmasks,greedy,math', 1, 2, '1642017586'),
+('Equidistant Letters', 'ss303', '1626A', 'https://codeforces.com/problemset/problem/1626/A', 800, 'constructive algorithms,sortings', 1, 1, '1642346101'),
+('Minor Reduction', 'ss303', '1626B', 'https://codeforces.com/problemset/problem/1626/B', 1100, 'greedy,strings', 0, 1, '1642355963'),
+('Not Shading', 'ss303', '1627A', 'https://codeforces.com/problemset/problem/1627/A', 800, 'constructive algorithms,implementation', 1, 1, '1642259315'),
+('Not Sitting', 'ss303', '1627B', 'https://codeforces.com/problemset/problem/1627/B', 1300, 'games,greedy,sortings', 1, 1, '1642270864'),
+('Download More RAM', 'ss303', '1629A', 'https://codeforces.com/problemset/problem/1629/A', 800, 'brute force,greedy,sortings', 1, 1, '1642862937'),
+('GCD Arrays', 'ss303', '1629B', 'https://codeforces.com/problemset/problem/1629/B', 800, 'greedy,math,number theory', 1, 1, '1642873357'),
+('Min Max Swap', 'ss303', '1631A', 'https://codeforces.com/problemset/problem/1631/A', 800, 'greedy', 1, 1, '1643296443'),
+('Fun with Even Subarrays', 'ss303', '1631B', 'https://codeforces.com/problemset/problem/1631/B', 1100, 'dp,greedy', 0, 5, '1643299934'),
+('ABC', 'ss303', '1632A', 'https://codeforces.com/problemset/problem/1632/A', 800, 'implementation', 1, 2, '1643555008'),
+('Div. 7', 'ss303', '1633A', 'https://codeforces.com/problemset/problem/1633/A', 800, 'brute force', 1, 2, '1643640617'),
+('Minority', 'ss303', '1633B', 'https://codeforces.com/problemset/problem/1633/B', 800, 'greedy', 1, 1, '1643641082'),
+('Kill the Monster', 'ss303', '1633C', 'https://codeforces.com/problemset/problem/1633/C', 1100, 'brute force,math', 0, 4, '1643649310'),
+('Reverse and Concatenate', 'ss303', '1634A', 'https://codeforces.com/problemset/problem/1634/A', 800, 'greedy,strings', 1, 1, '1644159099'),
+('Fortune Telling', 'ss303', '1634B', 'https://codeforces.com/problemset/problem/1634/B', 1400, 'bitmasks,math', 1, 1, '1644160164'),
+('OKEA', 'ss303', '1634C', 'https://codeforces.com/problemset/problem/1634/C', 1000, 'constructive algorithms', 1, 3, '1644166260'),
+('Sorting Parts', 'ss303', '1637A', 'https://codeforces.com/problemset/problem/1637/A', 800, 'brute force,sortings', 1, 2, '1644677634'),
+('MEX and Array', 'ss303', '1637B', 'https://codeforces.com/problemset/problem/1637/B', 1100, 'brute force,dp,greedy,math', 1, 1, '1644679596'),
+('Andrew and Stones', 'ss303', '1637C', 'https://codeforces.com/problemset/problem/1637/C', 1200, 'greedy,implementation', 0, 3, '1644684617'),
+('Doors and Keys', 'ss303', '1644A', 'https://codeforces.com/problemset/problem/1644/A', 800, 'implementation', 1, 1, '1645541219'),
+('Anti-Fibonacci Permutation', 'ss303', '1644B', 'https://codeforces.com/problemset/problem/1644/B', 800, 'brute force,constructive algorithms,implementation', 1, 1, '1645543445'),
+('Madoka and Math Dad', 'ss303', '1647A', 'https://codeforces.com/problemset/problem/1647/A', 800, 'implementation,math', 1, 3, '1647234507'),
+('Game', 'ss303', '1649A', 'https://codeforces.com/problemset/problem/1649/A', 800, 'implementation', 1, 2, '1646708286'),
+('Deletions of Two Adjacent Letters', 'ss303', '1650A', 'https://codeforces.com/problemset/problem/1650/A', 800, 'implementation,strings', 1, 1, '1646794926'),
+('DIV + MOD', 'ss303', '1650B', 'https://codeforces.com/problemset/problem/1650/B', 900, 'math', 1, 3, '1646829479'),
+('Playoff', 'ss303', '1651A', 'https://codeforces.com/problemset/problem/1651/A', 800, 'implementation', 1, 2, '1646923650'),
+('Prove Him Wrong', 'ss303', '1651B', 'https://codeforces.com/problemset/problem/1651/B', 800, 'constructive algorithms,greedy', 1, 1, '1646924637'),
+('Fault-tolerant Network', 'ss303', '1651C', 'https://codeforces.com/problemset/problem/1651/C', 1500, 'brute force,data structures,implementation', 0, 4, '1646928345'),
+('Maximum Cake Tastiness', 'ss303', '1654A', 'https://codeforces.com/problemset/problem/1654/A', 800, 'brute force,greedy,implementation,sortings', 1, 1, '1647789422'),
+('Prefix Removals', 'ss303', '1654B', 'https://codeforces.com/problemset/problem/1654/B', 800, 'strings', 0, 2, '1647851595'),
+('Good Pairs', 'ss303', '1656A', 'https://codeforces.com/problemset/problem/1656/A', 800, 'math,sortings', 1, 1, '1648186814'),
+('Subtract Operation', 'ss303', '1656B', 'https://codeforces.com/problemset/problem/1656/B', 1100, 'data structures,greedy,math,two pointers', 0, 2, '1648188543'),
+('Integer Moves', 'ss303', '1657A', 'https://codeforces.com/problemset/problem/1657/A', 800, 'brute force,math', 1, 1, '1647961408'),
+('XY Sequence', 'ss303', '1657B', 'https://codeforces.com/problemset/problem/1657/B', 800, 'greedy', 1, 2, '1647963227'),
+('Bracket Sequence Deletion', 'ss303', '1657C', 'https://codeforces.com/problemset/problem/1657/C', 1200, 'greedy,implementation', 1, 1, '1647995644'),
+('Marin and Photoshoot', 'ss303', '1658A', 'https://codeforces.com/problemset/problem/1658/A', 800, 'constructive algorithms,implementation,math', 1, 1, '1648434817'),
+('Marin and Anti-coprime Permutation', 'ss303', '1658B', 'https://codeforces.com/problemset/problem/1658/B', 800, 'combinatorics,math,number theory', 1, 1, '1648446883'),
+('Vasya and Coins', 'ss303', '1660A', 'https://codeforces.com/problemset/problem/1660/A', 800, 'greedy,math', 1, 1, '1648738608'),
+('Vlad and Candies', 'ss303', '1660B', 'https://codeforces.com/problemset/problem/1660/B', 800, 'math', 1, 1, '1648739442'),
+('Get an Even String', 'ss303', '1660C', 'https://codeforces.com/problemset/problem/1660/C', 1300, 'dp,greedy,strings', 1, 4, '1648790839'),
+('Array Balancing', 'ss303', '1661A', 'https://codeforces.com/problemset/problem/1661/A', 800, 'greedy,math', 1, 1, '1649516067'),
+('Water the Trees', 'ss303', '1661C', 'https://codeforces.com/problemset/problem/1661/C', 1700, 'binary search,greedy,math', 0, 2, '1712165089'),
+('Who Tested?', 'ss303', '1663A', 'https://codeforces.com/problemset/problem/1663/A', 0, '*special,expression parsing,trees', 1, 2, '1648826803'),
+('Mike\'s Sequence', 'ss303', '1663B', 'https://codeforces.com/problemset/problem/1663/B', 0, '*special,divide and conquer,implementation,math', 0, 3, '1648827437'),
+('Pōja Verdon', 'ss303', '1663C', 'https://codeforces.com/problemset/problem/1663/C', 0, '*special,implementation,math', 0, 7, '1648828746'),
+('GCD vs LCM', 'ss303', '1665A', 'https://codeforces.com/problemset/problem/1665/A', 800, 'constructive algorithms,math', 1, 1, '1649428854'),
+('Array Cloning Technique', 'ss303', '1665B', 'https://codeforces.com/problemset/problem/1665/B', 900, 'constructive algorithms,greedy,sortings', 1, 5, '1649489962'),
+('Connect the Points', 'ss303', '1666C', 'https://codeforces.com/problemset/problem/1666/C', 1800, 'brute force,constructive algorithms,geometry', 0, 5, '1649853699'),
+('Deletive Editing', 'ss303', '1666D', 'https://codeforces.com/problemset/problem/1666/D', 900, 'greedy', 1, 1, '1649839452'),
+('Labyrinth', 'ss303', '1666L', 'https://codeforces.com/problemset/problem/1666/L', 1800, 'dfs and similar,graphs', 0, 7, '1649858063'),
+('Dolce Vita', 'ss303', '1671C', 'https://codeforces.com/problemset/problem/1671/C', 1200, 'binary search,brute force,greedy,math', 0, 2, '1650738721'),
+('Palindromic Indices', 'ss303', '1682A', 'https://codeforces.com/problemset/problem/1682/A', 800, 'greedy,strings', 1, 1, '1653276843'),
+('Everything Everywhere All But One', 'ss303', '1686A', 'https://codeforces.com/problemset/problem/1686/A', 800, 'greedy', 1, 1, '1653534381'),
+('Odd Subarrays', 'ss303', '1686B', 'https://codeforces.com/problemset/problem/1686/B', 800, 'dp,greedy', 1, 1, '1653536595'),
+('Circular Local MiniMax', 'ss303', '1686C', 'https://codeforces.com/problemset/problem/1686/C', 1100, 'constructive algorithms,greedy,sortings', 0, 1, '1653562785'),
+('Cirno\'s Perfect Bitmasks Classroom', 'ss303', '1688A', 'https://codeforces.com/problemset/problem/1688/A', 800, 'bitmasks,brute force', 1, 1, '1654268895'),
+('Patchouli\'s Magical Talisman', 'ss303', '1688B', 'https://codeforces.com/problemset/problem/1688/B', 800, 'bitmasks,constructive algorithms,greedy,sortings', 1, 1, '1654269819'),
+('Print a Pedestal (Codeforces logo?)', 'ss303', '1690A', 'https://codeforces.com/problemset/problem/1690/A', 800, 'constructive algorithms,greedy', 1, 1, '1654613374'),
+('Array Decrements', 'ss303', '1690B', 'https://codeforces.com/problemset/problem/1690/B', 800, 'greedy,implementation', 1, 2, '1654614320'),
+('Restoring the Duration of Tasks', 'ss303', '1690C', 'https://codeforces.com/problemset/problem/1690/C', 800, 'data structures,greedy,implementation', 1, 2, '1654614967'),
+('Black and White Stripe', 'ss303', '1690D', 'https://codeforces.com/problemset/problem/1690/D', 1000, 'implementation,two pointers', 1, 1, '1654646412'),
+('Beat The Odds', 'ss303', '1691A', 'https://codeforces.com/problemset/problem/1691/A', 800, 'brute force,greedy,math', 1, 1, '1654054580'),
+('Shoe Shuffling', 'ss303', '1691B', 'https://codeforces.com/problemset/problem/1691/B', 1000, 'constructive algorithms,greedy,implementation,two pointers', 1, 1, '1654066218'),
+('Sum of Substrings', 'ss303', '1691C', 'https://codeforces.com/problemset/problem/1691/C', 1400, 'brute force,constructive algorithms,greedy,math,strings', 0, 3, '1654137713'),
+('Marathon', 'ss303', '1692A', 'https://codeforces.com/problemset/problem/1692/A', 800, 'implementation', 1, 1, '1655217513'),
+('All Distinct', 'ss303', '1692B', 'https://codeforces.com/problemset/problem/1692/B', 800, 'greedy,sortings', 1, 1, '1655217852'),
+('Where\'s the Bishop?', 'ss303', '1692C', 'https://codeforces.com/problemset/problem/1692/C', 800, 'implementation', 1, 1, '1655219035'),
+('The Clock', 'ss303', '1692D', 'https://codeforces.com/problemset/problem/1692/D', 1100, 'brute force,implementation', 1, 1, '1655222928'),
+('Binary Deque', 'ss303', '1692E', 'https://codeforces.com/problemset/problem/1692/E', 1200, 'binary search,implementation,two pointers', 0, 1, '1655223720'),
+('Creep', 'ss303', '1694A', 'https://codeforces.com/problemset/problem/1694/A', 800, 'greedy,implementation', 1, 1, '1655391066'),
+('Paranoid String', 'ss303', '1694B', 'https://codeforces.com/problemset/problem/1694/B', 1200, 'constructive algorithms,greedy', 1, 1, '1655393372'),
+('Directional Increase', 'ss303', '1694C', 'https://codeforces.com/problemset/problem/1694/C', 1300, 'greedy', 1, 1, '1655394385'),
+('Fake Plastic Trees', 'ss303', '1694D', 'https://codeforces.com/problemset/problem/1694/D', 1700, 'dfs and similar,dp,greedy,trees', 0, 2, '1655399566'),
+('Subrectangle Guess', 'ss303', '1695A', 'https://codeforces.com/problemset/problem/1695/A', 800, 'games', 1, 2, '1655564692'),
+('Circle Game', 'ss303', '1695B', 'https://codeforces.com/problemset/problem/1695/B', 1000, 'games,greedy', 1, 1, '1655565472'),
+('Zero Path', 'ss303', '1695C', 'https://codeforces.com/problemset/problem/1695/C', 1700, 'brute force,data structures,dp,graphs,greedy,shortest paths', 1, 17, '1691615152'),
+('XOR Mixup', 'ss303', '1698A', 'https://codeforces.com/problemset/problem/1698/A', 800, 'bitmasks,brute force', 1, 1, '1656575179'),
+('Rising Sand', 'ss303', '1698B', 'https://codeforces.com/problemset/problem/1698/B', 800, 'constructive algorithms,greedy,implementation', 0, 1, '1656579522'),
+('Train and Queries', 'ss303', '1702C', 'https://codeforces.com/problemset/problem/1702/C', 1100, 'data structures,greedy', 1, 2, '1669495009'),
+('Two 0-1 Sequences', 'ss303', '1704A', 'https://codeforces.com/problemset/problem/1704/A', 800, 'constructive algorithms,greedy', 1, 1, '1669495359'),
+('Luke is a Foodie', 'ss303', '1704B', 'https://codeforces.com/problemset/problem/1704/B', 1000, 'brute force,greedy,implementation', 1, 1, '1669495333'),
+('Virus', 'ss303', '1704C', 'https://codeforces.com/problemset/problem/1704/C', 1200, 'greedy,implementation,sortings', 1, 1, '1669495297'),
+('Mark and His Unfinished Essay', 'ss303', '1705C', 'https://codeforces.com/problemset/problem/1705/C', 1400, 'brute force,implementation', 1, 7, '1664903362'),
+('Another String Minimization Problem', 'ss303', '1706A', 'https://codeforces.com/problemset/problem/1706/A', 800, '2-sat,constructive algorithms,greedy,string suffix structures,strings', 1, 1, '1669494444'),
+('Making Towers', 'ss303', '1706B', 'https://codeforces.com/problemset/problem/1706/B', 1100, 'dp,greedy,math', 1, 1, '1669495410'),
+('Three Doors', 'ss303', '1709A', 'https://codeforces.com/problemset/problem/1709/A', 800, 'brute force,greedy,implementation,math', 1, 1, '1669495385'),
+('Fighting Tournament', 'ss303', '1719C', 'https://codeforces.com/problemset/problem/1719/C', 1400, 'binary search,data structures,implementation,two pointers', 1, 2, '1662786284'),
+('Spell Check', 'ss303', '1722A', 'https://codeforces.com/problemset/problem/1722/A', 800, 'implementation', 1, 1, '1669495278'),
+('Colourblindness', 'ss303', '1722B', 'https://codeforces.com/problemset/problem/1722/B', 800, 'implementation', 1, 1, '1669495260'),
+('Word Game', 'ss303', '1722C', 'https://codeforces.com/problemset/problem/1722/C', 800, 'data structures,implementation', 1, 1, '1669495229'),
+('Line', 'ss303', '1722D', 'https://codeforces.com/problemset/problem/1722/D', 1100, 'greedy,sortings', 1, 1, '1669495203'),
+('Counting Rectangles', 'ss303', '1722E', 'https://codeforces.com/problemset/problem/1722/E', 1600, 'brute force,data structures,dp,implementation', 1, 1, '1669495178'),
+('Basketball Together', 'ss303', '1725B', 'https://codeforces.com/problemset/problem/1725/B', 1000, 'binary search,greedy,sortings', 1, 1, '1663319793'),
+('Colored Balls: Revisited', 'ss303', '1728A', 'https://codeforces.com/problemset/problem/1728/A', 800, 'brute force,greedy,implementation,sortings', 1, 1, '1669495107'),
+('Best Permutation', 'ss303', '1728B', 'https://codeforces.com/problemset/problem/1728/B', 800, 'constructive algorithms,greedy', 1, 1, '1669495085'),
+('Digital Logarithm', 'ss303', '1728C', 'https://codeforces.com/problemset/problem/1728/C', 1400, 'data structures,greedy,sortings', 1, 1, '1669495034'),
+('Two Elevators', 'ss303', '1729A', 'https://codeforces.com/problemset/problem/1729/A', 800, 'math', 1, 1, '1669494911'),
+('Decode String', 'ss303', '1729B', 'https://codeforces.com/problemset/problem/1729/B', 800, 'greedy,strings', 1, 1, '1669494887'),
+('Jumping on Tiles', 'ss303', '1729C', 'https://codeforces.com/problemset/problem/1729/C', 1100, 'constructive algorithms,strings', 1, 5, '1669494849'),
+('Joey Takes Money', 'ss303', '1731A', 'https://codeforces.com/problemset/problem/1731/A', 800, 'greedy,math', 1, 1, '1672151967'),
+('Kill Demodogs', 'ss303', '1731B', 'https://codeforces.com/problemset/problem/1731/B', 1100, 'greedy,math', 1, 2, '1672296206'),
+('Even Subarrays', 'ss303', '1731C', 'https://codeforces.com/problemset/problem/1731/C', 1700, 'bitmasks,brute force,hashing,math,number theory', 1, 22, '1672297344'),
+('Consecutive Sum', 'ss303', '1733A', 'https://codeforces.com/problemset/problem/1733/A', 800, 'greedy,sortings', 1, 1, '1663648573'),
+('Glory Addicts', 'ss303', '1738A', 'https://codeforces.com/problemset/problem/1738/A', 800, 'greedy,implementation,sortings', 1, 1, '1664700980'),
+('Immobile Knight', 'ss303', '1739A', 'https://codeforces.com/problemset/problem/1739/A', 800, 'implementation', 1, 1, '1669494703'),
+('Array Recovery', 'ss303', '1739B', 'https://codeforces.com/problemset/problem/1739/B', 1100, 'constructive algorithms,greedy,math', 1, 1, '1669494675'),
+('Factorise N+M', 'ss303', '1740A', 'https://codeforces.com/problemset/problem/1740/A', 800, 'constructive algorithms,number theory', 1, 1, '1669494399'),
+('Jumbo Extra Cheese 2', 'ss303', '1740B', 'https://codeforces.com/problemset/problem/1740/B', 800, 'geometry,greedy,sortings', 1, 1, '1669494371'),
+('Bricks and Bags', 'ss303', '1740C', 'https://codeforces.com/problemset/problem/1740/C', 1400, 'constructive algorithms,games,greedy,sortings', 1, 1, '1669494237'),
+('Sum', 'ss303', '1742A', 'https://codeforces.com/problemset/problem/1742/A', 800, 'implementation', 1, 1, '1669494654'),
+('Increasing', 'ss303', '1742B', 'https://codeforces.com/problemset/problem/1742/B', 800, 'greedy,implementation,sortings', 1, 1, '1669494615'),
+('Stripes', 'ss303', '1742C', 'https://codeforces.com/problemset/problem/1742/C', 900, 'implementation', 1, 2, '1669494579'),
+('Save the Magazines', 'ss303', '1743C', 'https://codeforces.com/problemset/problem/1743/C', 1100, 'constructive algorithms,dp,greedy', 1, 3, '1666100478'),
+('Traffic Light', 'ss303', '1744C', 'https://codeforces.com/problemset/problem/1744/C', 1000, 'binary search,implementation,two pointers', 1, 2, '1666326699'),
+('Maxmina', 'ss303', '1746A', 'https://codeforces.com/problemset/problem/1746/A', 800, 'constructive algorithms,greedy', 1, 1, '1669494557'),
+('Rebellion', 'ss303', '1746B', 'https://codeforces.com/problemset/problem/1746/B', 800, 'constructive algorithms,greedy,two pointers', 1, 1, '1669494532'),
+('Two Groups', 'ss303', '1747A', 'https://codeforces.com/problemset/problem/1747/A', 800, 'constructive algorithms,greedy', 1, 3, '1669494158'),
+('BAN BAN', 'ss303', '1747B', 'https://codeforces.com/problemset/problem/1747/B', 900, 'constructive algorithms', 1, 1, '1669494128'),
+('Swap Game', 'ss303', '1747C', 'https://codeforces.com/problemset/problem/1747/C', 1200, 'games', 1, 1, '1669494104'),
+('Yet Another Problem', 'ss303', '1747D', 'https://codeforces.com/problemset/problem/1747/D', 1900, 'binary search,bitmasks,constructive algorithms,data structures', 1, 1, '1669494083'),
+('The Ultimate Square', 'ss303', '1748A', 'https://codeforces.com/problemset/problem/1748/A', 800, 'math', 1, 1, '1669493809'),
+('Diverse Substrings', 'ss303', '1748B', 'https://codeforces.com/problemset/problem/1748/B', 1400, 'brute force,implementation,strings', 1, 1, '1669493788'),
+('Zero-Sum Prefixes', 'ss303', '1748C', 'https://codeforces.com/problemset/problem/1748/C', 1600, 'brute force,data structures,dp,greedy,implementation', 1, 1, '1669493763'),
+('Cowardly Rooks', 'ss303', '1749A', 'https://codeforces.com/problemset/problem/1749/A', 800, 'greedy,implementation', 1, 1, '1669494491'),
+('Indirect Sort', 'ss303', '1750A', 'https://codeforces.com/problemset/problem/1750/A', 800, 'constructive algorithms,implementation,math', 1, 1, '1669494021'),
+('Maximum Substring', 'ss303', '1750B', 'https://codeforces.com/problemset/problem/1750/B', 800, 'brute force,greedy,implementation', 1, 4, '1669493954'),
+('Complementary XOR', 'ss303', '1750C', 'https://codeforces.com/problemset/problem/1750/C', 1400, 'constructive algorithms,implementation', 1, 1, '1669493915'),
+('Technical Support', 'ss303', '1754A', 'https://codeforces.com/problemset/problem/1754/A', 800, 'greedy', 1, 3, '1666632033'),
+('SSeeeeiinngg DDoouubbllee', 'ss303', '1758A', 'https://codeforces.com/problemset/problem/1758/A', 800, 'constructive algorithms,strings', 1, 1, '1669493266'),
+('XOR = Average', 'ss303', '1758B', 'https://codeforces.com/problemset/problem/1758/B', 900, 'constructive algorithms', 1, 1, '1669493598'),
+('Doremy\'s Paint', 'ss303', '1764A', 'https://codeforces.com/problemset/problem/1764/A', 800, 'greedy', 1, 1, '1669495869'),
+('Doremy\'s Perfect Math Class', 'ss303', '1764B', 'https://codeforces.com/problemset/problem/1764/B', 900, 'math,number theory', 1, 1, '1669497115'),
+('Extremely Round', 'ss303', '1766A', 'https://codeforces.com/problemset/problem/1766/A', 800, 'brute force,implementation', 1, 1, '1670863168'),
+('Notepad#', 'ss303', '1766B', 'https://codeforces.com/problemset/problem/1766/B', 1000, 'implementation', 1, 1, '1670863344'),
+('Hamiltonian Wall', 'ss303', '1766C', 'https://codeforces.com/problemset/problem/1766/C', 1300, 'dp,implementation', 1, 1, '1670863373'),
+('Lucky Chains', 'ss303', '1766D', 'https://codeforces.com/problemset/problem/1766/D', 1600, 'math,number theory', 1, 7, '1670948424'),
+('Greatest Convex', 'ss303', '1768A', 'https://codeforces.com/problemset/problem/1768/A', 800, 'greedy,math,number theory', 1, 1, '1672929473'),
+('Quick Sort', 'ss303', '1768B', 'https://codeforces.com/problemset/problem/1768/B', 900, 'greedy,math', 1, 1, '1672930235'),
+('Elemental Decompress', 'ss303', '1768C', 'https://codeforces.com/problemset/problem/1768/C', 1300, 'constructive algorithms,greedy,implementation,sortings', 1, 3, '1672933329'),
+('Koxia and Whiteboards', 'ss303', '1770A', 'https://codeforces.com/problemset/problem/1770/A', 1000, 'brute force,greedy', 1, 5, '1672578901'),
+('Koxia and Permutation', 'ss303', '1770B', 'https://codeforces.com/problemset/problem/1770/B', 1000, 'constructive algorithms', 1, 2, '1672412814'),
+('Koxia and Number Theory', 'ss303', '1770C', 'https://codeforces.com/problemset/problem/1770/C', 1700, 'brute force,chinese remainder theorem,math,number theory', 1, 3, '1672422232'),
+('Everybody Likes Good Arrays!', 'ss303', '1777A', 'https://codeforces.com/problemset/problem/1777/A', 800, 'greedy,math', 1, 1, '1674312620'),
+('Emordnilap', 'ss303', '1777B', 'https://codeforces.com/problemset/problem/1777/B', 900, 'combinatorics,greedy,math', 1, 1, '1674312639'),
+('Least Prefix Sum', 'ss303', '1779C', 'https://codeforces.com/problemset/problem/1779/C', 1600, 'data structures,greedy', 1, 6, '1681892067'),
+('Hayato and School', 'ss303', '1780A', 'https://codeforces.com/problemset/problem/1780/A', 800, 'constructive algorithms,greedy', 1, 1, '1674657980'),
+('GCD Partition', 'ss303', '1780B', 'https://codeforces.com/problemset/problem/1780/B', 1100, 'brute force,greedy,math,number theory', 1, 1, '1674659287'),
+('Equal Frequencies', 'ss303', '1781C', 'https://codeforces.com/problemset/problem/1781/C', 1600, 'brute force,constructive algorithms,greedy,implementation,sortings,strings', 1, 2, '1681765696'),
+('Make it Beautiful', 'ss303', '1783A', 'https://codeforces.com/problemset/problem/1783/A', 800, 'constructive algorithms,math,sortings', 1, 1, '1674459851'),
+('Exponential Equation', 'ss303', '1787A', 'https://codeforces.com/problemset/problem/1787/A', 800, 'constructive algorithms,math', 1, 3, '1675058394'),
+('Number Factorization', 'ss303', '1787B', 'https://codeforces.com/problemset/problem/1787/B', 1100, 'greedy,math,number theory', 1, 1, '1675058417'),
+('Remove the Bracket', 'ss303', '1787C', 'https://codeforces.com/problemset/problem/1787/C', 1600, 'dp,greedy,math', 1, 1, '1675065839'),
+('One and Two', 'ss303', '1788A', 'https://codeforces.com/problemset/problem/1788/A', 800, 'brute force,implementation,math', 1, 1, '1675991841'),
+('Sum of Two Numbers', 'ss303', '1788B', 'https://codeforces.com/problemset/problem/1788/B', 1100, 'constructive algorithms,greedy,implementation,math,probabilities', 1, 7, '1675995317'),
+('Matching Numbers', 'ss303', '1788C', 'https://codeforces.com/problemset/problem/1788/C', 1300, 'constructive algorithms,greedy,math', 1, 3, '1676705206'),
+('Serval and Mocha\'s Array', 'ss303', '1789A', 'https://codeforces.com/problemset/problem/1789/A', 800, 'brute force,math,number theory', 1, 1, '1677335389'),
+('Serval and Inversion Magic', 'ss303', '1789B', 'https://codeforces.com/problemset/problem/1789/B', 800, 'brute force,implementation,strings,two pointers', 1, 3, '1677336500'),
+('Polycarp and the Day of Pi', 'ss303', '1790A', 'https://codeforces.com/problemset/problem/1790/A', 800, 'implementation,math,strings', 1, 1, '1674830364'),
+('Taisia and Dice', 'ss303', '1790B', 'https://codeforces.com/problemset/problem/1790/B', 800, 'greedy,greedy,math', 1, 1, '1674831588'),
+('Premutation', 'ss303', '1790C', 'https://codeforces.com/problemset/problem/1790/C', 1000, 'brute force,implementation,math', 1, 1, '1674832390'),
+('Matryoshkas', 'ss303', '1790D', 'https://codeforces.com/problemset/problem/1790/D', 1200, 'data structures,greedy,sortings', 1, 1, '1674834296'),
+('Vlad and a Pair of Numbers', 'ss303', '1790E', 'https://codeforces.com/problemset/problem/1790/E', 1400, 'bitmasks,constructive algorithms', 1, 1, '1674835492'),
+('Teleporters (Easy Version)', 'ss303', '1791G1', 'https://codeforces.com/problemset/problem/1791/G1', 1100, 'greedy,sortings', 1, 1, '1676696952'),
+('GamingForces', 'ss303', '1792A', 'https://codeforces.com/problemset/problem/1792/A', 800, 'greedy,sortings', 1, 1, '1674579981'),
+('Stand-up Comedian', 'ss303', '1792B', 'https://codeforces.com/problemset/problem/1792/B', 1200, 'greedy,math', 1, 4, '1674581592'),
+('Fedya and Array', 'ss303', '1793B', 'https://codeforces.com/problemset/problem/1793/B', 1100, 'constructive algorithms,math', 1, 2, '1676695427'),
+('Dora and Search', 'ss303', '1793C', 'https://codeforces.com/problemset/problem/1793/C', 1200, 'constructive algorithms,data structures,two pointers', 1, 1, '1676644677'),
+('Scoring Subsequences', 'ss303', '1794C', 'https://codeforces.com/problemset/problem/1794/C', 1300, 'binary search,greedy,math,two pointers', 1, 1, '1680347079'),
+('Ideal Point', 'ss303', '1795B', 'https://codeforces.com/problemset/problem/1795/B', 900, 'brute force,geometry,greedy', 0, 1, '1676563132'),
+('Li Hua and Maze', 'ss303', '1797A', 'https://codeforces.com/problemset/problem/1797/A', 800, 'constructive algorithms,flows,graphs,greedy,implementation', 1, 2, '1680963585'),
+('Li Hua and Pattern', 'ss303', '1797B', 'https://codeforces.com/problemset/problem/1797/B', 1100, 'constructive algorithms,greedy', 1, 5, '1680965526'),
+('Li Hua and Chess', 'ss303', '1797C', 'https://codeforces.com/problemset/problem/1797/C', 1600, 'constructive algorithms,greedy,interactive', 1, 8, '1681160762'),
+('Equalize by Divide', 'ss303', '1799B', 'https://codeforces.com/problemset/problem/1799/B', 1200, 'brute force,constructive algorithms,greedy,math', 1, 1, '1680205085'),
+('Is It a Cat?', 'ss303', '1800A', 'https://codeforces.com/problemset/problem/1800/A', 800, 'implementation,strings', 1, 1, '1677827774'),
+('Count the Number of Pairs', 'ss303', '1800B', 'https://codeforces.com/problemset/problem/1800/B', 1000, 'greedy,strings', 1, 1, '1677836528'),
+('Likes', 'ss303', '1802A', 'https://codeforces.com/problemset/problem/1802/A', 800, 'greedy,implementation', 0, 1, '1678539231'),
+('Settlement of Guinea Pigs', 'ss303', '1802B', 'https://codeforces.com/problemset/problem/1802/B', 1000, 'greedy,implementation,math', 1, 2, '1678416746'),
+('We Need the Zero', 'ss303', '1805A', 'https://codeforces.com/problemset/problem/1805/A', 800, 'bitmasks,brute force', 1, 1, '1680447199'),
+('The String Has a Target', 'ss303', '1805B', 'https://codeforces.com/problemset/problem/1805/B', 800, 'greedy,strings', 1, 3, '1680448451'),
+('Place for a Selfie', 'ss303', '1805C', 'https://codeforces.com/problemset/problem/1805/C', 1400, 'binary search,data structures,geometry,math', 1, 7, '1680456016'),
+('Plus or Minus', 'ss303', '1807A', 'https://codeforces.com/problemset/problem/1807/A', 800, 'implementation', 1, 1, '1679237898'),
+('Grab the Candies', 'ss303', '1807B', 'https://codeforces.com/problemset/problem/1807/B', 800, 'greedy', 1, 1, '1679238237'),
+('Find and Replace', 'ss303', '1807C', 'https://codeforces.com/problemset/problem/1807/C', 800, 'greedy,implementation,strings', 1, 1, '1679238501'),
+('Odd Queries', 'ss303', '1807D', 'https://codeforces.com/problemset/problem/1807/D', 900, 'data structures,implementation', 1, 1, '1679239231'),
+('Interview', 'ss303', '1807E', 'https://codeforces.com/problemset/problem/1807/E', 1300, 'binary search,implementation,interactive', 1, 2, '1679241380'),
+('Lucky Numbers', 'ss303', '1808A', 'https://codeforces.com/problemset/problem/1808/A', 900, 'brute force,implementation', 1, 1, '1680081265'),
+('Playing in a Casino', 'ss303', '1808B', 'https://codeforces.com/problemset/problem/1808/B', 1200, 'math,sortings', 1, 2, '1680089354'),
+('Points on Plane', 'ss303', '1809B', 'https://codeforces.com/problemset/problem/1809/B', 1000, 'binary search,greedy,math', 1, 1, '1679904211'),
+('Sum on Subarrays', 'ss303', '1809C', 'https://codeforces.com/problemset/problem/1809/C', 1500, 'constructive algorithms,greedy,math', 1, 4, '1680178141'),
+('Insert Digit', 'ss303', '1811A', 'https://codeforces.com/problemset/problem/1811/A', 800, 'greedy,math,strings', 1, 1, '1680619285'),
+('Conveyor Belts', 'ss303', '1811B', 'https://codeforces.com/problemset/problem/1811/B', 1000, 'implementation,math', 1, 1, '1680619621'),
+('Are You a Robot?', 'ss303', '1812A', 'https://codeforces.com/problemset/problem/1812/A', 0, '*special,*special,*special,expression parsing,strings', 1, 1, '1680365816'),
+('Was it Rated?', 'ss303', '1812B', 'https://codeforces.com/problemset/problem/1812/B', 0, '*special,*special,*special,brute force,implementation', 0, 23, '1680366762'),
+('JoJo\'s Incredible Adventures', 'ss303', '1820B', 'https://codeforces.com/problemset/problem/1820/B', 1100, 'math,strings,two pointers', 1, 3, '1683045587'),
+('Strongly Composite', 'ss303', '1823C', 'https://codeforces.com/problemset/problem/1823/C', 1300, 'greedy,math,number theory', 1, 4, '1682696608'),
+('Lunatic Never Content', 'ss303', '1826B', 'https://codeforces.com/problemset/problem/1826/B', 1100, 'math,number theory', 1, 1, '1687678389'),
+('Grasshopper on a Line', 'ss303', '1837A', 'https://codeforces.com/problemset/problem/1837/A', 800, 'constructive algorithms,math', 1, 1, '1685025885'),
+('Comparison String', 'ss303', '1837B', 'https://codeforces.com/problemset/problem/1837/B', 900, 'greedy', 1, 4, '1685027346'),
+('Best Binary String', 'ss303', '1837C', 'https://codeforces.com/problemset/problem/1837/C', 1000, 'constructive algorithms,greedy', 1, 1, '1685027896'),
+('Bracket Coloring', 'ss303', '1837D', 'https://codeforces.com/problemset/problem/1837/D', 1400, 'constructive algorithms,greedy', 1, 2, '1685032071'),
+('Tenzing and Tsondu', 'ss303', '1842A', 'https://codeforces.com/problemset/problem/1842/A', 800, 'games,math', 1, 1, '1687620040'),
+('Tenzing and Books', 'ss303', '1842B', 'https://codeforces.com/problemset/problem/1842/B', 1100, 'bitmasks,greedy,math', 1, 1, '1687619448'),
+('Monsters', 'ss303', '1849B', 'https://codeforces.com/problemset/problem/1849/B', 1000, 'greedy,math,sortings', 1, 2, '1695479693'),
+('Cardboard for Pictures', 'ss303', '1850E', 'https://codeforces.com/problemset/problem/1850/E', 1100, 'binary search,geometry,implementation,math', 1, 1, '1689961644'),
+('We Were Both Children', 'ss303', '1850F', 'https://codeforces.com/problemset/problem/1850/F', 1300, 'brute force,implementation,math,number theory', 0, 1, '1689962614'),
+('The Morning Star', 'ss303', '1850G', 'https://codeforces.com/problemset/problem/1850/G', 1500, 'combinatorics,data structures,geometry,implementation,math,sortings', 1, 2, '1691816307'),
+('Dual (Easy Version)', 'ss303', '1855C1', 'https://codeforces.com/problemset/problem/1855/C1', 1400, 'constructive algorithms', 1, 1, '1691142255'),
+('Dual (Hard Version)', 'ss303', '1855C2', 'https://codeforces.com/problemset/problem/1855/C2', 1900, 'constructive algorithms,math', 0, 7, '1691144837');
+INSERT INTO `problems` (`Name`, `Solved_By`, `Problem_ID`, `Link`, `Rating`, `Tags`, `Solved`, `Attempted`, `Last_Update`) VALUES
+('United We Stand', 'ss303', '1859A', 'https://codeforces.com/problemset/problem/1859/A', 800, 'constructive algorithms,math,number theory', 1, 1, '1691901393'),
+('Olya and Game with Arrays', 'ss303', '1859B', 'https://codeforces.com/problemset/problem/1859/B', 1000, 'constructive algorithms,greedy,math,sortings', 1, 1, '1691901429'),
+('Another Permutation Problem', 'ss303', '1859C', 'https://codeforces.com/problemset/problem/1859/C', 1200, 'brute force,dp,greedy,math', 1, 1, '1691903411'),
+('Flower City Fence', 'ss303', '1862C', 'https://codeforces.com/problemset/problem/1862/C', 1100, 'binary search,data structures,implementation,sortings', 1, 1, '1693041465'),
+('Effects of Anti Pimples', 'ss303', '1876B', 'https://codeforces.com/problemset/problem/1876/B', 1500, 'combinatorics,number theory,sortings', 1, 7, '1706769509'),
+('Look Back', 'ss303', '1883E', 'https://codeforces.com/problemset/problem/1883/E', 1700, 'bitmasks,greedy', 1, 13, '1706852896'),
+('Medium Design', 'ss303', '1884C', 'https://codeforces.com/problemset/problem/1884/C', 1700, 'brute force,data structures,dp,greedy,sortings', 0, 2, '1707322680'),
+('Milena and Admirer', 'ss303', '1898B', 'https://codeforces.com/problemset/problem/1898/B', 1500, 'greedy,math', 1, 1, '1706250452'),
+('Add, Divide and Floor', 'ss303', '1901C', 'https://codeforces.com/problemset/problem/1901/C', 1400, 'constructive algorithms,greedy,math', 1, 4, '1705509618'),
+('Yet Another Monster Fight', 'ss303', '1901D', 'https://codeforces.com/problemset/problem/1901/D', 1700, 'binary search,dp,greedy,implementation,math', 0, 9, '1705513991'),
+('Theofanis\' Nightmare', 'ss303', '1903C', 'https://codeforces.com/problemset/problem/1903/C', 1400, 'constructive algorithms,greedy', 1, 1, '1705945366'),
+('Make Almost Equal With Mod', 'ss303', '1909B', 'https://codeforces.com/problemset/problem/1909/B', 1200, 'bitmasks,constructive algorithms,math,number theory', 0, 1, '1703745195'),
+('Heavy Intervals', 'ss303', '1909C', 'https://codeforces.com/problemset/problem/1909/C', 1400, 'constructive algorithms,data structures,dsu,greedy,math,sortings', 1, 3, '1715248224'),
+('Programming Competition', 'ss303', '1914F', 'https://codeforces.com/problemset/problem/1914/F', 1900, 'dfs and similar,dp,graph matchings,greedy,trees', 1, 1, '1703675209'),
+('2023', 'ss303', '1916A', 'https://codeforces.com/problemset/problem/1916/A', 800, 'constructive algorithms,implementation,math,number theory', 1, 1, '1703948228'),
+('Two Divisors', 'ss303', '1916B', 'https://codeforces.com/problemset/problem/1916/B', 1000, 'constructive algorithms,math,number theory', 1, 1, '1703948772'),
+('Training Before the Olympiad', 'ss303', '1916C', 'https://codeforces.com/problemset/problem/1916/C', 1200, 'constructive algorithms,games,greedy,implementation,math', 1, 1, '1703951709'),
+('Mathematical Problem', 'ss303', '1916D', 'https://codeforces.com/problemset/problem/1916/D', 1700, 'brute force,constructive algorithms,geometry,math', 1, 1, '1703968122'),
+('XOR-distance', 'ss303', '1918C', 'https://codeforces.com/problemset/problem/1918/C', 1400, 'bitmasks,greedy,implementation,math', 1, 4, '1706697895'),
+('Blocking Elements', 'ss303', '1918D', 'https://codeforces.com/problemset/problem/1918/D', 1900, 'binary search,data structures,dp,implementation,two pointers', 0, 1, '1706899625'),
+('Grouping Increases', 'ss303', '1919C', 'https://codeforces.com/problemset/problem/1919/C', 1400, 'data structures,dp,greedy', 1, 2, '1705130542'),
+('Closest Cities', 'ss303', '1922C', 'https://codeforces.com/problemset/problem/1922/C', 1300, 'greedy,implementation,math', 1, 1, '1705650960'),
+('Vlad and Division', 'ss303', '1926D', 'https://codeforces.com/problemset/problem/1926/D', 1300, 'bitmasks,greedy', 1, 1, '1708496531'),
+('Vlad and an Odd Ordering', 'ss303', '1926E', 'https://codeforces.com/problemset/problem/1926/E', 1500, 'binary search,bitmasks,data structures,dp,implementation,math,number theory', 1, 1, '1708516868'),
+('Make it White', 'ss303', '1927A', 'https://codeforces.com/problemset/problem/1927/A', 800, 'greedy,strings', 1, 1, '1707231060'),
+('Following the String', 'ss303', '1927B', 'https://codeforces.com/problemset/problem/1927/B', 900, 'constructive algorithms,greedy,strings', 1, 1, '1707231413'),
+('Choose the Different Ones!', 'ss303', '1927C', 'https://codeforces.com/problemset/problem/1927/C', 1000, 'brute force,greedy,math', 1, 2, '1707232801'),
+('Find the Different Ones!', 'ss303', '1927D', 'https://codeforces.com/problemset/problem/1927/D', 1300, 'binary search,brute force,data structures,dp,dsu,greedy,two pointers', 1, 2, '1707234756'),
+('Klever Permutation', 'ss303', '1927E', 'https://codeforces.com/problemset/problem/1927/E', 1400, 'constructive algorithms,math,two pointers', 1, 1, '1707236301'),
+('Recovering a Small String', 'ss303', '1931A', 'https://codeforces.com/problemset/problem/1931/A', 800, 'brute force,strings', 1, 1, '1707835731'),
+('Make Equal', 'ss303', '1931B', 'https://codeforces.com/problemset/problem/1931/B', 800, 'greedy', 1, 1, '1707835951'),
+('Make Equal Again', 'ss303', '1931C', 'https://codeforces.com/problemset/problem/1931/C', 1000, 'brute force,greedy,math', 1, 3, '1707836670'),
+('Divisible Pairs', 'ss303', '1931D', 'https://codeforces.com/problemset/problem/1931/D', 1300, 'combinatorics,math,number theory', 1, 1, '1707838764'),
+('Anna and the Valentine\'s Day Gift', 'ss303', '1931E', 'https://codeforces.com/problemset/problem/1931/E', 1400, 'games,greedy,math,sortings', 1, 1, '1707840295'),
+('Chat Screenshots', 'ss303', '1931F', 'https://codeforces.com/problemset/problem/1931/F', 1700, 'combinatorics,dfs and similar,graphs', 0, 1, '1707842774'),
+('Equal XOR', 'ss303', '1944B', 'https://codeforces.com/problemset/problem/1944/B', 1100, 'bitmasks,constructive algorithms', 1, 2, '1710847046'),
+('MEX Game 1', 'ss303', '1944C', 'https://codeforces.com/problemset/problem/1944/C', 1300, 'constructive algorithms,games,greedy', 1, 1, '1710847321'),
+('Array Fix', 'ss303', '1948B', 'https://codeforces.com/problemset/problem/1948/B', 1100, 'brute force,dp,greedy,implementation', 1, 2, '1710545490'),
+('Arrow Path', 'ss303', '1948C', 'https://codeforces.com/problemset/problem/1948/C', 1300, 'brute force,constructive algorithms,dfs and similar,dp,graphs,shortest paths', 1, 1, '1710543419'),
+('Maximize the Largest Component (Easy Version)', 'ss303', '1985H1', 'https://codeforces.com/problemset/problem/1985/H1', 1700, 'brute force,data structures,dfs and similar,dsu,graphs,implementation', 1, 4, '1718818460'),
+('Theatre Square', 'ss303', '1A', 'https://codeforces.com/problemset/problem/1/A', 1000, 'math', 1, 3, '1641921708'),
+('Dubstep', 'ss303', '208A', 'https://codeforces.com/problemset/problem/208/A', 900, 'strings', 1, 2, '1673256933'),
+('k-String', 'ss303', '219A', 'https://codeforces.com/problemset/problem/219/A', 1000, 'implementation,strings', 1, 1, '1681930280'),
+('Is your horseshoe on the other hoof?', 'ss303', '228A', 'https://codeforces.com/problemset/problem/228/A', 800, 'implementation', 1, 4, '1650905719'),
+('T-primes', 'ss303', '230B', 'https://codeforces.com/problemset/problem/230/B', 1300, 'binary search,implementation,math,number theory', 1, 1, '1674900106'),
+('Team', 'ss303', '231A', 'https://codeforces.com/problemset/problem/231/A', 800, 'brute force,greedy', 1, 1, '1649413113'),
+('Boy or Girl', 'ss303', '236A', 'https://codeforces.com/problemset/problem/236/A', 800, 'brute force,implementation,strings', 1, 1, '1649413543'),
+('Paper Work', 'ss303', '250A', 'https://codeforces.com/problemset/problem/250/A', 1000, 'greedy', 0, 1, '1643715700'),
+('Adding Digits', 'ss303', '260A', 'https://codeforces.com/problemset/problem/260/A', 1400, 'implementation,math', 1, 5, '1681937766'),
+('Little Girl and Maximum Sum', 'ss303', '276C', 'https://codeforces.com/problemset/problem/276/C', 1500, 'data structures,greedy,implementation,sortings', 1, 3, '1669493834'),
+('Winner', 'ss303', '2A', 'https://codeforces.com/problemset/problem/2/A', 1500, 'hashing,implementation', 1, 1, '1662094465'),
+('Sereja and Bottles', 'ss303', '315A', 'https://codeforces.com/problemset/problem/315/A', 1400, 'brute force', 1, 4, '1681935038'),
+('Sereja and Brackets', 'ss303', '380C', 'https://codeforces.com/problemset/problem/380/C', 2000, 'data structures,schedules', 1, 2, '1669493889'),
+('Sereja and Dima', 'ss303', '381A', 'https://codeforces.com/problemset/problem/381/A', 800, 'greedy,implementation,two pointers', 1, 1, '1669494786'),
+('Find Color', 'ss303', '40A', 'https://codeforces.com/problemset/problem/40/A', 1300, 'constructive algorithms,geometry,implementation,math', 1, 5, '1676710727'),
+('Checkposts', 'ss303', '427C', 'https://codeforces.com/problemset/problem/427/C', 1700, 'dfs and similar,graphs,two pointers', 1, 3, '1676308994'),
+('The Child and Zoo', 'ss303', '437D', 'https://codeforces.com/problemset/problem/437/D', 1900, 'dsu,sortings', 1, 2, '1677220917'),
+('Sort the Array', 'ss303', '451B', 'https://codeforces.com/problemset/problem/451/B', 1300, 'implementation,sortings', 1, 1, '1681939440'),
+('Fedya and Maths', 'ss303', '456B', 'https://codeforces.com/problemset/problem/456/B', 1200, 'math,number theory', 1, 2, '1658136337'),
+('Appleman and Card Game', 'ss303', '462B', 'https://codeforces.com/problemset/problem/462/B', 1300, 'greedy', 1, 1, '1681932370'),
+('I Wanna Be the Guy', 'ss303', '469A', 'https://codeforces.com/problemset/problem/469/A', 800, 'greedy,implementation', 1, 2, '1650912037'),
+('Dreamoon and WiFi', 'ss303', '476B', 'https://codeforces.com/problemset/problem/476/B', 1300, 'bitmasks,brute force,combinatorics,dp,math,probabilities', 1, 1, '1691817732'),
+('Given Length and Sum of Digits...', 'ss303', '489C', 'https://codeforces.com/problemset/problem/489/C', 1400, 'dp,greedy,implementation', 1, 5, '1675956516'),
+('Watermelon', 'ss303', '4A', 'https://codeforces.com/problemset/problem/4/A', 800, 'brute force,math', 1, 2, '1641907226'),
+('Before an Exam', 'ss303', '4B', 'https://codeforces.com/problemset/problem/4/B', 1200, 'constructive algorithms,greedy', 0, 2, '1641907585'),
+('Domino piling', 'ss303', '50A', 'https://codeforces.com/problemset/problem/50/A', 800, 'greedy,math', 1, 2, '1649411991'),
+('Combination Lock', 'ss303', '540A', 'https://codeforces.com/problemset/problem/540/A', 800, 'implementation', 1, 1, '1669092561'),
+('Kefa and Park', 'ss303', '580C', 'https://codeforces.com/problemset/problem/580/C', 1500, 'dfs and similar,graphs,trees', 1, 3, '1646973734'),
+('Subsequences', 'ss303', '597C', 'https://codeforces.com/problemset/problem/597/C', 1900, 'data structures,dp', 0, 2, '1706775031'),
+('Minimum spanning tree for each edge', 'ss303', '609E', 'https://codeforces.com/problemset/problem/609/E', 2100, 'data structures,dfs and similar,dsu,graphs,trees', 1, 1, '1676310101'),
+('Summer Camp', 'ss303', '672A', 'https://codeforces.com/problemset/problem/672/A', 800, 'implementation', 1, 1, '1691769128'),
+('Vanya and Fence', 'ss303', '677A', 'https://codeforces.com/problemset/problem/677/A', 800, 'implementation', 1, 1, '1649417294'),
+('Young Physicist', 'ss303', '69A', 'https://codeforces.com/problemset/problem/69/A', 1000, 'implementation,math', 1, 1, '1681929618'),
+('Triangle', 'ss303', '6A', 'https://codeforces.com/problemset/problem/6/A', 900, 'brute force,geometry', 1, 1, '1691814993'),
+('Minimum and Maximum', 'ss303', '730B', 'https://codeforces.com/problemset/problem/730/B', 1800, 'constructive algorithms,interactive', 1, 10, '1692264137'),
+('Arpa’s hard exam and Mehrdad’s naive cheat', 'ss303', '742A', 'https://codeforces.com/problemset/problem/742/A', 1000, 'implementation,math,number theory', 1, 2, '1642785439'),
+('Chloe and the sequence ', 'ss303', '743B', 'https://codeforces.com/problemset/problem/743/B', 1200, 'binary search,bitmasks,constructive algorithms,implementation', 1, 4, '1708679325'),
+('Bear and Big Brother', 'ss303', '791A', 'https://codeforces.com/problemset/problem/791/A', 800, 'implementation', 1, 1, '1649413878'),
+('Kalevitch and Chess', 'ss303', '7A', 'https://codeforces.com/problemset/problem/7/A', 1100, 'brute force,constructive algorithms', 1, 3, '1663575417'),
+('Set Theory', 'ss303', '856A', 'https://codeforces.com/problemset/problem/856/A', 1600, 'brute force,constructive algorithms', 1, 3, '1669125554'),
+('Two Cakes', 'ss303', '911B', 'https://codeforces.com/problemset/problem/911/B', 1200, 'binary search,brute force,implementation', 1, 1, '1707915136'),
+('Links and Pearls', 'ss303', '980A', 'https://codeforces.com/problemset/problem/980/A', 900, 'implementation,math', 0, 1, '1669091466');
 
 -- --------------------------------------------------------
 
@@ -2807,6 +3160,13 @@ CREATE TABLE `queries` (
   `message` varchar(500) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `queries`
+--
+
+INSERT INTO `queries` (`fname`, `lname`, `email`, `subject`, `message`, `id`) VALUES
+('sadman', 'saleh', 'u2004030@student.cuet.ac.bd', 'ee', 'first messgage', 2);
 
 -- --------------------------------------------------------
 
@@ -2836,9 +3196,10 @@ CREATE TABLE `registered_people` (
 --
 
 INSERT INTO `registered_people` (`Email`, `Password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `Image`) VALUES
-('sajibbhattacharjee128@gmail.com', '1234', 'Sojib', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 0, 0, 'image/logo.PNG'),
+('sajibbhattacharjee128@gmail.com', '1234', 'Sojib003_1', '-is-this-dft_', 1413, 1419, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 162, 400, 'image/person-1.jpg'),
 ('gg@gmail.com', '1234', 'Sagor Chowdhury', 'b_AHA_r', 1502, 1502, 'https://userpic.codeforces.org/2379103/title/a2c8bcfd81f621df.jpg', 'specialist', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 1643, 3764, 'image/WhatsApp Image 2024-04-29 at 00.58.47_5d96ffb2.jpg'),
-('u2004008@student.cuet.ac.bd', '1234', 'Ratnajit Dhar', 'ratnajit_dhar', 1352, 1525, 'https://userpic.codeforces.org/844743/title/e142883096d40ba2.jpg', 'pupil', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 560, 1554, 'image/ratna_dp.png');
+('u2004008@student.cuet.ac.bd', '1234', 'Ratnajit Dhar', 'ratnajit_dhar', 1352, 1525, 'https://userpic.codeforces.org/844743/title/e142883096d40ba2.jpg', 'pupil', 'specialist', 'Bangladesh', 'Chittagong University of Engineering and Technology', 560, 1554, 'image/ratna_dp.png'),
+('shadmansaleh3@gmail.com', 'Password1#', 'ss303', 'ss303', 1431, 1431, 'https://userpic.codeforces.org/no-title.jpg', 'specialist', 'specialist', 'Bangladesh', 'CUET', 0, 0, 'image/Screenshot 2024-06-23 230558.png');
 
 -- --------------------------------------------------------
 
@@ -2884,11 +3245,9 @@ CREATE TABLE `upcoming_contests` (
 --
 
 INSERT INTO `upcoming_contests` (`Contest_ID`, `Contest_Name`, `Site`, `Start`, `Duration`, `Link`) VALUES
-('1982', 'Codeforces Round 955 (Div. 2)', 'CodeForces', '2024-06-25 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1982'),
 ('1983', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-07 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1983'),
 ('1987', 'Codeforces Round (Div. 1 + Div. 2)', 'CodeForces', '2024-06-30 20:35:00', '3h 0m', 'https://codeforces.com/contestRegistration/1987'),
-('1988', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-15 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1988'),
-('1989', 'Educational Codeforces Round 167 (Rated for Div. 2)', 'CodeForces', '2024-06-27 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1989');
+('1988', 'Codeforces Round (Div. 2)', 'CodeForces', '2024-07-15 20:35:00', '2h 0m', 'https://codeforces.com/contestRegistration/1988');
 
 -- --------------------------------------------------------
 
@@ -2905,16 +3264,6 @@ CREATE TABLE `upcoming_iupc` (
   `Link` varchar(100) NOT NULL,
   `varified` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `upcoming_iupc`
---
-
-INSERT INTO `upcoming_iupc` (`Contest_id`, `Contest_Name`, `Site`, `Start`, `Duration`, `Link`, `varified`) VALUES
-(1, 'CUET IUPC', 'onsite', '2024-06-24 00:10:00', '1h', 'gg', 1),
-(4, 'CUET IUPC 2', 'Online', '2024-06-25 20:14:23', '2h 15m', 'gg', 1),
-(5, 'CUET IUPC 3', 'onsite', '2024-06-24 00:10:00', '2h 5m', 'https://www.google.com/search?sca_esv=689b2325b95f8dd1&sca_upv=1&rlz=1C1VDKB_enBD1086BD1086&sxsrf=AD', 1),
-(6, 'CUET IUPC 4', 'onsite', '2024-06-25 20:35:00', '2h 5m', 'https://www.google.com/search?sca_esv=689b2325b95f8dd1&sca_upv=1&rlz=1C1VDKB_enBD1086BD1086&sxsrf=AD', 1);
 
 --
 -- Indexes for dumped tables
@@ -2964,7 +3313,7 @@ ALTER TABLE `upcoming_iupc`
 -- AUTO_INCREMENT for table `queries`
 --
 ALTER TABLE `queries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `todos`
@@ -2976,7 +3325,7 @@ ALTER TABLE `todos`
 -- AUTO_INCREMENT for table `upcoming_iupc`
 --
 ALTER TABLE `upcoming_iupc`
-  MODIFY `Contest_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Contest_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
