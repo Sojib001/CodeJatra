@@ -110,8 +110,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
                 } elseif ($st && mysqli_num_rows($st) > 0) {
                     $alertMessage = 'This handle already exists';
                 } else {
-                    $query = "INSERT INTO `registered_people` (`Email`, `password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `image`) 
-                        VALUES ('$email', '$pass', '$username', '$handle', '', '', '', '', '', '$country', '$institute', '', '', '$photoContent')";
+                    $codeforces_current_rating = 0;
+                    $codeforces_max_rating = 0;
+                    $codeforces_current_rank = null;
+                    $codeforces_max_rank = null;
+                    $titlephoto = null;
+                    $solved_problems = 0;
+                    $submission = 0;
+                    $query = "INSERT INTO `registered_people`(`Email`, `Password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `Image`) VALUES ('$email','$pass','$username','$handle','$codeforces_current_rating','$codeforces_max_rating','$titlephoto','$codeforces_current_rank','$codeforces_max_rank','$country','$institute','$solved_problems','$submission','$photoContent')";
                     mysqli_query($con, $query);
 
                     $alertMessage = 'Successfully registered';
