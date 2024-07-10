@@ -7,11 +7,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CodeJatra</title>
+    
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+  
+    <!-- <link rel="stylesheet" href="style/FAQs.css"> -->
     <link rel="stylesheet" href="style/landingpage.css">
+    <link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/3.3.7/iso_bootstrap3.3.7min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/3.3.7/iso_bootstrap3.3.7min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -67,6 +79,7 @@
                         <div>
                             <a href="LogIn.php" class="btn btn-brand me-2">GET STARTED</a>
                             <a href="#services" class="btn btn-light ms-2">Our Services</a>
+                            <a href="#" class="btn btn-brand ms-2" data-bs-toggle="modal" data-bs-target="#faqModal">FAQs & Support</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +104,7 @@
                 </div>
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-6">
-                        <img src="./image/about.jpg" alt="not found">
+                        <img src="./image/group_.jpg" alt="not found">
                     </div>
                     <div class="col-lg-5">
                         <h1>About CodeJatra</h1>
@@ -247,43 +260,43 @@
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-1.jpg" alt="">
+                            <img src="./image/project-11.jpg" alt="">
                         </div>
-                        <a href="./image/project-1.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-11.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-2.jpg" alt="">
+                            <img src="./image/project-22.jpg" alt="">
                         </div>
-                        <a href="./image/project-2.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-22.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-3.jpg" alt="">
+                            <img src="./image/project-33.jpg" alt="">
                         </div>
-                        <a href="./image/project-3.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-33.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-4.jpg" alt="">
+                            <img src="./image/project-44.jpg" alt="">
                         </div>
-                        <a href="./image/project-4.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-44.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="portfolio-item image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-5.jpg" alt="">
+                            <img src="./image/project-55.jpg" alt="">
                         </div>
-                        <a href="./image/project-5.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-55.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                     <div class="portfolio-item image-zoom mt-4">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/project-6.jpg" alt="">
+                            <img src="./image/project-66.jpg" alt="">
                         </div>
-                        <a href="./image/project-6.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
+                        <a href="./image/project-66.jpg" data-fancybox="gallery" class="iconbox"><i class="ri-search-2-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -318,7 +331,7 @@
                 <div class="col-md-4">
                     <div class="team-member image-zoom">
                         <div class="image-zoom-wrapper">
-                            <img src="./image/person-2.jpg" alt="">
+                            <img src="./image/sagor2.jpg" alt="">
                         </div>
                         <div class="team-member-content">
                             <h4 class="text-white">MD Sagor Chowdhury</h4>
@@ -446,8 +459,119 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="bootstrap">
+                    <!-- there Bootstrap works-->
+
+                    <div class="">
+                        <div class="">
+                            <div class="">
+                                <div class="section-title text-center wow zoomIn">
+                                    <h1>Frequently Asked Questions</h1>
+                                    <span></span>
+                                    <p>Our Frequently Asked Questions here.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">				
+                            <div class="col-md-12">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    What happens if I add a Custom User? 
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <p> Adding a custom user allows you to track and manage their contest-related information just like any other user on the platform. This feature is helpful for including friends or colleagues who may not have accounts but still want to participate or be tracked in contests.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    When can I update the submission?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <p>You can update submissions within the timeframe specified by the contest rules. Typically, submissions can be updated until the contest deadline or until the judges start evaluating the submissions.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    How many Custom Users can I add? 
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <p>The number of custom users you can add might be limited based on your account type or subscription plan. Typically, there might be a maximum number allowed per account, but this would depend on the specific policies of Codejatra.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFour">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                    What if my friend is not on CodeJatra?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                            <div class="panel-body">
+                                                <p>If your friend is not on Codejatra, you can still add them as a custom user to track their contest-related activities. This allows you to include them in your contest management and compare their performance with other users on the platform.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingFive">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                    How is the CodeJatra rating determined?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                            <div class="panel-body">
+                                                <p>The CodeJatra rating is likely determined based on various factors such as the user's performance in contests, the difficulty level of contests participated in, consistency in participation, and possibly other metrics like accuracy and speed in solving problems.                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--- END COL -->		
+                        </div><!--- END ROW -->			
+                    </div>
 
 
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="FAQs.js"></script>
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script>
@@ -471,6 +595,9 @@ $(document).ready(function(){
     });
 });
 </script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

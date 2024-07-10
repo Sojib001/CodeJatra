@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
     $password = $_POST['PASS'];
 
 
-
-    if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
+     if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
         $query = "SELECT * FROM registered_people WHERE email = '$gmail' LIMIT 1";
         $result = mysqli_query($con, $query);
         $formType = "login";
@@ -75,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     $photoContent = NULL;
 
     // Check if file was uploaded and handle it
-    if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
+     if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
 
         $file_tmp = $_FILES['Photo']['tmp_name'];
         $file_name = $_FILES['Photo']['name'];
@@ -92,7 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     }
 
     // Continue with form validation
-    if (!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)) {
+    if(!isset($_POST['lol'])){
+        $alertMessage = 'Select terms and conditions';
+        $formType = 'register';
+    }
+    else if (!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)) {
 
         // Check if the CodeForces handle is valid
         $apiUrl = "https://codeforces.com/api/user.info?handles=" . urlencode($handle);
@@ -294,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
 
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Agree to terms and conditions</label>
+                    <label><input type="checkbox" name="lol">Agree to terms and conditions</label>
                 </div>
                 <button type="submit" class="btn" name="REGISTER">Register</button>
                 <div class="login-register">
