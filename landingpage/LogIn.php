@@ -15,25 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
     $gmail = $_POST['EMAIL'];
     $password = $_POST['PASS'];
 
-
-     if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
+    if (!empty($gmail) && !empty($password) && !is_numeric($gmail)) {
         $query = "SELECT * FROM registered_people WHERE email = '$gmail' LIMIT 1";
         $result = mysqli_query($con, $query);
         $formType = "login";
         $cmail = $gmail;
         $query2 = "SELECT * FROM admin WHERE email = '$cmail' LIMIT 1";
         $result2 = mysqli_query($con, $query2);
-        $apiUrl = "https://codeforces.com/api/user.info?handles=$handle&checkHistoricHandles=false";
-        $apiResponse = file_get_contents($apiUrl);
-        $apiData = json_decode($apiResponse, true);
 
-        if ($apiData['status'] != 'OK') {
-            $alertMessage = 'Invalid CodeForces handle';
-        }
         if ($result2 && mysqli_num_rows($result2) > 0) {
             $user_data = mysqli_fetch_assoc($result2);
             if ($user_data['pass'] == $password) {
-
                 echo '<meta http-equiv="refresh" content="0.5;url=../Admin/admin_dashboard.php">';
                 exit();
             } else {
@@ -43,11 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['LOGIN'])) {
             if ($result && mysqli_num_rows($result) > 0) {
                 $user_data = mysqli_fetch_assoc($result);
                 if ($user_data['Password'] == $password) {
-                    // Pass the email to JavaScript for storing in local storage
                     echo "<script>
-                             localStorage.setItem('email', '" . $gmail . "');
+                        localStorage.setItem('email', '" . $gmail . "');
                         console.log(localStorage.getItem('email'));
-                         </script>";
+                    </script>";
                     echo '<meta http-equiv="refresh" content="0.5;url=../dashboard/dashboard.php">';
                     exit();
                 } else {
@@ -73,87 +64,84 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     $institute = $_POST['institute'];
     $photoContent = NULL;
 
-    // Check if file was uploaded and handle it
-     if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
-
-        $file_tmp = $_FILES['Photo']['tmp_name'];
-        $file_name = $_FILES['Photo']['name'];
-        $file_path =  'image/' . $file_name;
-
-        // Move the uploaded file to the target directory
-        if (move_uploaded_file($file_tmp, $file_path)) {
-            $photoContent = $file_path;
-        } else {
-            die('Failed to upload file.');
-        }
+    $handle = urlencode($handle);
+    $apiUrl = "https://codeforces.com/api/user.info?handles=$handle&checkHistoricHandles=true";
+    $apiResponse = @file_get_contents($apiUrl);
+    if ($apiResponse === FALSE) {
+        $alertMessage = $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Invalid Handle';
     } else {
-        $photoContent = NULL;
-    }
-
-    // Continue with form validation
-    if(!isset($_POST['lol'])){
-        $alertMessage = 'Select terms and conditions';
-        $formType = 'register';
-    }
-    else if (!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)) {
-
-        // Check if the CodeForces handle is valid
-        $apiUrl = "https://codeforces.com/api/user.info?handles=" . urlencode($handle);
-        $apiResponse = file_get_contents($apiUrl);
         $apiData = json_decode($apiResponse, true);
-
-        if ($apiData['status'] != 'OK') {
-            $alertMessage = 'Invalid CodeForces handle';
+        if ($apiData === null) {
+            $alertMessage = 'Failed to decode API response.';
+        } elseif ($apiData['status'] !== 'OK') {
+            $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Unknown error';
         } else {
-            $query = "SELECT * FROM registered_people WHERE Email = '$email' LIMIT 1";
-            $result = mysqli_query($con, $query);
+            if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
+                $file_tmp = $_FILES['Photo']['tmp_name'];
+                $file_name = $_FILES['Photo']['name'];
+                $file_path = 'image/' . $file_name;
 
-            $q = "SELECT * FROM registered_people WHERE Name = '$username' LIMIT 1";
-            $r = mysqli_query($con, $q);
-
-            $q = "SELECT * FROM registered_people WHERE CodeForces_handle = '$handle' LIMIT 1";
-            $st = mysqli_query($con, $q);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-                $alertMessage = 'Email already exists';
-            } elseif ($r && mysqli_num_rows($r) > 0) {
-                $alertMessage = 'Username already exists';
-            } elseif ($st && mysqli_num_rows($st) > 0) {
-                $alertMessage = 'This handle already exists';
-            } else {
-                // Insert user data into the database
-                $query = "INSERT INTO `registered_people` (`Email`, `password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `image`) 
-                      VALUES ('$email', '$pass', '$username', '$handle', '', '', '', '', '', '$country', '$institute', '', '', '$photoContent')";
-                mysqli_query($con, $query);
-
-                $alertMessage = 'Successfully registered';
-
-                // Send email notification
-                try {
-                    $mail = new PHPMailer(true);
-                    $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->SMTPAuth = true;
-                    $mail->Username = 'sagormdsagorchowdhury@gmail.com';
-                    $mail->Password = 'yerrswugaweehakn';
-                    $mail->SMTPSecure = 'ssl';
-                    $mail->Port = 465;
-
-                    $mail->setFrom('sagormdsagorchowdhury@gmail.com');
-                    $mail->addAddress($email);
-
-                    $mail->isHTML(true);
-                    $mail->Subject = "Welcome to CodeJatra";
-                    $mail->Body = "Welcome " . $username . ' to our website';
-
-                    $mail->send();
-                } catch (Exception $e) {
-                    $alertMessage = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+                if (move_uploaded_file($file_tmp, $file_path)) {
+                    $photoContent = $file_path;
+                } else {
+                    die('Failed to upload file.');
                 }
+            } else {
+                $photoContent = NULL;
+            }
+
+            if (!isset($_POST['lol'])) {
+                $alertMessage = 'Select terms and conditions';
+                $formType = 'register';
+            } else if (!empty($pass) && !empty($username) && !empty($email) && !empty($pass) && !is_numeric($email)) {
+                $query = "SELECT * FROM registered_people WHERE Email = '$email' LIMIT 1";
+                $result = mysqli_query($con, $query);
+
+                $q = "SELECT * FROM registered_people WHERE Name = '$username' LIMIT 1";
+                $r = mysqli_query($con, $q);
+
+                $q = "SELECT * FROM registered_people WHERE CodeForces_handle = '$handle' LIMIT 1";
+                $st = mysqli_query($con, $q);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $alertMessage = 'Email already exists';
+                } elseif ($r && mysqli_num_rows($r) > 0) {
+                    $alertMessage = 'Username already exists';
+                } elseif ($st && mysqli_num_rows($st) > 0) {
+                    $alertMessage = 'This handle already exists';
+                } else {
+                    $query = "INSERT INTO `registered_people` (`Email`, `password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `image`) 
+                        VALUES ('$email', '$pass', '$username', '$handle', '', '', '', '', '', '$country', '$institute', '', '', '$photoContent')";
+                    mysqli_query($con, $query);
+
+                    $alertMessage = 'Successfully registered';
+
+                    try {
+                        $mail = new PHPMailer(true);
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.gmail.com';
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'sagormdsagorchowdhury@gmail.com';
+                        $mail->Password = 'yerrswugaweehakn';
+                        $mail->SMTPSecure = 'ssl';
+                        $mail->Port = 465;
+
+                        $mail->setFrom('sagormdsagorchowdhury@gmail.com');
+                        $mail->addAddress($email);
+
+                        $mail->isHTML(true);
+                        $mail->Subject = "Welcome to CodeJatra";
+                        $mail->Body = "Welcome " . $username . ' to our website';
+
+                        $mail->send();
+                    } catch (Exception $e) {
+                        $alertMessage = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+                    }
+                }
+            } else {
+                $alertMessage = 'Please enter valid information';
             }
         }
-    } else {
-        $alertMessage = 'Please enter valid information';
     }
 }
 ?>
