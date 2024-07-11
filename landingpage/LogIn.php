@@ -68,13 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
     $apiUrl = "https://codeforces.com/api/user.info?handles=$handle&checkHistoricHandles=true";
     $apiResponse = @file_get_contents($apiUrl);
     if ($apiResponse === FALSE) {
+        $formType = 'register';
         $alertMessage = $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Invalid Handle';
     } else {
         $apiData = json_decode($apiResponse, true);
         if ($apiData === null) {
             $alertMessage = 'Failed to decode API response.';
+            $formType = 'register';
         } elseif ($apiData['status'] !== 'OK') {
             $alertMessage = isset($apiData['comment']) ? $apiData['comment'] : 'Unknown error';
+            $formType = 'register';
         } else {
             if (isset($_FILES['Photo']) && $_FILES['Photo']['error'] == UPLOAD_ERR_OK) {
                 $file_tmp = $_FILES['Photo']['tmp_name'];
@@ -110,8 +113,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['REGISTER'])) {
                 } elseif ($st && mysqli_num_rows($st) > 0) {
                     $alertMessage = 'This handle already exists';
                 } else {
-                    $query = "INSERT INTO `registered_people` (`Email`, `password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `image`) 
-                        VALUES ('$email', '$pass', '$username', '$handle', '', '', '', '', '', '$country', '$institute', '', '', '$photoContent')";
+                    $codeforces_current_rating = 0;
+                    $codeforces_max_rating = 0;
+                    $codeforces_current_rank = null;
+                    $codeforces_max_rank = null;
+                    $titlephoto = null;
+                    $solved_problems = 0;
+                    $submission = 0;
+                    $query = "INSERT INTO `registered_people`(`Email`, `Password`, `Name`, `codeforces_handle`, `codeforces_current_rating`, `codeforces_max_rating`, `codeforces_titlephoto`, `codeforces_current_rank`, `codeforces_max_rank`, `Country`, `Institute`, `Solved`, `Submission`, `Image`) VALUES ('$email','$pass','$username','$handle','$codeforces_current_rating','$codeforces_max_rating','$titlephoto','$codeforces_current_rank','$codeforces_max_rank','$country','$institute','$solved_problems','$submission','$photoContent')";
                     mysqli_query($con, $query);
 
                     $alertMessage = 'Successfully registered';
