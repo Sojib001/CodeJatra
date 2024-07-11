@@ -97,6 +97,28 @@
                             <span class="text nav-text">Problems</span>
                         </a>
                         <script>
+                            // Define the first API URL using the encoded email
+                            var email = localStorage.getItem('email');
+                            var apiUrl_to_get_handle = `http://localhost/data_from_registered_people.php?email=${email}`;
+
+                            var handle_local; // Define handle in a broader scope
+
+                            fetch(apiUrl_to_get_handle)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    handle = data[0].codeforces_handle;
+                                    localStorage.setItem('handle', handle_local)
+                                    console.log("Done")
+                                })
+                                .catch(error => {
+                                    console.error('There was a problem with the fetch operation:', error);
+                                });
+
                             // JavaScript to set the image source dynamically and handle profile link click
                             var handle_local = localStorage.getItem('handle');
                             console.log(handle_local)
@@ -207,8 +229,8 @@
                                 console.log(email)
                                 // Fetch the image path from the PHP script
                                 fetch(`http://localhost/image.php?email=${encodeURIComponent(email)}`)
-                                .then(response => {
-                                    if (!response.ok) {
+                                    .then(response => {
+                                        if (!response.ok) {
                                             throw new Error('Network response was not ok');
                                         }
                                         return response.text();
@@ -236,17 +258,17 @@
                                 console.error('Email not found in localStorage');
                             }
                         }
-                        </script>
+                    </script>
 
-</li>
+                </li>
 
-</ul>
-</div>
+            </ul>
+        </div>
 
-<script src="dashboard.js"></script>
-<div class="table">
-    <h1 class="heading body-text">
-        Upcoming Contests
+        <script src="dashboard.js"></script>
+        <div class="table">
+            <h1 class="heading body-text">
+                Upcoming Contests
             </h1>
             <p class='body-text' style="text-align: center; font-weight: 400;">Note all times are in GMT +6:00 </p>
 
