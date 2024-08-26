@@ -40,13 +40,15 @@ To get started, run dashboard/codeforces.py and dashboard/atcoder.py to fetch th
 - [Sagor](https://www.github.com/Bahar0900)
 - [Adnan](https://www.github.com/AJFaisal002)
 
+## Screenshots
+![Alt text]([http://full/path/to/img.jpg "Optional title"](https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Dashboard/dashboard%20with%20everything.JPG))
 
 ## Acknowledgements
 
  - [ChatGPT](https://chatgpt.com/)
  - [CodeForces API](https://codeforces.com/apiHelp)
  - [Atcoder](https://atcoder.jp/)
- - [Selenium](https://www.selenium.dev/))
+ - [Selenium](https://www.selenium.dev/)
 
 
 
