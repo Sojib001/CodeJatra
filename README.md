@@ -34,12 +34,6 @@ This project provides a comprehensive dashboard to track your daily activities a
 
 To get started, run dashboard/codeforces.py and dashboard/atcoder.py to fetch the latest data on upcoming and ongoing contests from Codeforces and AtCoder. Additionally, you can create and propose an IUPC event directly from your profile. Once submitted, the event will be reviewed by a team, and upon approval, it will be announced to other users and listed on the Upcoming IUPC page. This project is ideal for competitive programmers looking to stay organized and keep up with the latest contests.
 
-## Authors
-
-- [Sojib](https://www.github.com/Sojib001)
-- [Sagor](https://www.github.com/Bahar0900)
-- [Adnan](https://www.github.com/AJFaisal002)
-
 ## Screenshots
 <h3> Upcoming Contest Page </h3>
 <img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Dashboard/dashboard%20with%20everything.JPG'>
@@ -52,6 +46,13 @@ To get started, run dashboard/codeforces.py and dashboard/atcoder.py to fetch th
 
 <h3> Leaderboard </h3>
 <img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Leaderboard/leaderboard.png'>
+
+
+## Authors
+
+- [Sojib](https://www.github.com/Sojib001)
+- [Sagor](https://www.github.com/Bahar0900)
+- [Adnan](https://www.github.com/AJFaisal002)
 
 
 ## Acknowledgements
