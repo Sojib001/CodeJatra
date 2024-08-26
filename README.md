@@ -46,7 +46,7 @@ To get started, run dashboard/codeforces.py and dashboard/atcoder.py to fetch th
  - [ChatGPT](https://chatgpt.com/)
  - [CodeForces API](https://codeforces.com/apiHelp)
  - [Atcoder](https://atcoder.jp/)
- - [Atcoder]([https://atcoder.jp/](https://www.selenium.dev/))
+ - [Selenium](https://www.selenium.dev/))
 
 
 
