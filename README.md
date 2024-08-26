@@ -41,7 +41,18 @@ To get started, run dashboard/codeforces.py and dashboard/atcoder.py to fetch th
 - [Adnan](https://www.github.com/AJFaisal002)
 
 ## Screenshots
-![Alt text]([http://full/path/to/img.jpg "Optional title"](https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Dashboard/dashboard%20with%20everything.JPG))
+<h3> Upcoming Contest Page </h3>
+<img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Dashboard/dashboard%20with%20everything.JPG'>
+
+<h3> Upcoming IUPC Page </h3>
+<img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/IUPC%20Details/iupc%20with%20everything.JPG'>
+
+<h3> CodeForces Profile Page </h3>
+<img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Profile%20Page/profile%20page.png'>
+
+<h3> Leaderboard </h3>
+<img src = 'https://github.com/Sojib001/CodeJatra/blob/main/demo/Front%20end/Leaderboard/leaderboard.png'>
+
 
 ## Acknowledgements
 
