@@ -112,28 +112,26 @@
                                 })
                                 .then(data => {
                                     handle = data[0].codeforces_handle;
-                                    localStorage.setItem('handle', handle_local)
+                                    localStorage.setItem('handle', handle)
+                                    // JavaScript to set the image source dynamically and handle profile link click
+                                    var handle_local = localStorage.getItem('handle');
+                                    // Check if email is available
+                                    if (handle_local) {
+                                        document.getElementById('Problems').addEventListener('click', function(event) {
+                                            // Prevent default anchor click behavior
+                                            event.preventDefault();
+                                            // Redirect to profile page with email as query parameter
+                                            window.location.href = `../Problems Table Page/ProblemsTablePage.php?handle=${encodeURIComponent(handle_local)}`;
+                                        });
+                                    } else {
+                                        // Handle the case where email is not available in localStorage
+                                        console.error('Email not found in localStorage');
+                                    }
                                     console.log("Done")
                                 })
                                 .catch(error => {
                                     console.error('There was a problem with the fetch operation:', error);
                                 });
-
-                            // JavaScript to set the image source dynamically and handle profile link click
-                            var handle_local = localStorage.getItem('handle');
-                            console.log(handle_local)
-                            // Check if email is available
-                            if (handle_local) {
-                                document.getElementById('Problems').addEventListener('click', function(event) {
-                                    // Prevent default anchor click behavior
-                                    event.preventDefault();
-                                    // Redirect to profile page with email as query parameter
-                                    window.location.href = `../Problems Table Page/ProblemsTablePage.php?handle=${encodeURIComponent(handle_local)}`;
-                                });
-                            } else {
-                                // Handle the case where email is not available in localStorage
-                                console.error('Email not found in localStorage');
-                            }
                         </script>
                     </li>
                     <li class="nav-link">

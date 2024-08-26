@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to populate the table with data
 function populateTable(data) {
+    let delete_contest_data = new URLSearchParams();
     // Get the table body element
     var tableBody = document.getElementById("table-body");
 
@@ -44,23 +45,23 @@ function populateTable(data) {
         var link = rowData["Link"];
 
         // extracting contest duration in minutes and hours
-        var days = 0
-        var hours = 0
-        var minutes = 0
+        var days = 0;
+        var hours = 0;
+        var minutes = 0;
         if (duration.includes('d')) {
             var matches = duration.match(/(\d+)d (\d+)h (\d+)m/)
-            days = matches[1]
-            hours = matches[2]
-            minutes = matches[3]
+            days = matches[1];
+            hours = matches[2];
+            minutes = matches[3];
         }
         else if (duration.includes('m')) {
-            var matches = duration.match(/(\d+)h (\d+)m/)
-            hours = matches[1]
-            minutes = matches[2]
+            let matches = duration.match(/(\d+)h (\d+)m/);
+            hours = matches[1];
+            minutes = matches[2];
         }
         else {
-            var matches = duration.match(/(\d+)h/)
-            hours = matches[1]
+            let matches = duration.match(/(\d+)h/);
+            hours = matches[1];
         }
 
 
@@ -73,19 +74,8 @@ function populateTable(data) {
 
         if (deviceDate > contest_end_time) {
             // delete duration over contest from database
-
-            var contestID = contest_ID; // Replace "your_contest_id" with the actual contest ID
-
-            // Data to send in the POST request
-            var data = new URLSearchParams();
-            data.append('contest_id', contestID);
-
-            // Make a POST request to the PHP script
-            fetch('http://localhost/delete by contestID.php', {
-                method: 'POST',
-                body: data
-            })
-            location.reload();
+            delete_contest_data.append('contest_id', contest_ID);
+            continue;
         }
         // Create a new row element
         var row = document.createElement("tr");
@@ -97,20 +87,20 @@ function populateTable(data) {
 
         // creating cell for contest site
         var siteCell = document.createElement("td");
-        var main_div = document.createElement("div")
-        main_div.classList.add("site")
-        var running_status = document.createElement("div")
-        var span = document.createElement("span")
-        span.classList.add("running_status")
-        running_status.appendChild(span)
-        var text = document.createElement("div")
-        text.classList.add("site-text")
+        var main_div = document.createElement("div");
+        main_div.classList.add("site");
+        var running_status = document.createElement("div");
+        var span = document.createElement("span");
+        span.classList.add("running_status");
+        running_status.appendChild(span);
+        var text = document.createElement("div");
+        text.classList.add("site-text");
         text.textContent = site;
         if (deviceDate < contest_start_time || deviceDate > contest_end_time)
-            span.classList.add("make-invisible")
-        main_div.appendChild(running_status)
-        main_div.appendChild(text)
-        siteCell.appendChild(main_div)
+            span.classList.add("make-invisible");
+        main_div.appendChild(running_status);
+        main_div.appendChild(text);
+        siteCell.appendChild(main_div);
         row.appendChild(siteCell);
 
 
@@ -147,6 +137,11 @@ function populateTable(data) {
         tableBody.appendChild(row);
 
     }
+    // Make a POST request to the PHP script
+    fetch('https://codejatra.000webhostapp.com/delete by contestID.php', {
+        method: 'POST',
+        body: delete_contest_data
+    });
 }
 
 
@@ -156,7 +151,7 @@ document.addEventListener('click', function (event) {
         var button = event.target;
         var row = button.closest('tr');
 
-        var duration = 0
+        var duration = 0;
         var cells = row.cells;
         var contest_name_info = cells[0].innerText;
         var site_info = cells[1].innerText;
